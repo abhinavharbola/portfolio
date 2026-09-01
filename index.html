@@ -191,7 +191,7 @@ section:not(#hero)::before{
   font-family:'Space Grotesk',sans-serif;font-weight:600;
   font-size:clamp(28px,3.4vw,40px);letter-spacing:-0.01em;
 }
-.section-note{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--text-faint);max-width:280px;text-align:right;}
+.section-note{font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.7;color:var(--text-faint);max-width:320px;text-align:left;}
 
 .reveal{opacity:0;transform:translateY(28px);filter:blur(6px);transition:opacity 0.9s var(--ease), transform 0.9s var(--ease), filter 0.9s var(--ease);}
 .reveal.in{opacity:1;transform:translateY(0);filter:blur(0);}
@@ -235,18 +235,16 @@ html[data-theme="light"] .btn-primary .icon-circle{background:rgba(255,255,255,0
 .btn-primary:hover .icon-circle{transform:translate(2px,-2px);}
 .btn-primary svg{width:13px;height:13px;stroke:currentColor;}
 
-.link-out{
-  font-size:14.5px;color:var(--text-muted);
-  display:inline-flex;align-items:center;gap:6px;position:relative;
-  padding-bottom:2px;
+.icon-btn{
+  width:38px;height:38px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--border);
+  transition:border-color 0.3s var(--ease), transform 0.3s var(--ease), background 0.3s var(--ease);
 }
-.link-out::after{
-  content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;
-  background:var(--text-faint);transform:scaleX(0);transform-origin:right;
-  transition:transform 0.35s var(--ease);
-}
-.link-out:hover{color:var(--text);}
-.link-out:hover::after{transform:scaleX(1);transform-origin:left;}
+.icon-btn:hover{border-color:var(--accent);background:var(--accent-soft);transform:translateY(-2px);}
+.icon-btn svg{width:16px;height:16px;fill:var(--text);}
+.icon-btn.stroke svg{fill:none;stroke:var(--text);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+.icon-row{display:flex;align-items:center;gap:10px;}
 
 .hero-photo{
   justify-self:end;width:100%;max-width:260px;aspect-ratio:1/1.08;
@@ -280,9 +278,11 @@ html[data-theme="light"] .btn-primary .icon-circle{background:rgba(255,255,255,0
 .stat-label{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-faint);margin-top:6px;}
 
 #work{}
-.work-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:22px;
-}
+.work-list{display:flex;flex-direction:column;gap:26px;}
+.work-row{display:flex;align-items:stretch;gap:26px;}
+.work-row.reverse{flex-direction:row-reverse;}
+.work-row .work-media{flex:1.08;min-width:0;}
+.work-row .work-content{flex:0.92;min-width:0;}
 .card{
   position:relative;
   border:1px solid var(--border);border-radius:var(--radius-lg);
@@ -315,7 +315,18 @@ html[data-theme="light"] .btn-primary .icon-circle{background:rgba(255,255,255,0
 }
 .card:hover .card-media img{transform:scale(1.035);}
 .card-body{padding:26px 28px 26px;display:flex;flex-direction:column;flex-grow:1;}
+.work-content .card-body{padding:38px 42px 34px;}
+.work-media .card-body{padding:16px 18px 18px;}
+.work-content{position:relative;overflow:hidden;}
+.work-content::after{
+  content:attr(data-index);
+  position:absolute;right:18px;bottom:-38px;
+  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:150px;line-height:1;
+  color:var(--text);opacity:0.03;pointer-events:none;letter-spacing:-0.04em;
+}
 .card-thumbs{display:flex;gap:8px;margin-bottom:22px;}
+.work-media .card-body{flex-grow:1;display:flex;flex-direction:column;justify-content:flex-end;}
+.work-media .card-thumbs{margin-bottom:0;}
 .card-thumbs a{
   flex:1;aspect-ratio:4/2.6;border-radius:9px;overflow:hidden;
   border:1px solid var(--border);display:block;
@@ -334,36 +345,37 @@ html[data-theme="light"] .btn-primary .icon-circle{background:rgba(255,255,255,0
 .card:hover::before,.card:hover::after{opacity:1;}
 
 
-.card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:18px;}
+.card-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px;}
+.title-row{display:flex;align-items:center;gap:14px;margin-bottom:16px;}
 .card-icon{
-  width:40px;height:40px;border-radius:11px;
+  width:44px;height:44px;border-radius:12px;
   background:var(--accent-soft);
   display:flex;align-items:center;justify-content:center;flex-shrink:0;
 }
-.card-icon svg{width:19px;height:19px;stroke:var(--accent);fill:none;stroke-width:1.4;}
+.card-icon svg{width:21px;height:21px;stroke:var(--accent);fill:none;stroke-width:1.4;}
 .card-stage{
   font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-faint);
   border:1px solid var(--border);border-radius:999px;padding:5px 11px;white-space:nowrap;
 }
 .card-title{
-  font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:21px;
-  margin-bottom:10px;letter-spacing:-0.01em;
+  font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:24px;
+  letter-spacing:-0.01em;
 }
-.card-desc{color:var(--text-muted);font-size:14.5px;line-height:1.65;margin-bottom:20px;}
-.card-bullets{margin-bottom:22px;flex-grow:1;}
+.card-desc{color:var(--text-muted);font-size:15px;line-height:1.7;margin-bottom:22px;max-width:520px;}
+.card-bullets{margin-bottom:24px;flex-grow:1;max-width:520px;}
 .card-bullets li{
-  font-size:13.5px;color:var(--text-muted);line-height:1.55;
-  padding-left:16px;position:relative;margin-bottom:9px;
+  font-size:14px;color:var(--text-muted);line-height:1.6;
+  padding-left:16px;position:relative;margin-bottom:10px;
 }
 .card-bullets li::before{content:"·";position:absolute;left:2px;color:var(--verify);font-size:18px;line-height:1;}
-.card-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:22px;}
+.card-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:24px;}
 .tag{
   font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-muted);
   border:1px solid var(--border);border-radius:6px;padding:4px 9px;
 }
 .card-foot{
   display:flex;align-items:center;justify-content:space-between;
-  padding-top:18px;border-top:1px solid var(--border);
+  padding-top:20px;border-top:1px solid var(--border);
 }
 .card-link{
   font-family:'IBM Plex Mono',monospace;font-size:12.5px;
@@ -389,18 +401,24 @@ html[data-theme="light"] .btn-primary .icon-circle{background:rgba(255,255,255,0
 .chip:hover{border-color:var(--accent);color:var(--text);}
 
 #experience{}
-.timeline{border-left:1px solid var(--border);padding-left:36px;display:flex;flex-direction:column;gap:52px;margin-left:6px;}
-.tl-item{position:relative;}
-.tl-item::before{
-  content:"";position:absolute;left:-41.5px;top:4px;width:9px;height:9px;
-  border-radius:50%;background:var(--bg);border:2px solid var(--accent);
+.exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px;}
+.info-card{
+  border:1px solid var(--border);border-radius:var(--radius-lg);
+  background:var(--bg-elevated);padding:38px;position:relative;
+  transition:border-color 0.4s var(--ease), transform 0.4s var(--ease);
 }
-.tl-date{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--text-faint);margin-bottom:8px;}
-.tl-title{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:20px;margin-bottom:4px;}
-.tl-org{font-size:14.5px;color:var(--text-muted);margin-bottom:14px;}
-.tl-item ul{max-width:640px;}
-.tl-item li{font-size:14.5px;color:var(--text-muted);line-height:1.65;padding-left:16px;position:relative;margin-bottom:8px;}
-.tl-item li::before{content:"·";position:absolute;left:2px;color:var(--verify);font-size:18px;line-height:1;}
+.info-card:hover{border-color:var(--border-strong);transform:translateY(-3px);}
+.info-card .card-stage{margin-bottom:20px;display:inline-block;}
+.tl-title{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:21px;margin-bottom:6px;}
+.tl-org{font-size:14.5px;color:var(--text-muted);margin-bottom:16px;}
+.info-card ul{max-width:none;}
+.info-card li{font-size:14px;color:var(--text-muted);line-height:1.65;padding-left:16px;position:relative;margin-bottom:9px;}
+.info-card li::before{content:"·";position:absolute;left:2px;color:var(--verify);font-size:18px;line-height:1;}
+.certs-block{
+  border:1px solid var(--border);border-radius:var(--radius-lg);
+  background:var(--bg-elevated);padding:38px;
+}
+.certs-label{margin-bottom:20px;}
 .certs{display:flex;flex-wrap:wrap;gap:10px;}
 .cert-chip{
   font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-muted);
@@ -413,14 +431,31 @@ a.cert-chip:hover{border-color:var(--accent);color:var(--text);}
 .contact-box{
   border:1px solid var(--border);border-radius:var(--radius-lg);
   background:var(--bg-elevated);padding:64px;
-  display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;
+  display:flex;justify-content:space-between;align-items:center;gap:56px;flex-wrap:wrap;
 }
 .contact-title{
   font-family:'Space Grotesk',sans-serif;font-weight:600;
   font-size:clamp(28px,3.6vw,40px);max-width:560px;letter-spacing:-0.01em;margin-bottom:14px;
 }
 .contact-sub{color:var(--text-muted);font-size:15px;max-width:480px;}
-.contact-links{display:flex;flex-direction:column;gap:14px;align-items:flex-end;}
+.contact-links{display:flex;flex-direction:column;gap:12px;width:100%;max-width:380px;}
+.contact-row{
+  display:flex;align-items:center;gap:14px;
+  padding:14px 16px;border:1px solid var(--border);border-radius:16px;
+  transition:border-color 0.3s var(--ease), background 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.contact-row:hover{border-color:var(--accent);background:var(--accent-soft);transform:translateX(4px);}
+.contact-row-icon{
+  width:38px;height:38px;border-radius:50%;background:var(--bg-inset);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.contact-row-icon svg{width:16px;height:16px;fill:var(--text);}
+.contact-row-icon.stroke svg{fill:none;stroke:var(--text);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+.contact-row-text{display:flex;flex-direction:column;gap:3px;flex-grow:1;min-width:0;}
+.contact-row-label{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-faint);}
+.contact-row-value{font-size:14.5px;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.contact-row-arrow{width:14px;height:14px;stroke:var(--text-muted);flex-shrink:0;transition:transform 0.3s var(--ease), stroke 0.3s var(--ease);}
+.contact-row:hover .contact-row-arrow{transform:translate(3px,-3px);stroke:var(--text);}
 
 footer{padding:40px 0 60px;}
 .foot-row{
@@ -430,7 +465,9 @@ footer{padding:40px 0 60px;}
 }
 
 @media (max-width:980px) and (min-width:861px){
-  .work-grid{grid-template-columns:repeat(2,1fr);}
+  .work-row{flex-direction:column;}
+  .work-row.reverse{flex-direction:column;}
+  .exp-grid{grid-template-columns:1fr;}
 }
 @media (max-width:860px){
   .wrap{padding:0 20px;}
@@ -444,7 +481,6 @@ footer{padding:40px 0 60px;}
   .stats-strip{flex-direction:column;}
   .stat{border-right:none;border-bottom:1px solid var(--border);}
   .stat:last-child{border-bottom:none;}
-  .work-grid{grid-template-columns:1fr;}
   .stack-row{grid-template-columns:1fr;gap:12px;}
   .contact-box{padding:36px 26px;flex-direction:column;align-items:flex-start;}
   .contact-links{align-items:flex-start;}
@@ -496,8 +532,11 @@ footer{padding:40px 0 60px;}
             <span>View the work</span>
             <span class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
           </a>
-          <a class="link-out" href="https://github.com/abhinavharbola" target="_blank" rel="noopener">github.com/abhinavharbola</a>
-          <a class="link-out" href="https://linkedin.com/in/abhinavharbola" target="_blank" rel="noopener">linkedin.com/in/abhinavharbola</a>
+          <div class="icon-row">
+            <a class="icon-btn" href="https://github.com/abhinavharbola" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.333-1.754-1.333-1.754-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.605-2.665-.303-5.466-1.332-5.466-5.93 0-1.31.468-2.38 1.235-3.22-.123-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 0 1 3.003-.404c1.02.005 2.047.138 3.006.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.241 2.874.118 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.805 5.625-5.475 5.92.43.372.815 1.103.815 2.222 0 1.606-.015 2.898-.015 3.293 0 .32.216.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+            <a class="icon-btn" href="https://linkedin.com/in/abhinavharbola" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667h-3.554V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.114 20.452H3.558V9h3.556v11.452z"/></svg></a>
+            <a class="icon-btn stroke" href="mailto:abhinavdaharbola@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></a>
+          </div>
         </div>
       </div>
       <div class="hero-visual reveal in">
@@ -530,224 +569,290 @@ footer{padding:40px 0 60px;}
       <div class="section-note">Not demos. Statistical validation, model benchmarking and production guardrails, applied across recommenders, causal inference, forecasting, RAG and autonomous agents.</div>
     </div>
 
-    <div class="work-grid">
+    <div class="work-list">
 
-      <article class="card reveal">
-        <div class="card-inner">
-          <div class="card-media">
-            <div class="media-chrome"><span></span><span></span><span></span></div>
-            <img src="assets/shots/mlops-1.webp" alt="Credit Risk Governance dashboard showing batch, production version and promotion counts" loading="lazy">
+      <div class="work-row reveal">
+        <article class="card work-media">
+          <div class="card-inner">
+            <div class="card-media">
+              <div class="media-chrome"><span></span><span></span><span></span></div>
+              <img src="assets/shots/mlops-1.webp" alt="Credit Risk Governance dashboard showing batch, production version and promotion counts" loading="lazy">
+            </div>
+            <div class="card-body">
+              <div class="card-thumbs">
+                <a href="https://github.com/abhinavharbola/credit-risk-autopilot" target="_blank" rel="noopener"><img src="assets/shots/mlops-2.webp" alt="Drift share chart against the retrain threshold" loading="lazy"></a>
+                <a href="https://github.com/abhinavharbola/credit-risk-autopilot" target="_blank" rel="noopener"><img src="assets/shots/mlops-3.webp" alt="Champion model lineage across promotions" loading="lazy"></a>
+              </div>
+            </div>
           </div>
-          <div class="card-body">
-          <div class="card-top">
-            <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8" stroke-linecap="round"/><circle cx="12" cy="12" r="3.4"/></svg></div>
-            <div class="card-stage">5-stage governance loop</div>
-          </div>
-          <div class="card-title">Continuous Credit Risk Governance Pipeline</div>
-          <div class="card-desc">A self-governing MLOps pipeline that runs the full credit-risk model lifecycle end to end: drift detection, retraining, statistical gating, promotion, rollback, with no human in the loop.</div>
-          <ul class="card-bullets">
-            <li>637 live batches over 150K+ credit records, zero manual intervention</li>
-            <li>Tuned drift threshold cut false retrain triggers from about 40% to about 1%, without missing real injected drift</li>
-            <li>Three-gate promotion (tolerance band, dominance, McNemar / bootstrap significance) plus a bootstrap-confirmed rollback, audited across 55 automated tests</li>
-          </ul>
-          <div class="card-thumbs">
-            <a href="https://github.com/abhinavharbola/credit-risk-autopilot" target="_blank" rel="noopener"><img src="assets/shots/mlops-2.webp" alt="Drift share chart against the retrain threshold" loading="lazy"></a>
-            <a href="https://github.com/abhinavharbola/credit-risk-autopilot" target="_blank" rel="noopener"><img src="assets/shots/mlops-3.webp" alt="Champion model lineage across promotions" loading="lazy"></a>
-          </div>
-          <div class="card-tags">
-            <span class="tag">Python</span><span class="tag">Postgres</span><span class="tag">MLflow</span><span class="tag">Evidently</span><span class="tag">DVC</span><span class="tag">FastAPI</span><span class="tag">Streamlit</span>
-          </div>
-          <div class="card-foot">
-            <a class="card-link" href="https://github.com/abhinavharbola/credit-risk-autopilot" target="_blank" rel="noopener">
-              <span>View repository</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
-            </a>
-            <span class="card-year">2026</span>
-          </div>
-          </div>
-        </div>
-      </article>
+        </article>
 
-      <article class="card reveal">
-        <div class="card-inner">
-          <div class="card-media">
-            <div class="media-chrome"><span></span><span></span><span></span></div>
-            <img src="assets/shots/rag-1.webp" alt="Kubernetes Q&A RAG interface with provider and corpus panel" loading="lazy">
+        <article class="card work-content" data-index="01">
+          <div class="card-inner">
+            <div class="card-body">
+              <div class="card-top">
+                <div class="eyebrow" style="margin-bottom:0;"><span class="eyebrow-index">01</span><span class="mono-tag">2026</span></div>
+                <div class="card-stage">5-stage governance loop</div>
+              </div>
+              <div class="title-row">
+                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8" stroke-linecap="round"/><circle cx="12" cy="12" r="3.4"/></svg></div>
+                <div class="card-title">Continuous Credit Risk Governance Pipeline</div>
+              </div>
+              <div class="card-desc">A self-governing MLOps pipeline that runs the full credit-risk model lifecycle end to end: drift detection, retraining, statistical gating, promotion, rollback, with no human in the loop.</div>
+              <ul class="card-bullets">
+                <li>637 live batches over 150K+ credit records, zero manual intervention</li>
+                <li>Tuned drift threshold cut false retrain triggers from about 40% to about 1%, without missing real injected drift</li>
+                <li>Three-gate promotion (tolerance band, dominance, McNemar / bootstrap significance) plus a bootstrap-confirmed rollback, audited across 55 automated tests</li>
+              </ul>
+              <div class="card-tags">
+                <span class="tag">Python</span><span class="tag">Postgres</span><span class="tag">MLflow</span><span class="tag">Evidently</span><span class="tag">DVC</span><span class="tag">FastAPI</span><span class="tag">Streamlit</span>
+              </div>
+              <div class="card-foot">
+                <a class="card-link" href="https://github.com/abhinavharbola/credit-risk-autopilot" target="_blank" rel="noopener">
+                  <span>View repository</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+                </a>
+              </div>
+            </div>
           </div>
-          <div class="card-body">
-          <div class="card-top">
-            <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v6c0 4.5-3.4 7.6-8 8-4.6-.4-8-3.5-8-8V7l8-4Z" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <div class="card-stage">fails closed, not open</div>
-          </div>
-          <div class="card-title">Kubernetes Gated RAG</div>
-          <div class="card-desc">A defense-in-depth RAG system for Kubernetes Q&amp;A, built as a LangGraph state machine that refuses to answer rather than answer wrong.</div>
-          <ul class="card-bullets">
-            <li>Fail-closed safety and topic gates plus threshold-gated cross-encoder reranking, on a no-GPU 16GB machine</li>
-            <li>Two-layer exact and semantic cache over Qdrant, cosine ≥0.95, skips redundant work on repeated or paraphrased questions</li>
-            <li>RAGAS evaluation across 6 metrics, judged by an isolated model family, traced end to end with Logfire</li>
-          </ul>
-          <div class="card-thumbs">
-            <a href="https://github.com/abhinavharbola/kubernetes-gated-rag" target="_blank" rel="noopener"><img src="assets/shots/rag-2.webp" alt="Safety and topic gate blocking an off-scope question" loading="lazy"></a>
-            <a href="https://github.com/abhinavharbola/kubernetes-gated-rag" target="_blank" rel="noopener"><img src="assets/shots/rag-3.webp" alt="Semantic cache exact-hit on a paraphrased question" loading="lazy"></a>
-          </div>
-          <div class="card-tags">
-            <span class="tag">LangGraph</span><span class="tag">Qdrant</span><span class="tag">FlashRank</span><span class="tag">Groq</span><span class="tag">Gemini</span><span class="tag">Streamlit</span>
-          </div>
-          <div class="card-foot">
-            <a class="card-link" href="https://github.com/abhinavharbola/kubernetes-gated-rag" target="_blank" rel="noopener">
-              <span>View repository</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
-            </a>
-            <span class="card-year">2025</span>
-          </div>
-          </div>
-        </div>
-      </article>
+        </article>
+      </div>
 
-      <article class="card reveal">
-        <div class="card-inner">
-          <div class="card-media">
-            <div class="media-chrome"><span></span><span></span><span></span></div>
-            <img src="assets/shots/cia-1.webp" alt="Competitive Intelligence Agent architecture, Planner to Executor to Critic to Synthesizer" loading="lazy">
+      <div class="work-row reverse reveal">
+        <article class="card work-media">
+          <div class="card-inner">
+            <div class="card-media">
+              <div class="media-chrome"><span></span><span></span><span></span></div>
+              <img src="assets/shots/rag-1.webp" alt="Kubernetes Q&A RAG interface with provider and corpus panel" loading="lazy">
+            </div>
+            <div class="card-body">
+              <div class="card-thumbs">
+                <a href="https://github.com/abhinavharbola/kubernetes-gated-rag" target="_blank" rel="noopener"><img src="assets/shots/rag-2.webp" alt="Safety and topic gate blocking an off-scope question" loading="lazy"></a>
+                <a href="https://github.com/abhinavharbola/kubernetes-gated-rag" target="_blank" rel="noopener"><img src="assets/shots/rag-3.webp" alt="Semantic cache exact-hit on a paraphrased question" loading="lazy"></a>
+              </div>
+            </div>
           </div>
-          <div class="card-body">
-          <div class="card-top">
-            <div class="card-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
-            <div class="card-stage">4 roles, 3 providers</div>
-          </div>
-          <div class="card-title">Competitive Intelligence Agent</div>
-          <div class="card-desc">A Planner, Executor, Critic, Synthesizer research agent that turns a company name into a sourced brief, and marks what it can't verify as unknown rather than guessing.</div>
-          <ul class="card-bullets">
-            <li>Bounded critique and replan loop, max 3 cycles, with hard stops on tool calls and wall-clock time</li>
-            <li>4 model families across 3 providers, so the grading model stays isolated from what it grades</li>
-            <li>Ablation study measures the Critic loop's actual effect on groundedness and completeness</li>
-          </ul>
-          <div class="card-thumbs">
-            <a href="https://github.com/abhinavharbola/competitive-intelligence-agent" target="_blank" rel="noopener"><img src="assets/shots/cia-2.webp" alt="Live research log streaming plan, search and critic replan cycles" loading="lazy"></a>
-          </div>
-          <div class="card-tags">
-            <span class="tag">LangGraph-style</span><span class="tag">NIM</span><span class="tag">Groq</span><span class="tag">Gemini</span><span class="tag">Postgres</span>
-          </div>
-          <div class="card-foot">
-            <a class="card-link" href="https://github.com/abhinavharbola/competitive-intelligence-agent" target="_blank" rel="noopener">
-              <span>View repository</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
-            </a>
-            <span class="card-year">2025</span>
-          </div>
-          </div>
-        </div>
-      </article>
+        </article>
 
-      <article class="card reveal">
-        <div class="card-inner">
-          <div class="card-media">
-            <div class="media-chrome"><span></span><span></span><span></span></div>
-            <img src="assets/shots/causal-1.webp" alt="Causal Impact dashboard showing segment-level CATE breakdown table" loading="lazy">
+        <article class="card work-content" data-index="02">
+          <div class="card-inner">
+            <div class="card-body">
+              <div class="card-top">
+                <div class="eyebrow" style="margin-bottom:0;"><span class="eyebrow-index">02</span><span class="mono-tag">2025</span></div>
+                <div class="card-stage">fails closed, not open</div>
+              </div>
+              <div class="title-row">
+                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v6c0 4.5-3.4 7.6-8 8-4.6-.4-8-3.5-8-8V7l8-4Z" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div class="card-title">Kubernetes Gated RAG</div>
+              </div>
+              <div class="card-desc">A defense-in-depth RAG system for Kubernetes Q&amp;A, built as a LangGraph state machine that refuses to answer rather than answer wrong.</div>
+              <ul class="card-bullets">
+                <li>Fail-closed safety and topic gates plus threshold-gated cross-encoder reranking, on a no-GPU 16GB machine</li>
+                <li>Two-layer exact and semantic cache over Qdrant, cosine ≥0.95, skips redundant work on repeated or paraphrased questions</li>
+                <li>RAGAS evaluation across 6 metrics, judged by an isolated model family, traced end to end with Logfire</li>
+              </ul>
+              <div class="card-tags">
+                <span class="tag">LangGraph</span><span class="tag">Qdrant</span><span class="tag">FlashRank</span><span class="tag">Groq</span><span class="tag">Gemini</span><span class="tag">Streamlit</span>
+              </div>
+              <div class="card-foot">
+                <a class="card-link" href="https://github.com/abhinavharbola/kubernetes-gated-rag" target="_blank" rel="noopener">
+                  <span>View repository</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+                </a>
+              </div>
+            </div>
           </div>
-          <div class="card-body">
-          <div class="card-top">
-            <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 15l3-4 3 3 5-7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <div class="card-stage">13.9M rows, ground-truth checked</div>
-          </div>
-          <div class="card-title">Causal Impact &amp; Heterogeneity Lab</div>
-          <div class="card-desc">A causal inference pipeline that validates its own estimators against known ground truth before it trusts them on real ad-exposure data.</div>
-          <ul class="card-bullets">
-            <li>OLS, propensity matching, IPW and AIPW compared against a self-induced, calibrated confounder first</li>
-            <li>A minimum-detectable-effect calculation, not a default, decides which outcome variable is usable per segment</li>
-            <li>Benjamini-Hochberg correction and Rosenbaum bounds quantify how defensible each finding really is</li>
-          </ul>
-          <div class="card-thumbs">
-            <a href="https://github.com/abhinavharbola/causal-inference-lab" target="_blank" rel="noopener"><img src="assets/shots/causal-2.webp" alt="Qini curve validating CATE model ranking against random targeting" loading="lazy"></a>
-            <a href="https://github.com/abhinavharbola/causal-inference-lab" target="_blank" rel="noopener"><img src="assets/shots/causal-3.webp" alt="Sensitivity analysis panel" loading="lazy"></a>
-          </div>
-          <div class="card-tags">
-            <span class="tag">scikit-learn</span><span class="tag">statsmodels</span><span class="tag">scipy</span><span class="tag">scikit-uplift</span>
-          </div>
-          <div class="card-foot">
-            <a class="card-link" href="https://github.com/abhinavharbola/causal-inference-lab" target="_blank" rel="noopener">
-              <span>View repository</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
-            </a>
-            <span class="card-year">2025</span>
-          </div>
-          </div>
-        </div>
-      </article>
+        </article>
+      </div>
 
-      <article class="card reveal">
-        <div class="card-inner">
-          <div class="card-media">
-            <div class="media-chrome"><span></span><span></span><span></span></div>
-            <img src="assets/shots/reelbench-1.webp" alt="ReelBench persona selector for curated MovieLens viewers" loading="lazy">
+      <div class="work-row reveal">
+        <article class="card work-media">
+          <div class="card-inner">
+            <div class="card-media">
+              <div class="media-chrome"><span></span><span></span><span></span></div>
+              <img src="assets/shots/cia-1.webp" alt="Competitive Intelligence Agent architecture, Planner to Executor to Critic to Synthesizer" loading="lazy">
+            </div>
+            <div class="card-body">
+              <div class="card-thumbs">
+                <a href="https://github.com/abhinavharbola/competitive-intelligence-agent" target="_blank" rel="noopener"><img src="assets/shots/cia-2.webp" alt="Live research log streaming plan, search and critic replan cycles" loading="lazy"></a>
+              </div>
+            </div>
           </div>
-          <div class="card-body">
-          <div class="card-top">
-            <div class="card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.4"/><circle cx="5" cy="6" r="1.8"/><circle cx="19" cy="6" r="1.8"/><circle cx="5" cy="18" r="1.8"/><circle cx="19" cy="18" r="1.8"/><path d="M9.8 10.6L6.3 7.4M14.2 10.6l3.5-3.2M9.8 13.4l-3.5 3.2M14.2 13.4l3.5 3.2" stroke-linecap="round"/></svg></div>
-            <div class="card-stage">5 approaches, 1 harness</div>
-          </div>
-          <div class="card-title">ReelBench: Recommender Benchmark</div>
-          <div class="card-desc">A production-style two-stage recommender on MovieLens 25M, scoring five approaches through one identical, leakage-tested harness.</div>
-          <ul class="card-bullets">
-            <li>Popularity, item-item CF, ALS/BPR, a two-tower retriever and SASRec, all on Recall / NDCG / MAP@10,20</li>
-            <li>Row-blocked sparse similarity keeps item-item CF under 200MB against a projected 15GB dense matrix</li>
-            <li>FAISS retrieval plus a LightGBM reranker served on CPU only, with a separate cold-start index</li>
-          </ul>
-          <div class="card-thumbs">
-            <a href="https://github.com/abhinavharbola/recsys-bench" target="_blank" rel="noopener"><img src="assets/shots/reelbench-2.webp" alt="Model performance comparison across recall, ndcg and map" loading="lazy"></a>
-            <a href="https://github.com/abhinavharbola/recsys-bench" target="_blank" rel="noopener"><img src="assets/shots/reelbench-3.webp" alt="Ranked recommendations compared across all five approaches" loading="lazy"></a>
-          </div>
-          <div class="card-tags">
-            <span class="tag">PyTorch</span><span class="tag">FAISS</span><span class="tag">LightGBM</span><span class="tag">FastAPI</span>
-          </div>
-          <div class="card-foot">
-            <a class="card-link" href="https://github.com/abhinavharbola/recsys-bench" target="_blank" rel="noopener">
-              <span>View repository</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
-            </a>
-            <span class="card-year">2025</span>
-          </div>
-          </div>
-        </div>
-      </article>
+        </article>
 
-      <article class="card reveal">
-        <div class="card-inner">
-          <div class="card-media">
-            <div class="media-chrome"><span></span><span></span><span></span></div>
-            <img src="assets/shots/retailcast-1.webp" alt="RetailCast landing view with series, model and holdout stats" loading="lazy">
+        <article class="card work-content" data-index="03">
+          <div class="card-inner">
+            <div class="card-body">
+              <div class="card-top">
+                <div class="eyebrow" style="margin-bottom:0;"><span class="eyebrow-index">03</span><span class="mono-tag">2025</span></div>
+                <div class="card-stage">4 roles, 3 providers</div>
+              </div>
+              <div class="title-row">
+                <div class="card-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+                <div class="card-title">Competitive Intelligence Agent</div>
+              </div>
+              <div class="card-desc">A Planner, Executor, Critic, Synthesizer research agent that turns a company name into a sourced brief, and marks what it can't verify as unknown rather than guessing.</div>
+              <ul class="card-bullets">
+                <li>Bounded critique and replan loop, max 3 cycles, with hard stops on tool calls and wall-clock time</li>
+                <li>4 model families across 3 providers, so the grading model stays isolated from what it grades</li>
+                <li>Ablation study measures the Critic loop's actual effect on groundedness and completeness</li>
+              </ul>
+              <div class="card-tags">
+                <span class="tag">LangGraph-style</span><span class="tag">NIM</span><span class="tag">Groq</span><span class="tag">Gemini</span><span class="tag">Postgres</span>
+              </div>
+              <div class="card-foot">
+                <a class="card-link" href="https://github.com/abhinavharbola/competitive-intelligence-agent" target="_blank" rel="noopener">
+                  <span>View repository</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+                </a>
+              </div>
+            </div>
           </div>
-          <div class="card-body">
-          <div class="card-top">
-            <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M3 17l4-6 4 3 5-8 5 5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 21h18" stroke-linecap="round"/></svg></div>
-            <div class="card-stage">60 series, self-checked</div>
-          </div>
-          <div class="card-title">RetailCast: Forecasting &amp; Anomaly Bench</div>
-          <div class="card-desc">A demand forecasting and anomaly detection bench across 60 retail series, with a narrative layer that verifies its own numbers before showing them.</div>
-          <ul class="card-bullets">
-            <li>Prophet, SARIMA, LightGBM and XGBoost compared with expanding-window walk-forward CV</li>
-            <li>Control limits vs. Isolation Forest scored head to head on precision, recall and F1</li>
-            <li>Every figure in the generated report is checked against source data before it reaches the dashboard</li>
-          </ul>
-          <div class="card-thumbs">
-            <a href="https://github.com/abhinavharbola/retailcast" target="_blank" rel="noopener"><img src="assets/shots/retailcast-2.webp" alt="Forecast explorer comparing MASE, MAPE and WAPE across models" loading="lazy"></a>
-            <a href="https://github.com/abhinavharbola/retailcast" target="_blank" rel="noopener"><img src="assets/shots/retailcast-3.webp" alt="Anomaly detection precision, recall and F1 comparison" loading="lazy"></a>
-          </div>
-          <div class="card-tags">
-            <span class="tag">Prophet</span><span class="tag">SARIMA</span><span class="tag">XGBoost</span><span class="tag">Supabase</span>
-          </div>
-          <div class="card-foot">
-            <a class="card-link" href="https://github.com/abhinavharbola/retailcast" target="_blank" rel="noopener">
-              <span>View repository</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
-            </a>
-            <span class="card-year">2025</span>
-          </div>
-          </div>
-        </div>
-      </article>
+        </article>
+      </div>
 
+      <div class="work-row reverse reveal">
+        <article class="card work-media">
+          <div class="card-inner">
+            <div class="card-media">
+              <div class="media-chrome"><span></span><span></span><span></span></div>
+              <img src="assets/shots/causal-1.webp" alt="Causal Impact dashboard showing segment-level CATE breakdown table" loading="lazy">
+            </div>
+            <div class="card-body">
+              <div class="card-thumbs">
+                <a href="https://github.com/abhinavharbola/causal-inference-lab" target="_blank" rel="noopener"><img src="assets/shots/causal-2.webp" alt="Qini curve validating CATE model ranking against random targeting" loading="lazy"></a>
+                <a href="https://github.com/abhinavharbola/causal-inference-lab" target="_blank" rel="noopener"><img src="assets/shots/causal-3.webp" alt="Sensitivity analysis panel" loading="lazy"></a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card work-content" data-index="04">
+          <div class="card-inner">
+            <div class="card-body">
+              <div class="card-top">
+                <div class="eyebrow" style="margin-bottom:0;"><span class="eyebrow-index">04</span><span class="mono-tag">2025</span></div>
+                <div class="card-stage">13.9M rows, ground-truth checked</div>
+              </div>
+              <div class="title-row">
+                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 15l3-4 3 3 5-7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div class="card-title">Causal Impact &amp; Heterogeneity Lab</div>
+              </div>
+              <div class="card-desc">A causal inference pipeline that validates its own estimators against known ground truth before it trusts them on real ad-exposure data.</div>
+              <ul class="card-bullets">
+                <li>OLS, propensity matching, IPW and AIPW compared against a self-induced, calibrated confounder first</li>
+                <li>A minimum-detectable-effect calculation, not a default, decides which outcome variable is usable per segment</li>
+                <li>Benjamini-Hochberg correction and Rosenbaum bounds quantify how defensible each finding really is</li>
+              </ul>
+              <div class="card-tags">
+                <span class="tag">scikit-learn</span><span class="tag">statsmodels</span><span class="tag">scipy</span><span class="tag">scikit-uplift</span>
+              </div>
+              <div class="card-foot">
+                <a class="card-link" href="https://github.com/abhinavharbola/causal-inference-lab" target="_blank" rel="noopener">
+                  <span>View repository</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="work-row reveal">
+        <article class="card work-media">
+          <div class="card-inner">
+            <div class="card-media">
+              <div class="media-chrome"><span></span><span></span><span></span></div>
+              <img src="assets/shots/reelbench-1.webp" alt="ReelBench persona selector for curated MovieLens viewers" loading="lazy">
+            </div>
+            <div class="card-body">
+              <div class="card-thumbs">
+                <a href="https://github.com/abhinavharbola/recsys-bench" target="_blank" rel="noopener"><img src="assets/shots/reelbench-2.webp" alt="Model performance comparison across recall, ndcg and map" loading="lazy"></a>
+                <a href="https://github.com/abhinavharbola/recsys-bench" target="_blank" rel="noopener"><img src="assets/shots/reelbench-3.webp" alt="Ranked recommendations compared across all five approaches" loading="lazy"></a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card work-content" data-index="05">
+          <div class="card-inner">
+            <div class="card-body">
+              <div class="card-top">
+                <div class="eyebrow" style="margin-bottom:0;"><span class="eyebrow-index">05</span><span class="mono-tag">2025</span></div>
+                <div class="card-stage">5 approaches, 1 harness</div>
+              </div>
+              <div class="title-row">
+                <div class="card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.4"/><circle cx="5" cy="6" r="1.8"/><circle cx="19" cy="6" r="1.8"/><circle cx="5" cy="18" r="1.8"/><circle cx="19" cy="18" r="1.8"/><path d="M9.8 10.6L6.3 7.4M14.2 10.6l3.5-3.2M9.8 13.4l-3.5 3.2M14.2 13.4l3.5 3.2" stroke-linecap="round"/></svg></div>
+                <div class="card-title">ReelBench: Recommender Benchmark</div>
+              </div>
+              <div class="card-desc">A production-style two-stage recommender on MovieLens 25M, scoring five approaches through one identical, leakage-tested harness.</div>
+              <ul class="card-bullets">
+                <li>Popularity, item-item CF, ALS/BPR, a two-tower retriever and SASRec, all on Recall / NDCG / MAP@10,20</li>
+                <li>Row-blocked sparse similarity keeps item-item CF under 200MB against a projected 15GB dense matrix</li>
+                <li>FAISS retrieval plus a LightGBM reranker served on CPU only, with a separate cold-start index</li>
+              </ul>
+              <div class="card-tags">
+                <span class="tag">PyTorch</span><span class="tag">FAISS</span><span class="tag">LightGBM</span><span class="tag">FastAPI</span>
+              </div>
+              <div class="card-foot">
+                <a class="card-link" href="https://github.com/abhinavharbola/recsys-bench" target="_blank" rel="noopener">
+                  <span>View repository</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="work-row reverse reveal">
+        <article class="card work-media">
+          <div class="card-inner">
+            <div class="card-media">
+              <div class="media-chrome"><span></span><span></span><span></span></div>
+              <img src="assets/shots/retailcast-1.webp" alt="RetailCast landing view with series, model and holdout stats" loading="lazy">
+            </div>
+            <div class="card-body">
+              <div class="card-thumbs">
+                <a href="https://github.com/abhinavharbola/retailcast" target="_blank" rel="noopener"><img src="assets/shots/retailcast-2.webp" alt="Forecast explorer comparing MASE, MAPE and WAPE across models" loading="lazy"></a>
+                <a href="https://github.com/abhinavharbola/retailcast" target="_blank" rel="noopener"><img src="assets/shots/retailcast-3.webp" alt="Anomaly detection precision, recall and F1 comparison" loading="lazy"></a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card work-content" data-index="06">
+          <div class="card-inner">
+            <div class="card-body">
+              <div class="card-top">
+                <div class="eyebrow" style="margin-bottom:0;"><span class="eyebrow-index">06</span><span class="mono-tag">2025</span></div>
+                <div class="card-stage">60 series, self-checked</div>
+              </div>
+              <div class="title-row">
+                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M3 17l4-6 4 3 5-8 5 5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 21h18" stroke-linecap="round"/></svg></div>
+                <div class="card-title">RetailCast: Forecasting &amp; Anomaly Bench</div>
+              </div>
+              <div class="card-desc">A demand forecasting and anomaly detection bench across 60 retail series, with a narrative layer that verifies its own numbers before showing them.</div>
+              <ul class="card-bullets">
+                <li>Prophet, SARIMA, LightGBM and XGBoost compared with expanding-window walk-forward CV</li>
+                <li>Control limits vs. Isolation Forest scored head to head on precision, recall and F1</li>
+                <li>Every figure in the generated report is checked against source data before it reaches the dashboard</li>
+              </ul>
+              <div class="card-tags">
+                <span class="tag">Prophet</span><span class="tag">SARIMA</span><span class="tag">XGBoost</span><span class="tag">Supabase</span>
+              </div>
+              <div class="card-foot">
+                <a class="card-link" href="https://github.com/abhinavharbola/retailcast" target="_blank" rel="noopener">
+                  <span>View repository</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
     </div>
+
   </div>
 </section>
 
@@ -801,9 +906,9 @@ footer{padding:40px 0 60px;}
       </div>
     </div>
 
-    <div class="timeline reveal">
-      <div class="tl-item">
-        <div class="tl-date">jun 2024 · aug 2024</div>
+    <div class="exp-grid reveal">
+      <div class="info-card bracket">
+        <div class="card-stage">jun 2024 · aug 2024</div>
         <div class="tl-title">Data Science Intern</div>
         <div class="tl-org">Coding Blocks</div>
         <ul>
@@ -812,23 +917,22 @@ footer{padding:40px 0 60px;}
         </ul>
       </div>
 
-      <div class="tl-item">
-        <div class="tl-date">aug 2022 · may 2026 (expected)</div>
+      <div class="info-card bracket">
+        <div class="card-stage">aug 2022 · may 2026, expected</div>
         <div class="tl-title">B.Tech, Computer Science &amp; Engineering</div>
         <div class="tl-org">Lovely Professional University, Punjab, India · CGPA 8.19 / 10.0</div>
       </div>
+    </div>
 
-      <div class="tl-item">
-        <div class="tl-date">certifications &amp; recognition</div>
-        <div class="tl-title" style="margin-bottom:14px;">Ongoing learning</div>
-        <div class="certs">
-          <span class="cert-chip">IBM DevOps &amp; Software Engineering Professional Certificate, Coursera 2025</span>
-          <span class="cert-chip">NPTEL Cloud Computing, IIT Kharagpur 2024</span>
-          <span class="cert-chip">Google IT Automation with Python, Coursera 2023</span>
-          <span class="cert-chip">Dean's List, top 10%, 2023 to 2025</span>
-          <span class="cert-chip">5-Star Python &amp; C++, HackerRank</span>
-          <a class="cert-chip" href="https://www.credly.com/badges/8e862ad3-354e-40d9-b1e3-c63c7bb3d3f8" target="_blank" rel="noopener">SAP Certified, Data Analyst, SAP Analytics Cloud, 2026</a>
-        </div>
+    <div class="certs-block reveal">
+      <div class="mono-tag certs-label">certifications &amp; recognition</div>
+      <div class="certs">
+        <span class="cert-chip">IBM DevOps &amp; Software Engineering Professional Certificate, Coursera 2025</span>
+        <span class="cert-chip">NPTEL Cloud Computing, IIT Kharagpur 2024</span>
+        <span class="cert-chip">Google IT Automation with Python, Coursera 2023</span>
+        <span class="cert-chip">Dean's List, top 10%, 2023 to 2025</span>
+        <span class="cert-chip">5-Star Python &amp; C++, HackerRank</span>
+        <a class="cert-chip" href="https://www.credly.com/badges/8e862ad3-354e-40d9-b1e3-c63c7bb3d3f8" target="_blank" rel="noopener">SAP Certified, Data Analyst, SAP Analytics Cloud, 2026</a>
       </div>
     </div>
   </div>
@@ -843,9 +947,30 @@ footer{padding:40px 0 60px;}
         <div class="contact-sub">Based in Varanasi, India. The fastest way to reach me is email.</div>
       </div>
       <div class="contact-links">
-        <a class="link-out" href="mailto:abhinavdaharbola@gmail.com">abhinavdaharbola@gmail.com</a>
-        <a class="link-out" href="https://github.com/abhinavharbola" target="_blank" rel="noopener">github.com/abhinavharbola</a>
-        <a class="link-out" href="https://linkedin.com/in/abhinavharbola" target="_blank" rel="noopener">linkedin.com/in/abhinavharbola</a>
+        <a class="contact-row" href="mailto:abhinavdaharbola@gmail.com">
+          <span class="contact-row-icon stroke"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></span>
+          <span class="contact-row-text">
+            <span class="contact-row-label">email</span>
+            <span class="contact-row-value">abhinavdaharbola@gmail.com</span>
+          </span>
+          <svg class="contact-row-arrow" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </a>
+        <a class="contact-row" href="https://github.com/abhinavharbola" target="_blank" rel="noopener">
+          <span class="contact-row-icon"><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.333-1.754-1.333-1.754-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.605-2.665-.303-5.466-1.332-5.466-5.93 0-1.31.468-2.38 1.235-3.22-.123-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 0 1 3.003-.404c1.02.005 2.047.138 3.006.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.241 2.874.118 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.805 5.625-5.475 5.92.43.372.815 1.103.815 2.222 0 1.606-.015 2.898-.015 3.293 0 .32.216.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span>
+          <span class="contact-row-text">
+            <span class="contact-row-label">github</span>
+            <span class="contact-row-value">github.com/abhinavharbola</span>
+          </span>
+          <svg class="contact-row-arrow" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </a>
+        <a class="contact-row" href="https://linkedin.com/in/abhinavharbola" target="_blank" rel="noopener">
+          <span class="contact-row-icon"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667h-3.554V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.114 20.452H3.558V9h3.556v11.452z"/></svg></span>
+          <span class="contact-row-text">
+            <span class="contact-row-label">linkedin</span>
+            <span class="contact-row-value">linkedin.com/in/abhinavharbola</span>
+          </span>
+          <svg class="contact-row-arrow" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </a>
       </div>
     </div>
   </div>
