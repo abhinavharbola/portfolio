@@ -278,112 +278,136 @@ html[data-theme="light"] .btn-primary .icon-circle{background:rgba(255,255,255,0
 .stat-label{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-faint);margin-top:6px;}
 
 #work{}
-.work-list{display:flex;flex-direction:column;gap:26px;}
-.work-row{display:flex;align-items:stretch;gap:26px;}
-.work-row.reverse{flex-direction:row-reverse;}
-.work-row .work-media{flex:1.08;min-width:0;}
-.work-row .work-content{flex:0.92;min-width:0;}
-.card{
-  position:relative;
-  border:1px solid var(--border);border-radius:var(--radius-lg);
-  background:var(--bg-elevated);
-  padding:2px;
-  transition:border-color 0.4s var(--ease), transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
-}
-.card:hover{border-color:var(--border-strong);transform:translateY(-4px);box-shadow:var(--shadow);}
-.card-inner{
-  background:var(--bg-inset);border-radius:calc(var(--radius-lg) - 2px);
-  height:100%;display:flex;flex-direction:column;overflow:hidden;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,0.02);
-}
-.card-media{
-  position:relative;width:100%;aspect-ratio:16/10;overflow:hidden;
-  border-bottom:1px solid var(--border);background:var(--bg-elevated);
-}
-.media-chrome{
-  position:absolute;top:0;left:0;right:0;height:26px;z-index:2;
-  display:flex;align-items:center;gap:5px;padding:0 12px;
-  background:color-mix(in srgb, var(--bg-elevated) 88%, transparent);
-  backdrop-filter:blur(6px);
-}
-.media-chrome span{width:7px;height:7px;border-radius:50%;background:var(--border-strong);}
-.card-media img{
-  width:100%;height:100%;object-fit:cover;object-position:top;
-  display:block;padding-top:26px;box-sizing:border-box;
-  filter:saturate(0.94);
-  transition:transform 0.7s var(--ease);
-}
-.card:hover .card-media img{transform:scale(1.035);}
-.card-body{padding:26px 28px 26px;display:flex;flex-direction:column;flex-grow:1;}
-.work-content .card-body{padding:38px 42px 34px;}
-.work-media .card-body{padding:16px 18px 18px;}
-.work-content{position:relative;overflow:hidden;}
-.work-content::after{
-  content:attr(data-index);
-  position:absolute;right:18px;bottom:-38px;
-  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:150px;line-height:1;
-  color:var(--text);opacity:0.03;pointer-events:none;letter-spacing:-0.04em;
-}
-.card-thumbs{display:flex;gap:8px;margin-bottom:22px;}
-.work-media .card-body{flex-grow:1;display:flex;flex-direction:column;justify-content:flex-end;}
-.work-media .card-thumbs{margin-bottom:0;}
-.card-thumbs a{
-  flex:1;aspect-ratio:4/2.6;border-radius:9px;overflow:hidden;
-  border:1px solid var(--border);display:block;
-}
-.card-thumbs img{
-  width:100%;height:100%;object-fit:cover;object-position:top;
-  filter:saturate(0.94);transition:transform 0.5s var(--ease), filter 0.5s var(--ease);
-}
-.card-thumbs a:hover img{transform:scale(1.06);filter:saturate(1.05);}
-.card::before,.card::after{
-  content:"";position:absolute;width:14px;height:14px;
-  border-color:var(--accent);opacity:0;transition:opacity 0.4s var(--ease);
-}
-.card::before{top:10px;left:10px;border-top:1.5px solid;border-left:1.5px solid;}
-.card::after{bottom:10px;right:10px;border-bottom:1.5px solid;border-right:1.5px solid;}
-.card:hover::before,.card:hover::after{opacity:1;}
-
-
-.card-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px;}
-.title-row{display:flex;align-items:center;gap:14px;margin-bottom:16px;}
-.card-icon{
-  width:44px;height:44px;border-radius:12px;
-  background:var(--accent-soft);
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;
-}
-.card-icon svg{width:21px;height:21px;stroke:var(--accent);fill:none;stroke-width:1.4;}
 .card-stage{
   font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-faint);
   border:1px solid var(--border);border-radius:999px;padding:5px 11px;white-space:nowrap;
 }
-.card-title{
-  font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:24px;
-  letter-spacing:-0.01em;
-}
-.card-desc{color:var(--text-muted);font-size:15px;line-height:1.7;margin-bottom:22px;max-width:520px;}
-.card-bullets{margin-bottom:24px;flex-grow:1;max-width:520px;}
-.card-bullets li{
-  font-size:14px;color:var(--text-muted);line-height:1.6;
-  padding-left:16px;position:relative;margin-bottom:10px;
-}
-.card-bullets li::before{content:"·";position:absolute;left:2px;color:var(--verify);font-size:18px;line-height:1;}
-.card-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:24px;}
 .tag{
   font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-muted);
   border:1px solid var(--border);border-radius:6px;padding:4px 9px;
 }
-.card-foot{
-  display:flex;align-items:center;justify-content:space-between;
-  padding-top:20px;border-top:1px solid var(--border);
+
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:28px;}
+.fpill{
+  padding:9px 17px;border-radius:999px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;
+  color:var(--text-muted);border:1px solid var(--border);background:var(--bg-inset);
+  transition:color 0.4s var(--ease), background-color 0.4s var(--ease), border-color 0.4s var(--ease);
 }
-.card-link{
-  font-family:'IBM Plex Mono',monospace;font-size:12.5px;
-  display:flex;align-items:center;gap:7px;color:var(--text);
+.fpill:hover{color:var(--text);border-color:var(--border-strong);}
+.fpill[aria-pressed="true"]{background:var(--accent);color:var(--accent-text);border-color:transparent;}
+.fpill .c{font-size:11px;margin-left:8px;opacity:0.65;}
+
+.projects{display:grid;gap:88px;margin-top:56px;}
+.proj{
+  display:grid;grid-template-columns:minmax(0,0.85fr) minmax(0,1.15fr);
+  gap:48px;align-items:start;
+  transition:opacity 0.4s var(--ease);
 }
-.card-link svg{width:11px;height:11px;stroke:currentColor;transition:transform 0.3s var(--ease);}
-.card-link:hover svg{transform:translate(2px,-2px);}
-.card-year{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-faint);}
+.proj.flip{grid-template-columns:minmax(0,1.15fr) minmax(0,0.85fr);}
+.proj.flip .pinfo{order:2;}
+.proj.hide{display:none;}
+.pinfo{position:sticky;top:104px;}
+.phead{display:flex;align-items:baseline;gap:14px;margin-bottom:16px;}
+.phead .n{
+  font-family:'Space Grotesk',sans-serif;font-size:38px;line-height:0.82;
+  letter-spacing:-0.03em;color:var(--border-strong);
+}
+.phead .meta{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;
+  text-transform:uppercase;color:var(--text-faint);
+}
+.proj h3{
+  font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(24px,2.4vw,30px);
+  line-height:1.12;letter-spacing:-0.015em;margin-bottom:15px;
+}
+.proj .one{color:var(--text-muted);font-size:15px;line-height:1.7;max-width:48ch;}
+.results{list-style:none;padding:0;margin:24px 0 0;display:grid;}
+.results li{
+  display:flex;gap:15px;align-items:flex-start;padding-block:13px;
+  border-top:1px solid var(--border);font-size:13.5px;line-height:1.6;color:var(--text-muted);
+}
+.results li:last-child{border-bottom:1px solid var(--border);}
+.results li b{
+  font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:0.06em;
+  color:var(--accent);flex:none;width:20px;padding-top:2px;
+}
+.pnotes{margin-top:20px;font-size:13px;line-height:1.7;color:var(--text-faint);}
+.plinks{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;}
+
+.tray{background:var(--bg-inset);border:1px solid var(--border);border-radius:var(--radius-lg);padding:8px;}
+.core{background:var(--bg-elevated);border:1px solid var(--border);border-radius:calc(var(--radius-lg) - 8px);overflow:hidden;}
+.shot .core{padding:0;}
+.chrome{
+  display:flex;align-items:center;gap:12px;padding:11px 15px;
+  border-bottom:1px solid var(--border);background:var(--bg-elevated);
+}
+.chrome .dots{display:flex;gap:5px;}
+.chrome .dots i{width:7px;height:7px;border-radius:99px;background:var(--border-strong);opacity:0.7;}
+.chrome .path{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.03em;color:var(--text-faint);
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+.chrome .exp{
+  margin-left:auto;flex:none;width:26px;height:26px;border-radius:8px;
+  display:grid;place-items:center;color:var(--text-faint);
+  transition:color 0.35s var(--ease), background-color 0.35s var(--ease);
+}
+.chrome .exp:hover{color:var(--accent);background:var(--accent-soft);}
+.chrome .exp svg{width:13px;height:13px;stroke-width:1.4;}
+.stage{position:relative;aspect-ratio:16/10;background:var(--bg-inset);cursor:zoom-in;overflow:hidden;}
+.stage img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;
+  opacity:0;filter:saturate(0.94);transition:opacity 0.6s var(--ease), transform 1.1s var(--ease);
+}
+.stage img.on{opacity:1;}
+.stage:hover img.on{transform:scale(1.02);}
+.strip2{
+  display:flex;gap:8px;padding:10px;background:var(--bg-elevated);
+  border-top:1px solid var(--border);overflow-x:auto;
+}
+.thumb{
+  flex:none;width:76px;aspect-ratio:16/10;border-radius:8px;overflow:hidden;
+  border:1px solid var(--border);opacity:0.5;padding:0;
+  transition:opacity 0.4s var(--ease), border-color 0.4s var(--ease), transform 0.3s var(--ease);
+}
+.thumb img{width:100%;height:100%;object-fit:cover;object-position:top;}
+.thumb:hover{opacity:0.85;transform:translateY(-2px);}
+.thumb[aria-pressed="true"]{opacity:1;border-color:var(--accent);}
+.cap{
+  padding:11px 15px 13px;border-top:1px solid var(--border);background:var(--bg-elevated);
+  font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.02em;
+  color:var(--text-faint);line-height:1.6;
+}
+
+.lb{
+  position:fixed;inset:0;z-index:80;display:flex;flex-direction:column;
+  background:color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
+  opacity:0;visibility:hidden;transition:opacity 0.4s var(--ease), visibility 0.4s var(--ease);
+}
+.lb.open{opacity:1;visibility:visible;}
+.lb .bar{
+  display:flex;align-items:center;gap:16px;padding:18px clamp(16px,4vw,32px);
+  flex:none;border-bottom:1px solid var(--border);
+}
+.lb .bar .t{
+  font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;
+  color:var(--text-muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+.lb .bar .sp{margin-left:auto;display:flex;gap:8px;align-items:center;flex:none;}
+.iconbtn{
+  width:36px;height:36px;border-radius:999px;display:grid;place-items:center;
+  color:var(--text-muted);border:1px solid var(--border);
+  transition:color 0.35s var(--ease), background-color 0.35s var(--ease), border-color 0.35s var(--ease);
+}
+.iconbtn:hover{color:var(--text);background:var(--bg-inset);border-color:var(--border-strong);}
+.iconbtn svg{width:15px;height:15px;stroke-width:1.4;}
+.lb .view{flex:1;overflow:auto;padding:clamp(16px,3vw,32px);display:flex;justify-content:center;}
+.lb .view img{
+  width:100%;max-width:1280px;height:auto;border-radius:var(--radius-md);
+  border:1px solid var(--border);box-shadow:var(--shadow);align-self:flex-start;
+}
+.lb .count{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.04em;color:var(--text-faint);flex:none;}
 
 #stack{}
 .stack-groups{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--border);}
@@ -465,8 +489,9 @@ footer{padding:40px 0 60px;}
 }
 
 @media (max-width:980px) and (min-width:861px){
-  .work-row{flex-direction:column;}
-  .work-row.reverse{flex-direction:column;}
+  .proj,.proj.flip{grid-template-columns:minmax(0,1fr);gap:32px;}
+  .proj.flip .pinfo{order:0;}
+  .pinfo{position:static;}
   .exp-grid{grid-template-columns:1fr;}
 }
 @media (max-width:860px){
@@ -485,6 +510,13 @@ footer{padding:40px 0 60px;}
   .contact-box{padding:36px 26px;flex-direction:column;align-items:flex-start;}
   .contact-links{align-items:flex-start;}
   .section-note{text-align:left;}
+  .proj,.proj.flip{grid-template-columns:minmax(0,1fr);gap:28px;}
+  .proj.flip .pinfo{order:0;}
+  .pinfo{position:static;}
+  .projects{gap:64px;}
+  .phead .n{font-size:30px;}
+  .thumb{width:62px;}
+  .lb .view{padding:14px;}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation-duration:0.001ms !important;transition-duration:0.001ms !important;}
@@ -569,289 +601,273 @@ footer{padding:40px 0 60px;}
       <div class="section-note">Not demos. Statistical validation, model benchmarking and production guardrails, applied across recommenders, causal inference, forecasting, RAG and autonomous agents.</div>
     </div>
 
-    <div class="work-list">
-
-      <div class="work-row reveal">
-        <article class="card work-media">
-          <div class="card-inner">
-            <div class="card-media">
-              <div class="media-chrome"><span></span><span></span><span></span></div>
-              <img src="assets/shots/mlops-1.webp" alt="Credit Risk Governance dashboard showing batch, production version and promotion counts" loading="lazy">
-            </div>
-            <div class="card-body">
-              <div class="card-thumbs">
-                <a href="https://github.com/abhinavharbola/credit-risk-autopilot" target="_blank" rel="noopener"><img src="assets/shots/mlops-2.webp" alt="Drift share chart against the retrain threshold" loading="lazy"></a>
-                <a href="https://github.com/abhinavharbola/credit-risk-autopilot" target="_blank" rel="noopener"><img src="assets/shots/mlops-3.webp" alt="Champion model lineage across promotions" loading="lazy"></a>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="card work-content" data-index="01">
-          <div class="card-inner">
-            <div class="card-body">
-              <div class="card-top">
-                <div class="eyebrow" style="margin-bottom:0;"><span class="eyebrow-index">01</span><span class="mono-tag">2026</span></div>
-                <div class="card-stage">5-stage governance loop</div>
-              </div>
-              <div class="title-row">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8" stroke-linecap="round"/><circle cx="12" cy="12" r="3.4"/></svg></div>
-                <div class="card-title">Continuous Credit Risk Governance Pipeline</div>
-              </div>
-              <div class="card-desc">A self-governing MLOps pipeline that runs the full credit-risk model lifecycle end to end: drift detection, retraining, statistical gating, promotion, rollback, with no human in the loop.</div>
-              <ul class="card-bullets">
-                <li>637 live batches over 150K+ credit records, zero manual intervention</li>
-                <li>Tuned drift threshold cut false retrain triggers from about 40% to about 1%, without missing real injected drift</li>
-                <li>Three-gate promotion (tolerance band, dominance, McNemar / bootstrap significance) plus a bootstrap-confirmed rollback, audited across 55 automated tests</li>
-              </ul>
-              <div class="card-tags">
-                <span class="tag">Python</span><span class="tag">Postgres</span><span class="tag">MLflow</span><span class="tag">Evidently</span><span class="tag">DVC</span><span class="tag">FastAPI</span><span class="tag">Streamlit</span>
-              </div>
-              <div class="card-foot">
-                <a class="card-link" href="https://github.com/abhinavharbola/credit-risk-autopilot" target="_blank" rel="noopener">
-                  <span>View repository</span>
-                  <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
-                </a>
-              </div>
-            </div>
-          </div>
-        </article>
-      </div>
-
-      <div class="work-row reverse reveal">
-        <article class="card work-media">
-          <div class="card-inner">
-            <div class="card-media">
-              <div class="media-chrome"><span></span><span></span><span></span></div>
-              <img src="assets/shots/rag-1.webp" alt="Kubernetes Q&A RAG interface with provider and corpus panel" loading="lazy">
-            </div>
-            <div class="card-body">
-              <div class="card-thumbs">
-                <a href="https://github.com/abhinavharbola/kubernetes-gated-rag" target="_blank" rel="noopener"><img src="assets/shots/rag-2.webp" alt="Safety and topic gate blocking an off-scope question" loading="lazy"></a>
-                <a href="https://github.com/abhinavharbola/kubernetes-gated-rag" target="_blank" rel="noopener"><img src="assets/shots/rag-3.webp" alt="Semantic cache exact-hit on a paraphrased question" loading="lazy"></a>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="card work-content" data-index="02">
-          <div class="card-inner">
-            <div class="card-body">
-              <div class="card-top">
-                <div class="eyebrow" style="margin-bottom:0;"><span class="eyebrow-index">02</span><span class="mono-tag">2025</span></div>
-                <div class="card-stage">fails closed, not open</div>
-              </div>
-              <div class="title-row">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v6c0 4.5-3.4 7.6-8 8-4.6-.4-8-3.5-8-8V7l8-4Z" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-                <div class="card-title">Kubernetes Gated RAG</div>
-              </div>
-              <div class="card-desc">A defense-in-depth RAG system for Kubernetes Q&amp;A, built as a LangGraph state machine that refuses to answer rather than answer wrong.</div>
-              <ul class="card-bullets">
-                <li>Fail-closed safety and topic gates plus threshold-gated cross-encoder reranking, on a no-GPU 16GB machine</li>
-                <li>Two-layer exact and semantic cache over Qdrant, cosine ≥0.95, skips redundant work on repeated or paraphrased questions</li>
-                <li>RAGAS evaluation across 6 metrics, judged by an isolated model family, traced end to end with Logfire</li>
-              </ul>
-              <div class="card-tags">
-                <span class="tag">LangGraph</span><span class="tag">Qdrant</span><span class="tag">FlashRank</span><span class="tag">Groq</span><span class="tag">Gemini</span><span class="tag">Streamlit</span>
-              </div>
-              <div class="card-foot">
-                <a class="card-link" href="https://github.com/abhinavharbola/kubernetes-gated-rag" target="_blank" rel="noopener">
-                  <span>View repository</span>
-                  <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
-                </a>
-              </div>
-            </div>
-          </div>
-        </article>
-      </div>
-
-      <div class="work-row reveal">
-        <article class="card work-media">
-          <div class="card-inner">
-            <div class="card-media">
-              <div class="media-chrome"><span></span><span></span><span></span></div>
-              <img src="assets/shots/cia-1.webp" alt="Competitive Intelligence Agent architecture, Planner to Executor to Critic to Synthesizer" loading="lazy">
-            </div>
-            <div class="card-body">
-              <div class="card-thumbs">
-                <a href="https://github.com/abhinavharbola/competitive-intelligence-agent" target="_blank" rel="noopener"><img src="assets/shots/cia-2.webp" alt="Live research log streaming plan, search and critic replan cycles" loading="lazy"></a>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="card work-content" data-index="03">
-          <div class="card-inner">
-            <div class="card-body">
-              <div class="card-top">
-                <div class="eyebrow" style="margin-bottom:0;"><span class="eyebrow-index">03</span><span class="mono-tag">2025</span></div>
-                <div class="card-stage">4 roles, 3 providers</div>
-              </div>
-              <div class="title-row">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
-                <div class="card-title">Competitive Intelligence Agent</div>
-              </div>
-              <div class="card-desc">A Planner, Executor, Critic, Synthesizer research agent that turns a company name into a sourced brief, and marks what it can't verify as unknown rather than guessing.</div>
-              <ul class="card-bullets">
-                <li>Bounded critique and replan loop, max 3 cycles, with hard stops on tool calls and wall-clock time</li>
-                <li>4 model families across 3 providers, so the grading model stays isolated from what it grades</li>
-                <li>Ablation study measures the Critic loop's actual effect on groundedness and completeness</li>
-              </ul>
-              <div class="card-tags">
-                <span class="tag">LangGraph-style</span><span class="tag">NIM</span><span class="tag">Groq</span><span class="tag">Gemini</span><span class="tag">Postgres</span>
-              </div>
-              <div class="card-foot">
-                <a class="card-link" href="https://github.com/abhinavharbola/competitive-intelligence-agent" target="_blank" rel="noopener">
-                  <span>View repository</span>
-                  <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
-                </a>
-              </div>
-            </div>
-          </div>
-        </article>
-      </div>
-
-      <div class="work-row reverse reveal">
-        <article class="card work-media">
-          <div class="card-inner">
-            <div class="card-media">
-              <div class="media-chrome"><span></span><span></span><span></span></div>
-              <img src="assets/shots/causal-1.webp" alt="Causal Impact dashboard showing segment-level CATE breakdown table" loading="lazy">
-            </div>
-            <div class="card-body">
-              <div class="card-thumbs">
-                <a href="https://github.com/abhinavharbola/causal-inference-lab" target="_blank" rel="noopener"><img src="assets/shots/causal-2.webp" alt="Qini curve validating CATE model ranking against random targeting" loading="lazy"></a>
-                <a href="https://github.com/abhinavharbola/causal-inference-lab" target="_blank" rel="noopener"><img src="assets/shots/causal-3.webp" alt="Sensitivity analysis panel" loading="lazy"></a>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="card work-content" data-index="04">
-          <div class="card-inner">
-            <div class="card-body">
-              <div class="card-top">
-                <div class="eyebrow" style="margin-bottom:0;"><span class="eyebrow-index">04</span><span class="mono-tag">2025</span></div>
-                <div class="card-stage">13.9M rows, ground-truth checked</div>
-              </div>
-              <div class="title-row">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 15l3-4 3 3 5-7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-                <div class="card-title">Causal Impact &amp; Heterogeneity Lab</div>
-              </div>
-              <div class="card-desc">A causal inference pipeline that validates its own estimators against known ground truth before it trusts them on real ad-exposure data.</div>
-              <ul class="card-bullets">
-                <li>OLS, propensity matching, IPW and AIPW compared against a self-induced, calibrated confounder first</li>
-                <li>A minimum-detectable-effect calculation, not a default, decides which outcome variable is usable per segment</li>
-                <li>Benjamini-Hochberg correction and Rosenbaum bounds quantify how defensible each finding really is</li>
-              </ul>
-              <div class="card-tags">
-                <span class="tag">scikit-learn</span><span class="tag">statsmodels</span><span class="tag">scipy</span><span class="tag">scikit-uplift</span>
-              </div>
-              <div class="card-foot">
-                <a class="card-link" href="https://github.com/abhinavharbola/causal-inference-lab" target="_blank" rel="noopener">
-                  <span>View repository</span>
-                  <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
-                </a>
-              </div>
-            </div>
-          </div>
-        </article>
-      </div>
-
-      <div class="work-row reveal">
-        <article class="card work-media">
-          <div class="card-inner">
-            <div class="card-media">
-              <div class="media-chrome"><span></span><span></span><span></span></div>
-              <img src="assets/shots/reelbench-1.webp" alt="ReelBench persona selector for curated MovieLens viewers" loading="lazy">
-            </div>
-            <div class="card-body">
-              <div class="card-thumbs">
-                <a href="https://github.com/abhinavharbola/recsys-bench" target="_blank" rel="noopener"><img src="assets/shots/reelbench-2.webp" alt="Model performance comparison across recall, ndcg and map" loading="lazy"></a>
-                <a href="https://github.com/abhinavharbola/recsys-bench" target="_blank" rel="noopener"><img src="assets/shots/reelbench-3.webp" alt="Ranked recommendations compared across all five approaches" loading="lazy"></a>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="card work-content" data-index="05">
-          <div class="card-inner">
-            <div class="card-body">
-              <div class="card-top">
-                <div class="eyebrow" style="margin-bottom:0;"><span class="eyebrow-index">05</span><span class="mono-tag">2025</span></div>
-                <div class="card-stage">5 approaches, 1 harness</div>
-              </div>
-              <div class="title-row">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.4"/><circle cx="5" cy="6" r="1.8"/><circle cx="19" cy="6" r="1.8"/><circle cx="5" cy="18" r="1.8"/><circle cx="19" cy="18" r="1.8"/><path d="M9.8 10.6L6.3 7.4M14.2 10.6l3.5-3.2M9.8 13.4l-3.5 3.2M14.2 13.4l3.5 3.2" stroke-linecap="round"/></svg></div>
-                <div class="card-title">ReelBench: Recommender Benchmark</div>
-              </div>
-              <div class="card-desc">A production-style two-stage recommender on MovieLens 25M, scoring five approaches through one identical, leakage-tested harness.</div>
-              <ul class="card-bullets">
-                <li>Popularity, item-item CF, ALS/BPR, a two-tower retriever and SASRec, all on Recall / NDCG / MAP@10,20</li>
-                <li>Row-blocked sparse similarity keeps item-item CF under 200MB against a projected 15GB dense matrix</li>
-                <li>FAISS retrieval plus a LightGBM reranker served on CPU only, with a separate cold-start index</li>
-              </ul>
-              <div class="card-tags">
-                <span class="tag">PyTorch</span><span class="tag">FAISS</span><span class="tag">LightGBM</span><span class="tag">FastAPI</span>
-              </div>
-              <div class="card-foot">
-                <a class="card-link" href="https://github.com/abhinavharbola/recsys-bench" target="_blank" rel="noopener">
-                  <span>View repository</span>
-                  <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
-                </a>
-              </div>
-            </div>
-          </div>
-        </article>
-      </div>
-
-      <div class="work-row reverse reveal">
-        <article class="card work-media">
-          <div class="card-inner">
-            <div class="card-media">
-              <div class="media-chrome"><span></span><span></span><span></span></div>
-              <img src="assets/shots/retailcast-1.webp" alt="RetailCast landing view with series, model and holdout stats" loading="lazy">
-            </div>
-            <div class="card-body">
-              <div class="card-thumbs">
-                <a href="https://github.com/abhinavharbola/retailcast" target="_blank" rel="noopener"><img src="assets/shots/retailcast-2.webp" alt="Forecast explorer comparing MASE, MAPE and WAPE across models" loading="lazy"></a>
-                <a href="https://github.com/abhinavharbola/retailcast" target="_blank" rel="noopener"><img src="assets/shots/retailcast-3.webp" alt="Anomaly detection precision, recall and F1 comparison" loading="lazy"></a>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="card work-content" data-index="06">
-          <div class="card-inner">
-            <div class="card-body">
-              <div class="card-top">
-                <div class="eyebrow" style="margin-bottom:0;"><span class="eyebrow-index">06</span><span class="mono-tag">2025</span></div>
-                <div class="card-stage">60 series, self-checked</div>
-              </div>
-              <div class="title-row">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M3 17l4-6 4 3 5-8 5 5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 21h18" stroke-linecap="round"/></svg></div>
-                <div class="card-title">RetailCast: Forecasting &amp; Anomaly Bench</div>
-              </div>
-              <div class="card-desc">A demand forecasting and anomaly detection bench across 60 retail series, with a narrative layer that verifies its own numbers before showing them.</div>
-              <ul class="card-bullets">
-                <li>Prophet, SARIMA, LightGBM and XGBoost compared with expanding-window walk-forward CV</li>
-                <li>Control limits vs. Isolation Forest scored head to head on precision, recall and F1</li>
-                <li>Every figure in the generated report is checked against source data before it reaches the dashboard</li>
-              </ul>
-              <div class="card-tags">
-                <span class="tag">Prophet</span><span class="tag">SARIMA</span><span class="tag">XGBoost</span><span class="tag">Supabase</span>
-              </div>
-              <div class="card-foot">
-                <a class="card-link" href="https://github.com/abhinavharbola/retailcast" target="_blank" rel="noopener">
-                  <span>View repository</span>
-                  <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
-                </a>
-              </div>
-            </div>
-          </div>
-        </article>
-      </div>
+    <div class="filters reveal">
+      <button class="fpill" type="button" data-filter="all" aria-pressed="true">All<span class="c">06</span></button>
+      <button class="fpill" type="button" data-filter="ml" aria-pressed="false">ML Engineering<span class="c">02</span></button>
+      <button class="fpill" type="button" data-filter="ai" aria-pressed="false">AI &amp; LLM Systems<span class="c">02</span></button>
+      <button class="fpill" type="button" data-filter="ds" aria-pressed="false">Data Science<span class="c">02</span></button>
     </div>
+
+    <div class="projects" id="projects">
+      <article class="proj reveal" data-cat="ml">
+        <div class="pinfo">
+          <div class="phead"><span class="n">01</span><span class="meta">2026 &nbsp;/&nbsp; MLOps &amp; Governance</span></div>
+          <h3>Continuous Credit Risk Governance Pipeline</h3>
+          <p class="one">A self-governing MLOps pipeline that runs the full credit-risk model lifecycle end to end: drift detection, retraining, statistical gating, promotion, rollback, with no human in the loop.</p>
+          <ul class="results">
+            <li><b>01</b><span>637 live batches over 150K+ credit records, zero manual intervention.</span></li>
+            <li><b>02</b><span>Tuned drift threshold cut false retrain triggers from about 40% to about 1%, without missing real injected drift.</span></li>
+            <li><b>03</b><span>Three-gate promotion: a tolerance band, strict dominance, and McNemar or bootstrap significance testing.</span></li>
+            <li><b>04</b><span>Rollback is held to the same bar, confirmed by a bootstrap CI rather than one bad batch.</span></li>
+            <li><b>05</b><span>55 automated tests audit every governance decision, including the ones that changed nothing.</span></li>
+          </ul>
+          <p class="pnotes">AUC-PR is tracked over accuracy given the low positive rate, and every decision, including rejections and suppressions, lands in a Postgres audit trail.</p>
+          <div class="tags" style="margin-top:22px;">
+            <span class="tag">MLflow</span><span class="tag">DVC</span><span class="tag">Evidently</span><span class="tag">Postgres</span><span class="tag">FastAPI</span><span class="tag">Streamlit</span><span class="tag">scikit-learn</span>
+          </div>
+          <div class="plinks">
+            <a class="btn-primary" href="https://github.com/abhinavharbola/credit-risk-autopilot" target="_blank" rel="noopener">
+              <span>Read the code</span>
+              <span class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+            </a>
+          </div>
+        </div>
+        <div class="tray shot" data-gal="mlops">
+          <div class="core">
+            <div class="chrome">
+              <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="path">governance / overview</span>
+              <button class="exp" type="button" data-open aria-label="Open screenshot full size"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 4h6v6M20 4l-7 7M10 20H4v-6M4 20l7-7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            </div>
+            <div class="stage" data-open>
+              <img class="on" src="assets/shots/mlops-1.webp" alt="Governance dashboard overview: current batch, production model version, promotions and rollbacks" loading="lazy">
+              <img src="assets/shots/mlops-2.webp" alt="Drift tab: per batch drift share against the training reference, retrain triggers marked" loading="lazy">
+              <img src="assets/shots/mlops-3.webp" alt="Champion lineage view showing promotion history across model versions" loading="lazy">
+            </div>
+            <div class="strip2" role="group" aria-label="Screenshots of Continuous Credit Risk Governance Pipeline">
+              <button class="thumb" type="button" aria-pressed="true" data-cap="Overview: current champion, batch clock, promotions and rollbacks."><img src="assets/shots/mlops-1.webp" alt="Governance dashboard overview: current batch, production model version, promotions and rollbacks thumbnail" loading="lazy"></button>
+              <button class="thumb" type="button" aria-pressed="false" data-cap="Drift: per-batch drift share against the training reference, retrain triggers marked."><img src="assets/shots/mlops-2.webp" alt="Drift tab: per batch drift share against the training reference, retrain triggers marked thumbnail" loading="lazy"></button>
+              <button class="thumb" type="button" aria-pressed="false" data-cap="Lineage: promotion history with the metric each challenger was gated against."><img src="assets/shots/mlops-3.webp" alt="Champion lineage view showing promotion history across model versions thumbnail" loading="lazy"></button>
+            </div>
+            <p class="cap">Overview: current champion, batch clock, promotions and rollbacks.</p>
+          </div>
+        </div>
+      </article>
+      <article class="proj flip reveal" data-cat="ai">
+        <div class="pinfo">
+          <div class="phead"><span class="n">02</span><span class="meta">2025 &nbsp;/&nbsp; RAG &amp; Guardrails</span></div>
+          <h3>Kubernetes Gated RAG</h3>
+          <p class="one">A defense-in-depth RAG system for Kubernetes Q&amp;A, built as a LangGraph state machine that refuses to answer rather than answer wrong.</p>
+          <ul class="results">
+            <li><b>01</b><span>Fail-closed safety and topic gates run before any expensive retrieval or generation work.</span></li>
+            <li><b>02</b><span>Threshold-gated cross-encoder reranking, not just reordering, on a no-GPU 16GB machine.</span></li>
+            <li><b>03</b><span>Two-layer cache, exact match plus semantic at cosine 0.95 or above, skips redundant work on repeated or paraphrased questions.</span></li>
+            <li><b>04</b><span>RAGAS evaluation across 6 metrics, judged by a model family isolated from the pipeline it grades.</span></li>
+          </ul>
+          <p class="pnotes">A three-provider failover chain keeps the system answering even when a single LLM provider is rate-limited or down, with full node- and provider-level tracing via Logfire.</p>
+          <div class="tags" style="margin-top:22px;">
+            <span class="tag">LangGraph</span><span class="tag">Qdrant</span><span class="tag">FlashRank</span><span class="tag">Groq</span><span class="tag">Gemini</span><span class="tag">Streamlit</span>
+          </div>
+          <div class="plinks">
+            <a class="btn-primary" href="https://github.com/abhinavharbola/kubernetes-gated-rag" target="_blank" rel="noopener">
+              <span>Read the code</span>
+              <span class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+            </a>
+          </div>
+        </div>
+        <div class="tray shot" data-gal="rag">
+          <div class="core">
+            <div class="chrome">
+              <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="path">k8s-rag / chat</span>
+              <button class="exp" type="button" data-open aria-label="Open screenshot full size"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 4h6v6M20 4l-7 7M10 20H4v-6M4 20l7-7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            </div>
+            <div class="stage" data-open>
+              <img class="on" src="assets/shots/rag-1.webp" alt="Kubernetes Q&A interface with corpus stats and provider panel" loading="lazy">
+              <img src="assets/shots/rag-2.webp" alt="Safety and topic gate blocking an off-scope question" loading="lazy">
+              <img src="assets/shots/rag-3.webp" alt="Semantic cache returning an exact hit on a paraphrased question" loading="lazy">
+            </div>
+            <div class="strip2" role="group" aria-label="Screenshots of Kubernetes Gated RAG">
+              <button class="thumb" type="button" aria-pressed="true" data-cap="Chat: corpus stats, session cache hits, and the live provider chain."><img src="assets/shots/rag-1.webp" alt="Kubernetes Q&A interface with corpus stats and provider panel thumbnail" loading="lazy"></button>
+              <button class="thumb" type="button" aria-pressed="false" data-cap="Gates: safety and topic checks blocking an off-scope question."><img src="assets/shots/rag-2.webp" alt="Safety and topic gate blocking an off-scope question thumbnail" loading="lazy"></button>
+              <button class="thumb" type="button" aria-pressed="false" data-cap="Cache: a semantic-match exact hit on a paraphrased question."><img src="assets/shots/rag-3.webp" alt="Semantic cache returning an exact hit on a paraphrased question thumbnail" loading="lazy"></button>
+            </div>
+            <p class="cap">Chat: corpus stats, session cache hits, and the live provider chain.</p>
+          </div>
+        </div>
+      </article>
+      <article class="proj reveal" data-cat="ai">
+        <div class="pinfo">
+          <div class="phead"><span class="n">03</span><span class="meta">2025 &nbsp;/&nbsp; Agentic Research</span></div>
+          <h3>Competitive Intelligence Agent</h3>
+          <p class="one">A Planner, Executor, Critic, Synthesizer research agent that turns a company name into a sourced brief, and marks what it can't verify as unknown rather than guessing.</p>
+          <ul class="results">
+            <li><b>01</b><span>Bounded critique and replan loop, max 3 cycles, with hard stops on tool calls and wall-clock time.</span></li>
+            <li><b>02</b><span>4 model families across 3 providers, keeping the grading model structurally isolated from what it grades.</span></li>
+            <li><b>03</b><span>Ablation study measures the Critic loop's actual effect on groundedness and completeness.</span></li>
+            <li><b>04</b><span>Every completed run is saved to Postgres, whether or not it started from cache.</span></li>
+          </ul>
+          <p class="pnotes">Fuzzy entity matches are surfaced as a note for a human to check rather than auto-seeded, to avoid conflating similarly named companies.</p>
+          <div class="tags" style="margin-top:22px;">
+            <span class="tag">LangGraph-style</span><span class="tag">NIM</span><span class="tag">Groq</span><span class="tag">Gemini</span><span class="tag">Postgres</span>
+          </div>
+          <div class="plinks">
+            <a class="btn-primary" href="https://github.com/abhinavharbola/competitive-intelligence-agent" target="_blank" rel="noopener">
+              <span>Read the code</span>
+              <span class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+            </a>
+          </div>
+        </div>
+        <div class="tray shot" data-gal="cia">
+          <div class="core">
+            <div class="chrome">
+              <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="path">cia / research log</span>
+              <button class="exp" type="button" data-open aria-label="Open screenshot full size"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 4h6v6M20 4l-7 7M10 20H4v-6M4 20l7-7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            </div>
+            <div class="stage" data-open>
+              <img class="on" src="assets/shots/cia-1.webp" alt="Competitive Intelligence Agent architecture: Planner, Executor, Critic, Synthesizer" loading="lazy">
+              <img src="assets/shots/cia-2.webp" alt="Live research log streaming plan, search and critic replan cycles" loading="lazy">
+            </div>
+            <div class="strip2" role="group" aria-label="Screenshots of Competitive Intelligence Agent">
+              <button class="thumb" type="button" aria-pressed="true" data-cap="Architecture: Planner, Executor, Critic and Synthesizer, wired end to end."><img src="assets/shots/cia-1.webp" alt="Competitive Intelligence Agent architecture: Planner, Executor, Critic, Synthesizer thumbnail" loading="lazy"></button>
+              <button class="thumb" type="button" aria-pressed="false" data-cap="Live run: the research log streaming search steps and a critic replan cycle."><img src="assets/shots/cia-2.webp" alt="Live research log streaming plan, search and critic replan cycles thumbnail" loading="lazy"></button>
+            </div>
+            <p class="cap">Architecture: Planner, Executor, Critic and Synthesizer, wired end to end.</p>
+          </div>
+        </div>
+      </article>
+      <article class="proj flip reveal" data-cat="ds">
+        <div class="pinfo">
+          <div class="phead"><span class="n">04</span><span class="meta">2025 &nbsp;/&nbsp; Causal Inference</span></div>
+          <h3>Causal Impact &amp; Heterogeneity Lab</h3>
+          <p class="one">A causal inference pipeline that validates its own estimators against known ground truth before it trusts them on real ad-exposure data.</p>
+          <ul class="results">
+            <li><b>01</b><span>OLS, propensity matching, IPW and AIPW compared against a self-induced, calibrated confounder first.</span></li>
+            <li><b>02</b><span>A minimum-detectable-effect calculation, not a default, decides which outcome variable is usable per segment.</span></li>
+            <li><b>03</b><span>Benjamini-Hochberg correction controls the false discovery rate across every tested segment.</span></li>
+            <li><b>04</b><span>Rosenbaum bounds quantify how much unmeasured confounding would be needed to overturn the result.</span></li>
+          </ul>
+          <p class="pnotes">Matching is strict one-to-one without replacement, so under this dataset's treatment skew most treated units are discarded by design, and the dashboard reports that match rate rather than hiding it.</p>
+          <div class="tags" style="margin-top:22px;">
+            <span class="tag">scikit-learn</span><span class="tag">statsmodels</span><span class="tag">scipy</span><span class="tag">scikit-uplift</span>
+          </div>
+          <div class="plinks">
+            <a class="btn-primary" href="https://github.com/abhinavharbola/causal-inference-lab" target="_blank" rel="noopener">
+              <span>Read the code</span>
+              <span class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+            </a>
+          </div>
+        </div>
+        <div class="tray shot" data-gal="causal">
+          <div class="core">
+            <div class="chrome">
+              <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="path">causal-lab / heterogeneity</span>
+              <button class="exp" type="button" data-open aria-label="Open screenshot full size"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 4h6v6M20 4l-7 7M10 20H4v-6M4 20l7-7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            </div>
+            <div class="stage" data-open>
+              <img class="on" src="assets/shots/causal-1.webp" alt="Causal Impact dashboard showing the segment-level CATE breakdown table" loading="lazy">
+              <img src="assets/shots/causal-2.webp" alt="Qini curve validating CATE model ranking against random targeting" loading="lazy">
+              <img src="assets/shots/causal-3.webp" alt="Sensitivity analysis panel with Rosenbaum bounds" loading="lazy">
+            </div>
+            <div class="strip2" role="group" aria-label="Screenshots of Causal Impact and Heterogeneity Lab">
+              <button class="thumb" type="button" aria-pressed="true" data-cap="Heterogeneity: segment-level CATE breakdown with bootstrap CIs."><img src="assets/shots/causal-1.webp" alt="Causal Impact dashboard showing the segment-level CATE breakdown table thumbnail" loading="lazy"></button>
+              <button class="thumb" type="button" aria-pressed="false" data-cap="Qini curve: the CATE model ranking checked against random targeting."><img src="assets/shots/causal-2.webp" alt="Qini curve validating CATE model ranking against random targeting thumbnail" loading="lazy"></button>
+              <button class="thumb" type="button" aria-pressed="false" data-cap="Sensitivity: Rosenbaum bounds on the matched-pairs conclusion."><img src="assets/shots/causal-3.webp" alt="Sensitivity analysis panel with Rosenbaum bounds thumbnail" loading="lazy"></button>
+            </div>
+            <p class="cap">Heterogeneity: segment-level CATE breakdown with bootstrap CIs.</p>
+          </div>
+        </div>
+      </article>
+      <article class="proj reveal" data-cat="ml">
+        <div class="pinfo">
+          <div class="phead"><span class="n">05</span><span class="meta">2025 &nbsp;/&nbsp; Recommender Systems</span></div>
+          <h3>ReelBench: Recommender Benchmark</h3>
+          <p class="one">A production-style two-stage recommender on MovieLens 25M, scoring five approaches through one identical, leakage-tested harness.</p>
+          <ul class="results">
+            <li><b>01</b><span>Popularity, item-item CF, ALS/BPR, a two-tower retriever and SASRec, all on Recall, NDCG and MAP at 10 and 20.</span></li>
+            <li><b>02</b><span>A single global timestamp cutoff, not a per-user split, closes a leakage path a per-user check alone would miss.</span></li>
+            <li><b>03</b><span>Row-blocked sparse similarity keeps item-item CF under 200MB against a projected 15GB dense matrix.</span></li>
+            <li><b>04</b><span>FAISS retrieval plus a LightGBM reranker served on CPU only, with a separate cold-start index for zero-interaction items.</span></li>
+          </ul>
+          <p class="pnotes">The committed comparison table currently scores the three CPU baselines; the harness can already score the two neural models, they just haven't been run against a trained checkpoint in this environment.</p>
+          <div class="tags" style="margin-top:22px;">
+            <span class="tag">PyTorch</span><span class="tag">FAISS</span><span class="tag">LightGBM</span><span class="tag">FastAPI</span>
+          </div>
+          <div class="plinks">
+            <a class="btn-primary" href="https://github.com/abhinavharbola/recsys-bench" target="_blank" rel="noopener">
+              <span>Read the code</span>
+              <span class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+            </a>
+          </div>
+        </div>
+        <div class="tray shot" data-gal="reelbench">
+          <div class="core">
+            <div class="chrome">
+              <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="path">reelbench / performance</span>
+              <button class="exp" type="button" data-open aria-label="Open screenshot full size"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 4h6v6M20 4l-7 7M10 20H4v-6M4 20l7-7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            </div>
+            <div class="stage" data-open>
+              <img class="on" src="assets/shots/reelbench-1.webp" alt="ReelBench persona selector for curated MovieLens viewers" loading="lazy">
+              <img src="assets/shots/reelbench-2.webp" alt="Model performance comparison across recall, ndcg and map" loading="lazy">
+              <img src="assets/shots/reelbench-3.webp" alt="Ranked recommendations compared across all five approaches" loading="lazy">
+            </div>
+            <div class="strip2" role="group" aria-label="Screenshots of ReelBench: Recommender Benchmark">
+              <button class="thumb" type="button" aria-pressed="true" data-cap="Viewer select: curated personas or browse by any real MovieLens user ID."><img src="assets/shots/reelbench-1.webp" alt="ReelBench persona selector for curated MovieLens viewers thumbnail" loading="lazy"></button>
+              <button class="thumb" type="button" aria-pressed="false" data-cap="Metrics: recall, NDCG and MAP compared across every approach."><img src="assets/shots/reelbench-2.webp" alt="Model performance comparison across recall, ndcg and map thumbnail" loading="lazy"></button>
+              <button class="thumb" type="button" aria-pressed="false" data-cap="Recommendations: the same viewer, ranked by all five approaches side by side."><img src="assets/shots/reelbench-3.webp" alt="Ranked recommendations compared across all five approaches thumbnail" loading="lazy"></button>
+            </div>
+            <p class="cap">Viewer select: curated personas or browse by any real MovieLens user ID.</p>
+          </div>
+        </div>
+      </article>
+      <article class="proj flip reveal" data-cat="ds">
+        <div class="pinfo">
+          <div class="phead"><span class="n">06</span><span class="meta">2026 &nbsp;/&nbsp; Forecasting &amp; Anomalies</span></div>
+          <h3>RetailCast: Forecasting &amp; Anomaly Bench</h3>
+          <p class="one">A demand forecasting and anomaly detection bench across 60 retail series, with a narrative layer that verifies its own numbers before showing them.</p>
+          <ul class="results">
+            <li><b>01</b><span>Prophet, SARIMA, LightGBM and XGBoost compared with expanding-window walk-forward cross-validation.</span></li>
+            <li><b>02</b><span>XGBoost wins on holdout at MASE 0.632, ahead of LightGBM at 0.674; both classical models sit at or above MASE 1.0.</span></li>
+            <li><b>03</b><span>Control limits at k=2.5 beat Isolation Forest on F1, 0.694 against 0.632, driven by higher recall.</span></li>
+            <li><b>04</b><span>A regex-based grounding check verifies every generated number against source data before the dashboard shows it.</span></li>
+          </ul>
+          <p class="pnotes">Cost-of-error figures are illustrative, grounded in published grocery-retail margins rather than this business's actual P&amp;L.</p>
+          <div class="tags" style="margin-top:22px;">
+            <span class="tag">Prophet</span><span class="tag">SARIMA</span><span class="tag">XGBoost</span><span class="tag">Supabase</span>
+          </div>
+          <div class="plinks">
+            <a class="btn-primary" href="https://github.com/abhinavharbola/retailcast" target="_blank" rel="noopener">
+              <span>Read the code</span>
+              <span class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+            </a>
+          </div>
+        </div>
+        <div class="tray shot" data-gal="retail">
+          <div class="core">
+            <div class="chrome">
+              <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="path">retailcast / forecast</span>
+              <button class="exp" type="button" data-open aria-label="Open screenshot full size"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 4h6v6M20 4l-7 7M10 20H4v-6M4 20l7-7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            </div>
+            <div class="stage" data-open>
+              <img class="on" src="assets/shots/retailcast-1.webp" alt="RetailCast landing view with series, model and holdout stats" loading="lazy">
+              <img src="assets/shots/retailcast-2.webp" alt="Forecast explorer comparing MASE, MAPE and WAPE across models" loading="lazy">
+              <img src="assets/shots/retailcast-3.webp" alt="Anomaly detection precision, recall and F1 comparison" loading="lazy">
+            </div>
+            <div class="strip2" role="group" aria-label="Screenshots of RetailCast: Forecasting and Anomaly Bench">
+              <button class="thumb" type="button" aria-pressed="true" data-cap="Overview: 60 series, 4 models, and the holdout window at a glance."><img src="assets/shots/retailcast-1.webp" alt="RetailCast landing view with series, model and holdout stats thumbnail" loading="lazy"></button>
+              <button class="thumb" type="button" aria-pressed="false" data-cap="Forecast: MASE, MAPE and WAPE compared across all four models."><img src="assets/shots/retailcast-2.webp" alt="Forecast explorer comparing MASE, MAPE and WAPE across models thumbnail" loading="lazy"></button>
+              <button class="thumb" type="button" aria-pressed="false" data-cap="Anomalies: control limits against Isolation Forest, scored on F1."><img src="assets/shots/retailcast-3.webp" alt="Anomaly detection precision, recall and F1 comparison thumbnail" loading="lazy"></button>
+            </div>
+            <p class="cap">Overview: 60 series, 4 models, and the holdout window at a glance.</p>
+          </div>
+        </div>
+      </article>
+    </div>
+
 
   </div>
 </section>
@@ -987,6 +1003,19 @@ footer{padding:40px 0 60px;}
   </div>
 </footer>
 
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Screenshot viewer" hidden>
+  <div class="bar">
+    <span class="t" id="lbt">Screenshot</span>
+    <span class="sp">
+      <span class="count" id="lbc">1 / 1</span>
+      <button class="iconbtn" id="lbprev" type="button" aria-label="Previous screenshot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14.5 5 8 12l6.5 7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button class="iconbtn" id="lbnext" type="button" aria-label="Next screenshot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9.5 5 16 12l-6.5 7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button class="iconbtn" id="lbclose" type="button" aria-label="Close viewer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+    </span>
+  </div>
+  <div class="view"><img id="lbimg" src="" alt=""></div>
+</div>
+
 <script>
 (function(){
   var root = document.documentElement;
@@ -1030,6 +1059,95 @@ footer{padding:40px 0 60px;}
       navEl.style.boxShadow = 'var(--shadow)';
     }
   }, { passive: true });
+
+  var projects = document.querySelectorAll('#projects .proj');
+  document.querySelectorAll('.fpill').forEach(function(b){
+    b.addEventListener('click', function(){
+      var f = b.dataset.filter;
+      document.querySelectorAll('.fpill').forEach(function(o){ o.setAttribute('aria-pressed', String(o === b)); });
+      projects.forEach(function(p){
+        p.classList.toggle('hide', f !== 'all' && p.dataset.cat !== f);
+      });
+    });
+  });
+
+  var gals = {};
+  document.querySelectorAll('.shot').forEach(function(shot){
+    var key = shot.dataset.gal;
+    var imgs = shot.querySelectorAll('.stage img');
+    var thumbs = shot.querySelectorAll('.thumb');
+    var cap = shot.querySelector('.cap');
+    var titleEl = shot.closest('.proj').querySelector('h3');
+    gals[key] = { idx: 0, imgs: imgs, thumbs: thumbs, cap: cap, title: titleEl };
+
+    function show(k, i){
+      var g = gals[k]; g.idx = i;
+      g.imgs.forEach(function(im, j){ im.classList.toggle('on', j === i); });
+      g.thumbs.forEach(function(th, j){ th.setAttribute('aria-pressed', String(j === i)); });
+      if(g.cap) g.cap.textContent = g.thumbs[i].dataset.cap || '';
+    }
+    gals[key].show = show;
+
+    thumbs.forEach(function(t, i){
+      t.addEventListener('click', function(){ show(key, i); });
+    });
+  });
+
+  var lb = document.getElementById('lb');
+  var lbimg = document.getElementById('lbimg');
+  var lbt = document.getElementById('lbt');
+  var lbc = document.getElementById('lbc');
+  var active = null, lastFocus = null;
+
+  function renderLb(){
+    var g = gals[active]; if(!g) return;
+    var im = g.imgs[g.idx];
+    lbimg.src = im.getAttribute('src');
+    lbimg.alt = im.getAttribute('alt') || '';
+    lbt.textContent = g.title ? g.title.textContent : 'Screenshot';
+    lbc.textContent = (g.idx + 1) + ' / ' + g.imgs.length;
+  }
+  function openLb(key){
+    active = key; lastFocus = document.activeElement;
+    lb.hidden = false;
+    renderLb();
+    requestAnimationFrame(function(){ lb.classList.add('open'); });
+    document.body.style.overflow = 'hidden';
+    document.getElementById('lbclose').focus();
+  }
+  function closeLb(){
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    window.setTimeout(function(){
+      if(!lb.classList.contains('open')){ lb.hidden = true; lbimg.src = ''; }
+    }, 420);
+    if(lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  function step(d){
+    var g = gals[active]; if(!g) return;
+    var n = (g.idx + d + g.imgs.length) % g.imgs.length;
+    g.show(active, n);
+    renderLb();
+  }
+
+  document.querySelectorAll('.shot [data-open]').forEach(function(el){
+    el.addEventListener('click', function(){ openLb(el.closest('.shot').dataset.gal); });
+  });
+  document.getElementById('lbclose').addEventListener('click', closeLb);
+  document.getElementById('lbprev').addEventListener('click', function(){ step(-1); });
+  document.getElementById('lbnext').addEventListener('click', function(){ step(1); });
+  lb.addEventListener('click', function(e){
+    if(e.target === lb || e.target.classList.contains('view')) closeLb();
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){
+      if(lb.classList.contains('open')) closeLb();
+      return;
+    }
+    if(!lb.classList.contains('open')) return;
+    if(e.key === 'ArrowLeft'){ e.preventDefault(); step(-1); }
+    if(e.key === 'ArrowRight'){ e.preventDefault(); step(1); }
+  });
 })();
 </script>
 
