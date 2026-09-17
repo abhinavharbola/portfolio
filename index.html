@@ -1,1242 +1,1240 @@
-<!doctype html>
-<html lang="en" data-theme="dark">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Abhinav Harbola, AI / ML Engineer &amp; Data Scientist</title>
-<meta name="description" content="Abhinav Harbola. AI engineer, ML engineer and data scientist building recommenders, causal models, RAG systems, autonomous agents and MLOps governance pipelines that evaluate and check their own work.">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Abhinav Harbola | AI/ML Engineer</title>
+<meta name="description" content="Portfolio of Abhinav Harbola, AI/ML Engineer building production-style systems across recommenders, RAG, autonomous agents, and MLOps governance."/>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0A0C10;
-  --bg-elevated:#12151C;
-  --bg-inset:#0E1015;
-  --text:#E8EAEF;
-  --text-muted:#8B93A3;
-  --text-faint:#565D6B;
-  --border:rgba(232,234,239,0.09);
-  --border-strong:rgba(232,234,239,0.16);
-  --accent:#E8A33D;
-  --accent-text:#0A0C10;
-  --accent-soft:rgba(232,163,61,0.12);
-  --verify:#4FD1B0;
-  --shadow:0 20px 50px rgba(0,0,0,0.35);
-  --radius-lg:22px;
-  --radius-md:14px;
+  --bg:#0a0b0d;
+  --bg-soft:#0d0f12;
+  --surface:#131519;
+  --surface-2:#191c21;
+  --surface-3:#20232a;
+  --border:rgba(255,255,255,.08);
+  --border-strong:rgba(255,255,255,.16);
+  --text:#eceef0;
+  --text-muted:#98a0a8;
+  --text-faint:#5f6570;
+  --accent:#d9a441;
+  --accent-strong:#eab654;
+  --accent-text:#e6b45c;
+  --accent-soft:rgba(217,164,65,.10);
+  --accent-border:rgba(217,164,65,.35);
+  --btn-primary-text:#161207;
+  --grid-line:rgba(255,255,255,.035);
+  --shadow-color:rgba(0,0,0,.35);
+  --nav-bg:rgba(10,11,13,.72);
+  --radius-card:14px;
   --radius-sm:8px;
-  --ease:cubic-bezier(0.19,1,0.22,1);
+  --maxw:1180px;
+  --font-display:'Bricolage Grotesque',system-ui,sans-serif;
+  --font-body:'Inter',system-ui,sans-serif;
+  color-scheme:dark;
 }
-html[data-theme="light"]{
-  --bg:#F5F5F1;
-  --bg-elevated:#FFFFFF;
-  --bg-inset:#EFEEE8;
-  --text:#15171C;
-  --text-muted:#5B6270;
-  --text-faint:#8A8F99;
-  --border:rgba(21,23,28,0.10);
-  --border-strong:rgba(21,23,28,0.18);
-  --accent:#B96E14;
-  --accent-text:#FFFFFF;
-  --accent-soft:rgba(185,110,20,0.10);
-  --verify:#1B8F73;
-  --shadow:0 20px 50px rgba(20,20,15,0.10);
+:root[data-theme="light"]{
+  --bg:#f6f6f4;
+  --bg-soft:#ffffff;
+  --surface:#ffffff;
+  --surface-2:#f0f0ed;
+  --surface-3:#e7e7e3;
+  --border:rgba(20,22,26,.10);
+  --border-strong:rgba(20,22,26,.18);
+  --text:#15171a;
+  --text-muted:#565c64;
+  --text-faint:#888e95;
+  --accent:#d9a441;
+  --accent-strong:#c78f2e;
+  --accent-text:#9c6b1f;
+  --accent-soft:rgba(184,120,31,.10);
+  --accent-border:rgba(184,120,31,.32);
+  --btn-primary-text:#161207;
+  --grid-line:rgba(20,22,26,.05);
+  --shadow-color:rgba(20,22,26,.10);
+  --nav-bg:rgba(246,246,244,.78);
+  color-scheme:light;
 }
-*{margin:0;padding:0;box-sizing:border-box;}
+body{transition:background .2s ease, color .2s ease;}
+*{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{
+  margin:0;
   background:var(--bg);
   color:var(--text);
-  font-family:'IBM Plex Sans',sans-serif;
+  font-family:var(--font-body);
   font-size:16px;
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-  transition:background 0.4s var(--ease), color 0.4s var(--ease);
 }
-::selection{background:var(--accent);color:var(--accent-text);}
+img{max-width:100%;display:block;}
 a{color:inherit;text-decoration:none;}
-ul{list-style:none;}
-button{font-family:inherit;background:none;border:none;color:inherit;cursor:pointer;}
+button{font-family:inherit;cursor:pointer;}
+::selection{background:var(--accent);color:#141414;}
 
-.wrap{max-width:1120px;margin:0 auto;padding:0 32px;}
+.ic{width:18px;height:18px;flex-shrink:0;}
 
-.grain{
-  position:fixed;inset:0;z-index:2;pointer-events:none;
-  opacity:0.035;mix-blend-mode:overlay;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+@media(max-width:640px){.wrap{padding:0 20px;}}
 
-.bg-field{
+/* background texture layers */
+.bg-grid{
   position:fixed;inset:0;z-index:0;pointer-events:none;
-  background:
-    radial-gradient(680px 420px at 82% -6%, var(--accent-soft), transparent 60%),
-    radial-gradient(520px 420px at -6% 30%, rgba(79,209,176,0.06), transparent 60%),
-    radial-gradient(900px 600px at 50% 100%, var(--accent-soft), transparent 55%);
-  transition:background 0.4s var(--ease);
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 85%);
 }
-html[data-theme="light"] .bg-field{
-  background:
-    radial-gradient(680px 420px at 82% -6%, var(--accent-soft), transparent 60%),
-    radial-gradient(520px 420px at -6% 30%, rgba(27,143,115,0.05), transparent 60%),
-    radial-gradient(900px 600px at 50% 100%, var(--accent-soft), transparent 55%);
+.bg-glow{
+  position:fixed;top:-10%;left:50%;transform:translateX(-50%);
+  width:900px;height:600px;z-index:0;pointer-events:none;
+  background:radial-gradient(closest-side, rgba(217,164,65,.08), transparent 70%);
 }
-.dot-field{
-  position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.5;
-  background-image:radial-gradient(var(--border-strong) 1px, transparent 1px);
-  background-size:34px 34px;
-  -webkit-mask-image:linear-gradient(to bottom, transparent, black 12%, black 75%, transparent);
-  mask-image:linear-gradient(to bottom, transparent, black 12%, black 75%, transparent);
-}
-.orbit{
-  position:absolute;top:50%;left:50%;
-  border:1px solid var(--border);border-radius:50%;
-  transform:translate(-50%,-50%);pointer-events:none;
+.bg-noise{
+  position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.035;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='90' height='90'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
 }
 
-.rail{
-  position:fixed;top:0;bottom:0;left:50%;z-index:1;pointer-events:none;
-  width:1120px;max-width:calc(100% - 64px);transform:translateX(-50%);
-  border-left:1px solid var(--border);
-  border-right:1px solid var(--border);
-  opacity:0.5;
+/* nav */
+.nav{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:blur(14px) saturate(140%);
+  -webkit-backdrop-filter:blur(14px) saturate(140%);
+  background:var(--nav-bg);
+  border-bottom:1px solid var(--border);
 }
-
-nav{
-  position:fixed;top:20px;left:50%;transform:translateX(-50%);
-  z-index:50;width:min(680px, calc(100% - 32px));
-  display:flex;align-items:center;justify-content:space-between;
-  padding:10px 10px 10px 20px;
-  background:color-mix(in srgb, var(--bg-elevated) 78%, transparent);
-  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
-  border:1px solid var(--border);
-  border-radius:999px;
-  box-shadow:var(--shadow);
-  transition:border-color 0.4s var(--ease), background 0.4s var(--ease);
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px;}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:600;font-size:17px;letter-spacing:-.01em;}
+.brand-mark{
+  width:34px;height:34px;border-radius:9px;flex-shrink:0;
+  background:var(--surface-2);border:1px solid var(--border-strong);
+  display:flex;align-items:center;justify-content:center;line-height:1;padding:0;
+  color:var(--accent-text);font-family:var(--font-display);font-weight:700;font-size:15px;
 }
-.logo{
-  font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:0.02em;
-  display:flex;align-items:center;gap:2px;
-}
-.logo .cursor{
-  display:inline-block;width:7px;height:15px;background:var(--accent);
-  margin-left:4px;animation:blink 1.1s step-end infinite;
-}
-@keyframes blink{0%,45%{opacity:1;}50%,100%{opacity:0;}}
-
-.nav-links{display:flex;align-items:center;gap:26px;}
-.nav-links a{
-  font-size:13.5px;color:var(--text-muted);
-  transition:color 0.25s var(--ease);
-}
+.nav-links{display:flex;align-items:center;gap:36px;}
+.nav-links a{font-size:14.5px;color:var(--text-muted);transition:color .15s ease;}
 .nav-links a:hover{color:var(--text);}
-.nav-actions{display:flex;align-items:center;gap:8px;}
-
+.nav-links a.is-page{color:var(--text);}
+.nav-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:9px 18px;border-radius:999px;
+  background:var(--accent);color:#161207;font-size:14px;font-weight:600;
+  border:1px solid var(--accent);
+  transition:transform .15s ease, background .15s ease;
+}
+.nav-cta:hover{background:var(--accent-strong);}
+.nav-cta:active{transform:scale(.97);}
 .theme-toggle{
-  width:38px;height:38px;border-radius:50%;position:relative;
-  display:flex;align-items:center;justify-content:center;
-  border:1px solid var(--border);
-  transition:border-color 0.3s var(--ease), transform 0.3s var(--ease);
+  background:var(--surface-2);border:1px solid var(--border-strong);border-radius:999px;
+  width:38px;height:38px;display:flex;align-items:center;justify-content:center;color:var(--text);
+  flex-shrink:0;transition:border-color .15s ease;
 }
-.theme-toggle:hover{border-color:var(--border-strong);}
-.theme-toggle:active{transform:scale(0.92);}
-.theme-toggle svg{width:16px;height:16px;stroke:var(--text);transition:transform 0.5s var(--ease), opacity 0.3s;}
-.icon-moon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
-html[data-theme="dark"] .icon-sun{display:none;}
-html[data-theme="light"] .icon-moon{display:none;}
+.theme-toggle:hover{border-color:var(--accent-border);color:var(--accent-text);}
+.theme-toggle .moon-ic{display:none;}
+[data-theme="light"] .theme-toggle .sun-ic{display:none;}
+[data-theme="light"] .theme-toggle .moon-ic{display:block;}
+.nav-burger{display:none;background:none;border:1px solid var(--border-strong);border-radius:8px;width:38px;height:38px;align-items:center;justify-content:center;color:var(--text);}
+@media(max-width:860px){
+  .nav-links{display:none;}
+  .nav-burger{display:flex;}
+}
+.mobile-menu{
+  display:none;position:fixed;inset:72px 0 0 0;z-index:49;background:var(--bg);
+  border-top:1px solid var(--border);padding:28px 24px;
+}
+.mobile-menu.open{display:block;}
+.mobile-menu a{display:block;padding:16px 4px;font-size:18px;border-bottom:1px solid var(--border);color:var(--text);font-family:var(--font-display);}
+.mobile-menu .nav-cta{margin-top:20px;justify-content:center;}
 
-.nav-resume{
-  font-family:'IBM Plex Mono',monospace;font-size:12.5px;
-  padding:9px 16px;border-radius:999px;
-  background:var(--accent);color:var(--accent-text);
-  transition:transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
-}
-.nav-resume:hover{transform:translateY(-1px);box-shadow:0 8px 20px var(--accent-soft);}
-
-.mono-tag{
-  font-family:'IBM Plex Mono',monospace;font-size:12.5px;
-  color:var(--text-muted);letter-spacing:0.01em;
-}
-.eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
-.eyebrow-index{
-  font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--accent);
-  border:1px solid var(--border);border-radius:5px;padding:3px 8px;line-height:1.4;
-}
-.bracket{position:relative;}
-.bracket::before,.bracket::after{
-  content:"";position:absolute;width:16px;height:16px;
-  border-color:var(--accent);opacity:0.9;transition:opacity 0.3s var(--ease);
-}
-.bracket::before{top:-1px;left:-1px;border-top:2px solid;border-left:2px solid;}
-.bracket::after{bottom:-1px;right:-1px;border-bottom:2px solid;border-right:2px solid;}
-
-main{position:relative;z-index:1;}
-
-section{padding:120px 0;position:relative;}
-section:not(#hero)::before{
-  content:"+";
-  position:absolute;top:0;left:50%;transform:translate(-50%,-50%);
-  width:23px;height:23px;display:flex;align-items:center;justify-content:center;
-  font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--text-faint);
-  background:var(--bg);border:1px solid var(--border);border-radius:50%;z-index:2;
-  transition:background 0.4s var(--ease), border-color 0.4s var(--ease);
-}
-.section-head{
-  display:flex;align-items:baseline;justify-content:space-between;
-  gap:24px;margin-bottom:56px;flex-wrap:wrap;
-}
-.section-head .eyebrow{margin-bottom:10px;}
-.section-title{
-  font-family:'Space Grotesk',sans-serif;font-weight:600;
-  font-size:clamp(28px,3.4vw,40px);letter-spacing:-0.01em;
-}
-.section-note{font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.7;color:var(--text-faint);max-width:320px;text-align:left;}
-
-.reveal{opacity:0;transform:translateY(28px);filter:blur(6px);transition:opacity 0.9s var(--ease), transform 0.9s var(--ease), filter 0.9s var(--ease);}
-.reveal.in{opacity:1;transform:translateY(0);filter:blur(0);}
-
-#hero{padding-top:190px;padding-bottom:80px;}
-.hero-grid{
-  display:grid;grid-template-columns:1.3fr 0.7fr;gap:64px;align-items:end;
-}
-.hero-kicker{
-  font-family:'IBM Plex Mono',monospace;font-size:14px;color:var(--accent);
-  margin-bottom:22px;display:flex;align-items:center;gap:10px;
-}
-.hero-kicker::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--verify);box-shadow:0 0 0 3px var(--accent-soft);}
-.hero-name{
-  font-family:'Space Grotesk',sans-serif;font-weight:700;
-  font-size:clamp(44px,7vw,84px);line-height:1.0;letter-spacing:-0.02em;
-  margin-bottom:26px;
-}
-.hero-role{
-  font-family:'IBM Plex Mono',monospace;font-size:15px;color:var(--text-muted);
-  margin-bottom:24px;
-}
-.hero-desc{max-width:540px;color:var(--text-muted);font-size:17px;line-height:1.7;margin-bottom:38px;}
-.hero-cta{display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
-
-.btn-primary{
-  display:inline-flex;align-items:center;gap:10px;
-  font-family:'IBM Plex Mono',monospace;font-size:13.5px;
-  padding:6px 6px 6px 20px;border-radius:999px;
-  background:var(--accent);color:var(--accent-text);
-  transition:transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
-}
-.btn-primary .icon-circle{
-  width:34px;height:34px;border-radius:50%;
-  background:rgba(0,0,0,0.15);
-  display:flex;align-items:center;justify-content:center;
-  transition:transform 0.35s var(--ease);
-}
-html[data-theme="light"] .btn-primary .icon-circle{background:rgba(255,255,255,0.35);}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 26px var(--accent-soft);}
-.btn-primary:hover .icon-circle{transform:translate(2px,-2px);}
-.btn-primary svg{width:13px;height:13px;stroke:currentColor;}
-
-.icon-btn{
-  width:38px;height:38px;border-radius:50%;flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;
-  border:1px solid var(--border);
-  transition:border-color 0.3s var(--ease), transform 0.3s var(--ease), background 0.3s var(--ease);
-}
-.icon-btn:hover{border-color:var(--accent);background:var(--accent-soft);transform:translateY(-2px);}
-.icon-btn svg{width:16px;height:16px;fill:var(--text);}
-.icon-btn.stroke svg{fill:none;stroke:var(--text);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
-.icon-row{display:flex;align-items:center;gap:10px;}
-
-.hero-photo{
-  justify-self:end;width:100%;max-width:260px;aspect-ratio:1/1.08;
-  padding:10px;border:1px solid var(--border);border-radius:var(--radius-lg);
-  background:var(--bg-elevated);position:relative;z-index:1;
-}
-.hero-visual{position:relative;justify-self:end;}
-.hero-visual .orbit:nth-child(1){width:340px;height:340px;}
-.hero-visual .orbit:nth-child(2){width:420px;height:420px;opacity:0.6;}
-.hero-photo-inner{
-  width:100%;height:100%;border-radius:calc(var(--radius-lg) - 10px);
-  overflow:hidden;position:relative;background:var(--bg-inset);
-}
-.hero-photo-inner img{
-  width:100%;height:100%;object-fit:cover;
-  filter:grayscale(1) contrast(1.02);
-  transition:filter 0.6s var(--ease);
-}
-.hero-photo:hover .hero-photo-inner img{filter:grayscale(0);}
-
-.stats-strip{
-  display:flex;flex-wrap:wrap;gap:0;
-  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
-  margin-top:70px;
-}
-.stat{
-  flex:1;min-width:160px;padding:26px 28px;border-right:1px solid var(--border);
-}
-.stat:last-child{border-right:none;}
-.stat-value{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:600;color:var(--accent);}
-.stat-label{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-faint);margin-top:6px;}
-
-#work{}
-.tags{display:flex;flex-wrap:wrap;gap:7px;}
-.tag{
-  font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-muted);
-  border:1px solid var(--border);border-radius:6px;padding:4px 9px;
+/* buttons */
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 22px;border-radius:999px;font-size:14.5px;font-weight:600;
+  border:1px solid transparent;transition:transform .15s ease, background .15s ease, border-color .15s ease;
   white-space:nowrap;
 }
+.btn:active{transform:scale(.97);}
+.btn-primary{background:var(--accent);color:#161207;}
+.btn-primary:hover{background:var(--accent-strong);}
+.btn-ghost{background:transparent;color:var(--text);border-color:var(--border-strong);}
+.btn-ghost:hover{border-color:var(--accent-border);color:var(--accent-strong);}
+.btn-sm{padding:9px 16px;font-size:13.5px;}
 
-.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:28px;}
-.fpill{
-  padding:9px 17px;border-radius:999px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;
-  color:var(--text-muted);border:1px solid var(--border);background:var(--bg-inset);
-  transition:color 0.4s var(--ease), background-color 0.4s var(--ease), border-color 0.4s var(--ease);
+/* eyebrow / labels */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-text);
+  font-weight:600;
 }
-.fpill:hover{color:var(--text);border-color:var(--border-strong);}
-.fpill[aria-pressed="true"]{background:var(--accent);color:var(--accent-text);border-color:transparent;}
-.fpill .c{font-size:11px;margin-left:8px;opacity:0.65;}
+.eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);}
 
-.projects{display:grid;gap:88px;margin-top:56px;}
-.proj{
-  display:grid;grid-template-columns:minmax(0,0.85fr) minmax(0,1.15fr);
-  gap:48px;align-items:start;
-  transition:opacity 0.4s var(--ease);
+/* hero */
+.view{position:relative;z-index:1;}
+.hero{padding:76px 0 40px;}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:40px;}}
+.hero h1{
+  font-family:var(--font-display);font-weight:600;
+  font-size:clamp(34px,5vw,58px);line-height:1.04;letter-spacing:-.02em;margin:18px 0 20px;
 }
-.proj.flip{grid-template-columns:minmax(0,1.15fr) minmax(0,0.85fr);}
-.proj.flip .pinfo{order:2;}
-.proj.hide{display:none;}
-.pinfo{position:sticky;top:104px;}
-.phead{display:flex;align-items:baseline;gap:14px;margin-bottom:16px;}
-.phead .n{
-  font-family:'Space Grotesk',sans-serif;font-size:38px;line-height:0.82;
-  letter-spacing:-0.03em;color:var(--border-strong);
-}
-.phead .meta{
-  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;
-  text-transform:uppercase;color:var(--text-faint);
-}
-.proj h3{
-  font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(24px,2.4vw,30px);
-  line-height:1.12;letter-spacing:-0.015em;margin-bottom:15px;
-}
-.proj .one{color:var(--text-muted);font-size:15px;line-height:1.7;max-width:48ch;}
-.results{list-style:none;padding:0;margin:24px 0 0;display:grid;}
-.results li{
-  display:flex;gap:15px;align-items:flex-start;padding-block:13px;
-  border-top:1px solid var(--border);font-size:13.5px;line-height:1.6;color:var(--text-muted);
-}
-.results li:last-child{border-bottom:1px solid var(--border);}
-.results li b{
-  font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:0.06em;
-  color:var(--accent);flex:none;width:20px;padding-top:2px;
-}
-.pnotes{margin-top:20px;font-size:13px;line-height:1.7;color:var(--text-faint);}
-.plinks{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;}
+.hero h1 em{font-style:normal;color:var(--accent-text);}
+.hero p.lead{font-size:17.5px;color:var(--text-muted);max-width:56ch;margin:0 0 30px;}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:38px;}
+.hero-meta{display:flex;flex-wrap:wrap;gap:22px;color:var(--text-faint);font-size:13.5px;}
+.hero-meta span{display:inline-flex;align-items:center;gap:7px;}
 
-.tray{background:var(--bg-inset);border:1px solid var(--border);border-radius:var(--radius-lg);padding:8px;}
-.core{background:var(--bg-elevated);border:1px solid var(--border);border-radius:calc(var(--radius-lg) - 8px);overflow:hidden;}
-.shot .core{padding:0;}
-.chrome{
-  display:flex;align-items:center;gap:12px;padding:11px 15px;
-  border-bottom:1px solid var(--border);background:var(--bg-elevated);
+.hero-photo-wrap{position:relative;justify-self:center;width:100%;max-width:360px;}
+.hero-photo{
+  position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--border-strong);
+  aspect-ratio:1/1.06;background:var(--surface);
 }
-.chrome .dots{display:flex;gap:5px;}
-.chrome .dots i{width:7px;height:7px;border-radius:99px;background:var(--border-strong);opacity:0.7;}
-.chrome .path{
-  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.03em;color:var(--text-faint);
-  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+.hero-photo img{width:100%;height:100%;object-fit:cover;}
+.hero-photo-frame{
+  position:absolute;inset:-10px;border:1px solid var(--border);border-radius:26px;pointer-events:none;
 }
-.chrome .exp{
-  margin-left:auto;flex:none;width:26px;height:26px;border-radius:8px;
-  display:grid;place-items:center;color:var(--text-faint);
-  transition:color 0.35s var(--ease), background-color 0.35s var(--ease);
+.hero-tag{
+  position:absolute;bottom:-16px;left:-16px;
+  background:var(--surface-2);border:1px solid var(--border-strong);border-radius:12px;
+  padding:12px 16px;display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text);
+  box-shadow:0 10px 30px var(--shadow-color);
 }
-.chrome .exp:hover{color:var(--accent);background:var(--accent-soft);}
-.chrome .exp svg{width:13px;height:13px;stroke-width:1.4;}
-.stage{position:relative;aspect-ratio:16/9;background:var(--bg-inset);cursor:zoom-in;overflow:hidden;}
-.stage img{
-  position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;
-  opacity:0;filter:saturate(0.96);transition:opacity 0.6s var(--ease), transform 1.1s var(--ease);
-}
-.stage img.on{opacity:1;}
-.stage:hover img.on{transform:scale(1.015);}
-.strip2{
-  display:flex;gap:8px;padding:10px;background:var(--bg-elevated);
-  border-top:1px solid var(--border);overflow-x:auto;
-}
-.thumb{
-  flex:none;width:76px;aspect-ratio:16/10;border-radius:8px;overflow:hidden;
-  border:1px solid var(--border);opacity:0.5;padding:0;background:var(--bg-inset);
-  transition:opacity 0.4s var(--ease), border-color 0.4s var(--ease), transform 0.3s var(--ease);
-}
-.thumb img{width:100%;height:100%;object-fit:cover;object-position:top;}
-.thumb:hover{opacity:0.85;transform:translateY(-2px);}
-.thumb[aria-pressed="true"]{opacity:1;border-color:var(--accent);}
-.cap{
-  padding:11px 15px 13px;border-top:1px solid var(--border);background:var(--bg-elevated);
-  font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.02em;
-  color:var(--text-faint);line-height:1.6;
-}
+.hero-tag .ic{color:var(--accent-text);}
+@media(max-width:640px){.hero-tag{display:none;}}
 
-.lb{
-  position:fixed;inset:0;z-index:80;display:flex;flex-direction:column;
-  background:color-mix(in srgb, var(--bg) 92%, transparent);
-  backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
-  opacity:0;visibility:hidden;transition:opacity 0.4s var(--ease), visibility 0.4s var(--ease);
-}
-.lb.open{opacity:1;visibility:visible;}
-.lb .bar{
-  display:flex;align-items:center;gap:16px;padding:18px clamp(16px,4vw,32px);
-  flex:none;border-bottom:1px solid var(--border);
-}
-.lb .bar .t{
-  font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;
-  color:var(--text-muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-}
-.lb .bar .sp{margin-left:auto;display:flex;gap:8px;align-items:center;flex:none;}
-.iconbtn{
-  width:36px;height:36px;border-radius:999px;display:grid;place-items:center;
-  color:var(--text-muted);border:1px solid var(--border);
-  transition:color 0.35s var(--ease), background-color 0.35s var(--ease), border-color 0.35s var(--ease);
-}
-.iconbtn:hover{color:var(--text);background:var(--bg-inset);border-color:var(--border-strong);}
-.iconbtn svg{width:15px;height:15px;stroke-width:1.4;}
-.lb .view{flex:1;overflow:auto;padding:clamp(16px,3vw,32px);display:flex;justify-content:center;}
-.lb .view img{
-  width:100%;max-width:1280px;height:auto;border-radius:var(--radius-md);
-  border:1px solid var(--border);box-shadow:var(--shadow);align-self:flex-start;
-}
-.lb .count{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.04em;color:var(--text-faint);flex:none;}
+/* stats strip */
+.stats-strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:34px 0;}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+@media(max-width:760px){.stats-grid{grid-template-columns:repeat(2,1fr);}}
+.stat-item{}
+.stat-num{font-family:var(--font-display);font-size:clamp(24px,3vw,34px);font-weight:600;color:var(--text);letter-spacing:-.01em;}
+.stat-num span{color:var(--accent-text);}
+.stat-label{font-size:13px;color:var(--text-faint);margin-top:4px;}
 
-#stack{}
-.stack-groups{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--border);}
-.stack-row{
-  display:grid;grid-template-columns:220px 1fr;gap:32px;
-  padding:26px 0;border-bottom:1px solid var(--border);align-items:baseline;
+/* sections */
+.section{padding:96px 0;}
+.section-tight{padding:64px 0 96px;}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:44px;flex-wrap:wrap;}
+.section-head h2{font-family:var(--font-display);font-size:clamp(26px,3.4vw,38px);font-weight:600;letter-spacing:-.015em;margin:0 0 10px;}
+.section-head p{color:var(--text-muted);max-width:52ch;margin:0;font-size:15.5px;}
+
+/* featured project cards */
+.feat-list{display:flex;flex-direction:column;gap:20px;}
+.feat-card{
+  display:grid;grid-template-columns:340px 1fr;gap:0;
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-card);
+  overflow:hidden;transition:border-color .2s ease, transform .2s ease;
 }
-.stack-cat{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--text-faint);}
-.stack-chips{display:flex;flex-wrap:wrap;gap:9px;}
+.feat-card:hover{border-color:var(--border-strong);}
+@media(max-width:820px){.feat-card{grid-template-columns:1fr;}}
+.feat-media{position:relative;background:var(--bg-soft);border-right:1px solid var(--border);min-height:220px;}
+@media(max-width:820px){.feat-media{border-right:none;border-bottom:1px solid var(--border);}}
+.feat-media img{width:100%;height:100%;object-fit:cover;object-position:top;position:absolute;inset:0;}
+.feat-body{padding:30px 32px;display:flex;flex-direction:column;}
+.feat-cat{font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--accent-text);font-weight:600;margin-bottom:10px;}
+.feat-body h3{font-family:var(--font-display);font-size:22px;font-weight:600;margin:0 0 10px;letter-spacing:-.01em;}
+.feat-body p{color:var(--text-muted);font-size:14.5px;margin:0 0 18px;max-width:60ch;}
+.tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px;}
+.tag{
+  font-size:12px;color:var(--text-muted);background:var(--surface-2);
+  border:1px solid var(--border);padding:5px 11px;border-radius:999px;
+}
+.feat-stats{display:flex;gap:26px;margin-bottom:22px;flex-wrap:wrap;}
+.feat-stats .s-num{font-family:var(--font-display);font-size:19px;font-weight:600;color:var(--text);}
+.feat-stats .s-lbl{font-size:11.5px;color:var(--text-faint);}
+.feat-foot{margin-top:auto;display:flex;gap:12px;flex-wrap:wrap;}
+
+/* view-all row */
+.view-all-row{display:flex;justify-content:center;margin-top:40px;}
+
+/* skills - row layout */
+.skill-rows{border-top:1px solid var(--border);}
+.skill-row{
+  display:grid;grid-template-columns:280px 1fr;gap:32px;padding:26px 0;
+  border-bottom:1px solid var(--border);align-items:baseline;
+}
+@media(max-width:760px){.skill-row{grid-template-columns:1fr;gap:12px;}}
+.skill-row-head{display:flex;align-items:center;gap:12px;}
+.skill-row-head .ic-badge{
+  width:34px;height:34px;border-radius:9px;background:var(--accent-soft);border:1px solid var(--accent-border);
+  display:flex;align-items:center;justify-content:center;color:var(--accent-text);flex-shrink:0;
+}
+.skill-row-head h4{font-family:var(--font-display);font-size:15.5px;font-weight:600;margin:0;}
+.skill-flow{color:var(--text-muted);font-size:14.5px;line-height:1.9;}
+.skill-flow b{color:var(--text);font-weight:500;}
+.skill-flow .dot{color:var(--text-faint);margin:0 10px;}
+.chip-row{display:flex;flex-wrap:wrap;gap:8px;}
 .chip{
-  font-size:13.5px;color:var(--text-muted);white-space:nowrap;
-  border:1px solid var(--border);border-radius:999px;padding:7px 14px;
-  transition:border-color 0.3s var(--ease), color 0.3s var(--ease);
-}
-.chip:hover{border-color:var(--accent);color:var(--text);}
-
-#experience{background:var(--bg-inset);border-block:1px solid var(--border);}
-.tl{display:grid;gap:0;}
-.tlrow{
-  display:grid;grid-template-columns:minmax(0,0.32fr) minmax(0,1fr);
-  gap:clamp(20px,3vw,48px);padding-block:clamp(28px,3vw,40px);
-  border-top:1px solid var(--border);
-}
-.tlrow:last-child{border-bottom:1px solid var(--border);}
-.tlrow .when{
-  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;
-  text-transform:uppercase;color:var(--text-faint);padding-top:6px;
-}
-.tlrow h3{
-  font-family:'Space Grotesk',sans-serif;font-weight:600;
-  font-size:clamp(20px,1.9vw,24px);letter-spacing:-0.01em;line-height:1.2;
-}
-.tlrow .org{margin-top:7px;font-size:14.5px;color:var(--accent);}
-.tlrow ul{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:10px;max-width:640px;}
-.tlrow li{display:flex;gap:12px;font-size:14px;line-height:1.65;color:var(--text-muted);}
-.tlrow li::before{content:"";width:4px;height:4px;border-radius:99px;background:var(--border-strong);flex:none;margin-top:9px;}
-.creds{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:20px;}
-.cred{
-  display:flex;gap:13px;align-items:flex-start;padding:15px 16px;
-  border-radius:var(--radius-md);background:var(--bg-elevated);border:1px solid var(--border);
-  transition:border-color 0.4s var(--ease), transform 0.4s var(--ease);
-}
-.cred:hover{border-color:var(--border-strong);transform:translateY(-2px);}
-.cred svg{width:15px;height:15px;stroke-width:1.3;color:var(--accent);flex:none;margin-top:3px;}
-.cred b{display:block;font-size:13.5px;font-weight:500;letter-spacing:-0.005em;line-height:1.4;color:var(--text);}
-.cred span{
-  display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.06em;
-  text-transform:uppercase;color:var(--text-faint);margin-top:5px;
+  font-size:13px;padding:6px 12px;border-radius:8px;background:var(--surface-2);
+  border:1px solid var(--border);color:var(--text-muted);
 }
 
-#contact{text-align:center;position:relative;overflow:hidden;}
-#contact::before,#contact::after{
-  content:"";position:absolute;border-radius:999px;pointer-events:none;
-  background:radial-gradient(circle at 34% 30%, var(--accent-soft), transparent 68%);
+/* experience / education - row layout */
+.exp-rows{border-top:1px solid var(--border);margin-bottom:12px;}
+.exp-row{
+  display:grid;grid-template-columns:220px 1fr;gap:32px;padding:30px 0;
+  border-bottom:1px solid var(--border);
 }
-#contact::before{width:min(46rem,62vw);aspect-ratio:1;right:-14rem;top:-16rem;opacity:0.7;}
-#contact::after{width:min(30rem,50vw);aspect-ratio:1;left:-12rem;bottom:-14rem;opacity:0.4;}
-#contact .wrap{position:relative;z-index:1;}
-.eyebrow.center{justify-content:center;}
-.contact-heading{
-  font-family:'Space Grotesk',sans-serif;font-weight:600;
-  font-size:clamp(30px,4vw,46px);letter-spacing:-0.015em;line-height:1.16;
-  max-width:20ch;margin:22px auto 0;
-}
-.contact-lead{margin:18px auto 0;max-width:52ch;color:var(--text-muted);font-size:16px;line-height:1.7;}
-.mailrow{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:40px;}
-.btn-secondary{
-  display:inline-flex;align-items:center;gap:10px;
-  font-family:'IBM Plex Mono',monospace;font-size:13.5px;
-  padding:6px 6px 6px 20px;border-radius:999px;
-  background:var(--bg-elevated);color:var(--text);border:1px solid var(--border);
-  transition:border-color 0.35s var(--ease), transform 0.35s var(--ease);
-}
-.btn-secondary .icon-circle{
-  width:34px;height:34px;border-radius:50%;background:var(--bg-inset);
-  display:flex;align-items:center;justify-content:center;
-  transition:transform 0.35s var(--ease), background 0.35s var(--ease), color 0.35s var(--ease);
-}
-.btn-secondary:hover{border-color:var(--border-strong);transform:translateY(-2px);}
-.btn-secondary:hover .icon-circle{transform:translate(2px,-2px);background:var(--accent-soft);color:var(--accent);}
-.btn-secondary svg{width:13px;height:13px;stroke:currentColor;}
-.copybtn{
-  position:relative;display:inline-flex;align-items:center;gap:12px;
-  padding:9px 10px 9px 20px;border-radius:999px;
-  background:var(--bg-elevated);border:1px solid var(--border);
-  font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--text);
-  transition:border-color 0.4s var(--ease), transform 0.35s var(--ease);
-}
-.copybtn:hover{border-color:var(--border-strong);}
-.copybtn:active{transform:scale(0.978);}
-.copybtn .ic{
-  width:30px;height:30px;border-radius:50%;background:var(--bg-inset);
-  display:flex;align-items:center;justify-content:center;flex:none;
-  transition:background 0.4s var(--ease), color 0.4s var(--ease);
-}
-.copybtn:hover .ic{background:var(--accent-soft);color:var(--accent);}
-.copybtn svg{width:13px;height:13px;stroke:currentColor;}
-.copybtn .ok{
-  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-  border-radius:999px;background:var(--bg-elevated);color:var(--accent);font-size:13px;
-  opacity:0;pointer-events:none;transition:opacity 0.35s var(--ease);
-}
-.copybtn.done .ok{opacity:1;}
-.social{
-  display:flex;justify-content:center;flex-wrap:wrap;gap:32px;
-  margin-top:48px;padding-top:36px;border-top:1px solid var(--border);
-}
-.social a{
-  font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;
-  color:var(--text-faint);display:inline-flex;align-items:center;gap:9px;
-  transition:color 0.4s var(--ease);
-}
-.social a:hover{color:var(--accent);}
-.social a svg{width:14px;height:14px;stroke-width:1.4;fill:none;stroke:currentColor;}
+@media(max-width:760px){.exp-row{grid-template-columns:1fr;gap:10px;}}
+.exp-date{color:var(--text-faint);font-size:13px;padding-top:3px;}
+.exp-main h4{font-family:var(--font-display);font-size:18px;font-weight:600;margin:0 0 4px;}
+.exp-sub{color:var(--accent-text);font-size:14px;font-weight:500;margin-bottom:14px;}
+.exp-main ul{margin:0;padding-left:18px;color:var(--text-muted);font-size:14.5px;line-height:1.7;}
+.exp-main li{margin-bottom:8px;}
 
-footer{padding:40px 0 60px;}
-.foot-row{
-  display:flex;justify-content:space-between;align-items:center;
-  font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--text-faint);
-  flex-wrap:wrap;gap:12px;
+.cert-block-title{font-family:var(--font-display);font-size:15.5px;font-weight:600;margin:44px 0 18px;color:var(--text);}
+.cert-rows{border-top:1px solid var(--border);}
+.cert-row{
+  display:grid;grid-template-columns:34px 1fr auto;gap:14px;align-items:center;
+  padding:16px 0;border-bottom:1px solid var(--border);font-size:14px;color:var(--text-muted);
 }
+.cert-row .ic-badge{
+  width:34px;height:34px;border-radius:9px;background:var(--accent-soft);border:1px solid var(--accent-border);
+  display:flex;align-items:center;justify-content:center;color:var(--accent-text);
+}
+.cert-row b{color:var(--text);font-weight:500;display:block;}
+.cert-row .cert-issuer{color:var(--text-faint);font-size:12.5px;}
+.cert-row .cert-date{color:var(--text-faint);font-size:12.5px;white-space:nowrap;}
+@media(max-width:600px){.cert-row{grid-template-columns:34px 1fr;}.cert-row .cert-date{grid-column:2;padding-left:0;}}
 
-@media (max-width:980px) and (min-width:861px){
-  .proj,.proj.flip{grid-template-columns:minmax(0,1fr);gap:32px;}
-  .proj.flip .pinfo{order:0;}
-  .pinfo{position:static;}
-  .creds{grid-template-columns:1fr;}
+/* contact */
+.contact-band{
+  background:var(--surface);border:1px solid var(--border);border-radius:20px;
+  padding:56px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;position:relative;overflow:hidden;
 }
-@media (max-width:860px){
-  .wrap{padding:0 20px;}
-  nav{width:calc(100% - 24px);padding:8px 8px 8px 18px;}
-  .nav-links{display:none;}
-  section{padding:80px 0;}
-  #hero{padding-top:150px;}
-  .hero-grid{grid-template-columns:1fr;gap:44px;}
-  .hero-photo{justify-self:start;max-width:170px;}
-  .hero-cta{gap:20px;}
-  .stats-strip{flex-direction:column;}
-  .stat{border-right:none;border-bottom:1px solid var(--border);}
-  .stat:last-child{border-bottom:none;}
-  .stack-row{grid-template-columns:1fr;gap:12px;}
-  .tlrow{grid-template-columns:1fr;gap:10px;}
-  .tlrow .when{padding-top:0;}
-  .creds{grid-template-columns:1fr;}
-  .contact-heading{max-width:none;}
-  .mailrow{flex-direction:column;align-items:stretch;}
-  .mailrow .btn-primary,.mailrow .btn-secondary,.mailrow .copybtn{justify-content:center;}
-  .social{gap:22px;}
-  .section-note{text-align:left;}
-  .proj,.proj.flip{grid-template-columns:minmax(0,1fr);gap:28px;}
-  .proj.flip .pinfo{order:0;}
-  .pinfo{position:static;}
-  .projects{gap:64px;}
-  .phead .n{font-size:30px;}
-  .thumb{width:62px;}
-  .lb .view{padding:14px;}
+@media(max-width:820px){.contact-band{grid-template-columns:1fr;padding:36px 28px;}}
+.contact-band h2{font-family:var(--font-display);font-size:clamp(26px,3.6vw,36px);font-weight:600;margin:0 0 14px;letter-spacing:-.015em;}
+.contact-band p{color:var(--text-muted);font-size:15.5px;max-width:48ch;margin:0 0 26px;}
+.contact-actions{display:flex;gap:14px;flex-wrap:wrap;}
+.contact-list{display:flex;flex-direction:column;gap:14px;}
+.contact-row{
+  display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:12px;
+  background:var(--surface-2);border:1px solid var(--border);font-size:14px;transition:border-color .15s ease;
 }
-@media (prefers-reduced-motion:reduce){
-  *{animation-duration:0.001ms !important;transition-duration:0.001ms !important;}
-  .reveal{opacity:1;transform:none;filter:none;}
+.contact-row:hover{border-color:var(--accent-border);}
+.contact-row .ic-badge{
+  width:34px;height:34px;border-radius:9px;background:var(--accent-soft);border:1px solid var(--accent-border);
+  display:flex;align-items:center;justify-content:center;color:var(--accent-text);flex-shrink:0;
 }
+.contact-row .c-label{color:var(--text-faint);font-size:11.5px;display:block;}
+.contact-row .c-val{color:var(--text);font-weight:500;}
+
+footer{border-top:1px solid var(--border);padding:36px 0;}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+.footer-inner p{color:var(--text-faint);font-size:13px;margin:0;}
+.footer-links{display:flex;gap:20px;}
+.footer-links a{color:var(--text-faint);transition:color .15s ease;}
+.footer-links a:hover{color:var(--accent-text);}
+
+/* ============ PROJECTS PAGE ============ */
+.page-header{padding:56px 0 40px;border-bottom:1px solid var(--border);}
+.page-header .back{
+  display:inline-flex;align-items:center;gap:8px;color:var(--text-muted);font-size:13.5px;margin-bottom:24px;
+  transition:color .15s ease;
+}
+.page-header .back:hover{color:var(--accent-text);}
+.page-header h1{font-family:var(--font-display);font-size:clamp(30px,4.5vw,46px);font-weight:600;letter-spacing:-.02em;margin:0 0 14px;}
+.page-header p{color:var(--text-muted);font-size:15.5px;max-width:60ch;margin:0 0 30px;}
+
+.filter-row{display:flex;flex-wrap:wrap;gap:10px;}
+.filter-chip{
+  font-size:13.5px;padding:9px 18px;border-radius:999px;background:var(--surface);
+  border:1px solid var(--border);color:var(--text-muted);transition:all .15s ease;
+}
+.filter-chip:hover{border-color:var(--border-strong);color:var(--text);}
+.filter-chip.active{background:var(--accent);color:#161207;border-color:var(--accent);font-weight:600;}
+
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding:52px 0 96px;}
+@media(max-width:980px){.proj-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:660px){.proj-grid{grid-template-columns:1fr;}}
+.proj-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-card);
+  overflow:hidden;cursor:pointer;transition:border-color .2s ease, transform .2s ease;
+  display:flex;flex-direction:column;text-align:left;width:100%;color:inherit;
+}
+.proj-card:hover{border-color:var(--accent-border);transform:translateY(-3px);}
+.proj-media{aspect-ratio:16/10;background:var(--bg-soft);position:relative;border-bottom:1px solid var(--border);}
+.proj-media img{width:100%;height:100%;object-fit:cover;object-position:top;}
+.proj-media.noimg{display:flex;align-items:center;justify-content:center;color:var(--text-faint);}
+.proj-media.noimg .ic{width:34px;height:34px;color:var(--accent-text);opacity:.5;}
+.proj-body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1;}
+.proj-cat{font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--accent-text);font-weight:600;margin-bottom:9px;}
+.proj-body h3{font-family:var(--font-display);font-size:18px;font-weight:600;margin:0 0 9px;letter-spacing:-.005em;}
+.proj-body p{color:var(--text-muted);font-size:13.5px;margin:0 0 16px;flex:1;}
+.proj-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px;}
+.proj-tags .tag{font-size:11px;padding:4px 9px;}
+.proj-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--accent-text);}
+
+/* modal */
+.modal-overlay{
+  position:fixed;inset:0;z-index:100;background:rgba(6,7,8,.78);backdrop-filter:blur(6px);
+  display:none;align-items:flex-start;justify-content:center;overflow-y:auto;padding:48px 20px;
+}
+.modal-overlay.open{display:flex;}
+.modal{
+  background:var(--bg-soft);border:1px solid var(--border-strong);border-radius:20px;max-width:820px;width:100%;
+  margin-bottom:48px;overflow:hidden;
+}
+.modal-media{aspect-ratio:16/9;background:var(--surface);position:relative;border-bottom:1px solid var(--border);}
+.modal-media img{width:100%;height:100%;object-fit:cover;object-position:top;}
+.modal-media.noimg{display:flex;align-items:center;justify-content:center;}
+.modal-media.noimg .ic{width:48px;height:48px;color:var(--accent-text);opacity:.4;}
+.modal-close{
+  position:absolute;top:16px;right:16px;width:38px;height:38px;border-radius:999px;
+  background:rgba(10,11,13,.8);border:1px solid var(--border-strong);display:flex;align-items:center;justify-content:center;
+  color:var(--text);z-index:2;
+}
+.modal-body{padding:36px 40px 44px;}
+@media(max-width:640px){.modal-body{padding:26px 22px 32px;}}
+.modal-cat{font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--accent-text);font-weight:600;margin-bottom:10px;}
+.modal-body h2{font-family:var(--font-display);font-size:26px;font-weight:600;margin:0 0 12px;letter-spacing:-.015em;}
+.modal-tagline{color:var(--text-muted);font-size:15px;margin:0 0 22px;}
+.modal-stats{display:flex;gap:28px;flex-wrap:wrap;margin-bottom:26px;padding:18px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.modal-stats .s-num{font-family:var(--font-display);font-size:20px;font-weight:600;}
+.modal-stats .s-lbl{font-size:11.5px;color:var(--text-faint);}
+.modal-section{margin-bottom:26px;}
+.modal-section h5{
+  font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--text-faint);font-weight:600;margin:0 0 12px;
+}
+.modal-section p{color:var(--text-muted);font-size:14.5px;line-height:1.7;margin:0;}
+.modal-section ul{margin:0;padding-left:20px;color:var(--text-muted);font-size:14.5px;line-height:1.7;}
+.modal-section li{margin-bottom:10px;}
+.modal-foot{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px;}
+
+/* scroll reveal */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+.rv.in{opacity:1;transform:translateY(0);}
+
+.hide{display:none !important;}
 </style>
-<noscript><style>.reveal{opacity:1 !important;transform:none !important;filter:none !important;}</style></noscript>
 </head>
 <body>
+<div class="bg-grid"></div>
+<div class="bg-glow"></div>
+<div class="bg-noise"></div>
 
-<div class="grain"></div>
-<div class="bg-field"></div>
-<div class="dot-field"></div>
-<div class="rail"></div>
 
-<nav>
-  <a href="#hero" class="logo">AH<span class="cursor"></span></a>
-  <div class="nav-links">
-    <a href="#work">Work</a>
-    <a href="#stack">Stack</a>
-    <a href="#experience">Experience</a>
-    <a href="#contact">Contact</a>
-  </div>
-  <div class="nav-actions">
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme">
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M4.6 4.6l1.7 1.7M17.7 17.7l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.6 19.4l1.7-1.7M17.7 6.3l1.7-1.7"/></svg>
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5Z"/></svg>
-    </button>
-    <a class="nav-resume" href="assets/resume.pdf" target="_blank" rel="noopener">Resume</a>
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a href="#/" class="brand"><span class="brand-mark">A</span> Abhinav Harbola</a>
+    <div class="nav-links">
+      <a href="#/">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#/projects" class="is-page">Projects</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle color theme"><svg class="ic sun-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"/></svg><svg class="ic moon-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454l0 .008"/></svg></button>
+      <a href="#contact" class="nav-cta">Get in touch <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 7l-10 10"/><path d="M8 7l9 0l0 9"/></svg></a>
+      <button class="nav-burger" onclick="toggleMobileMenu()"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l16 0"/><path d="M4 12l16 0"/><path d="M4 18l16 0"/></svg></button>
+    </div>
   </div>
 </nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#/" onclick="closeMobileMenu()">Home</a>
+  <a href="#about" onclick="closeMobileMenu()">About</a>
+  <a href="#skills" onclick="closeMobileMenu()">Skills</a>
+  <a href="#experience" onclick="closeMobileMenu()">Experience</a>
+  <a href="#/projects" onclick="closeMobileMenu()">Projects</a>
+  <a class="nav-cta" href="#contact" onclick="closeMobileMenu()">Get in touch <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 7l-10 10"/><path d="M8 7l9 0l0 9"/></svg></a>
+  <button class="theme-toggle" style="margin-top:20px;" onclick="toggleTheme()" aria-label="Toggle color theme"><svg class="ic sun-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"/></svg><svg class="ic moon-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454l0 .008"/></svg></button>
+</div>
 
-<main>
 
-<section id="hero">
-  <div class="wrap">
-    <div class="hero-grid">
-      <div>
-        <div class="hero-kicker reveal in">open to ai / ml / data science roles</div>
-        <h1 class="hero-name reveal in">Abhinav<br>Harbola</h1>
-        <div class="hero-role reveal in">ai &amp; ml engineer, data scientist · models, pipelines, and the evidence behind them</div>
-        <p class="hero-desc reveal in">I build systems across the full stack of applied AI and data science: statistically validated causal models, leakage-tested recommenders, a RAG pipeline that fails closed instead of guessing, an autonomous research agent that cites everything or says it doesn't know, and an MLOps pipeline that gates its own promotions. Every project is designed, evaluated and shipped the way I'd want a hire to do it: rigorously, and on infrastructure that costs nothing to run.</p>
-        <div class="hero-cta reveal in">
-          <a class="btn-primary" href="#work">
-            <span>View the work</span>
-            <span class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
-          </a>
-          <div class="icon-row">
-            <a class="icon-btn" href="https://github.com/abhinavharbola" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.333-1.754-1.333-1.754-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.605-2.665-.303-5.466-1.332-5.466-5.93 0-1.31.468-2.38 1.235-3.22-.123-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 0 1 3.003-.404c1.02.005 2.047.138 3.006.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.241 2.874.118 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.805 5.625-5.475 5.92.43.372.815 1.103.815 2.222 0 1.606-.015 2.898-.015 3.293 0 .32.216.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
-            <a class="icon-btn" href="https://linkedin.com/in/abhinavharbola" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667h-3.554V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.114 20.452H3.558V9h3.556v11.452z"/></svg></a>
-            <a class="icon-btn stroke" href="mailto:abhinavdaharbola@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></a>
-          </div>
-        </div>
+<main id="view-home" class="view">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="rv in">
+      <span class="eyebrow">AI/ML Engineer &middot; open to Data Science roles</span>
+      <h1>Building ML and LLM systems that hold up under <em>scrutiny</em>, not just under a demo.</h1>
+      <p class="lead">I design and build production-style systems across recommenders, retrieval-augmented generation, autonomous agents, and MLOps governance, each one self-initiated, tested, benchmarked, and honest about its own limits.</p>
+      <div class="hero-actions">
+        <a href="#/projects" class="btn btn-primary">View projects <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg></a>
+        <a href="assets/resume.pdf" download="Abhinav_Harbola_Resume.pdf" class="btn btn-ghost">Download resume <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg></a>
       </div>
-      <div class="hero-visual reveal in">
-        <div class="orbit"></div>
-        <div class="orbit"></div>
-        <div class="hero-photo bracket">
-          <div class="hero-photo-inner">
-            <img src="assets/profile.png" alt="Portrait of Abhinav Harbola">
-          </div>
-        </div>
+      <div class="hero-meta">
+        <span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0"/></svg> Varanasi, India</span>
+        <span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 1 0 12 0a6 6 0 0 0 -12 0"/><path d="M12 3c1.333 .333 2 2.333 2 6s-.667 5.667 -2 6"/><path d="M12 3c-1.333 .333 -2 2.333 -2 6s.667 5.667 2 6"/><path d="M6 9h12"/><path d="M3 20h7"/><path d="M14 20h7"/><path d="M10 20a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M12 15v3"/></svg> Open to remote or relocation</span>
+        <span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1v-6a1 1 0 0 1 1 -1"/><path d="M5 16h4a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1v-2a1 1 0 0 1 1 -1"/><path d="M15 12h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1v-6a1 1 0 0 1 1 -1"/><path d="M15 4h4a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1v-2a1 1 0 0 1 1 -1"/></svg> 9 end-to-end builds</span>
       </div>
     </div>
-
-    <div class="stats-strip reveal">
-      <div class="stat"><div class="stat-value">6</div><div class="stat-label">shipped systems</div></div>
-      <div class="stat"><div class="stat-value">13.9M</div><div class="stat-label">rows in the largest study</div></div>
-      <div class="stat"><div class="stat-value">100%</div><div class="stat-label">projects with an eval harness</div></div>
-      <div class="stat"><div class="stat-value">0</div><div class="stat-label">paid infra used</div></div>
+    <div class="hero-photo-wrap rv in">
+      <div class="hero-photo"><img src="assets/images/hero_shot.webp" alt="Abhinav Harbola" loading="lazy" class=""/></div>
+      <div class="hero-photo-frame"></div>
+      <div class="hero-tag"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11.46 20.846a12 12 0 0 1 -7.96 -14.846a12 12 0 0 0 8.5 -3a12 12 0 0 0 8.5 3a12 12 0 0 1 -.09 7.06"/><path d="M15 19l2 2l4 -4"/></svg> <span>Free-tier infra only, by design</span></div>
     </div>
   </div>
 </section>
 
-<section id="work">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div>
-        <div class="eyebrow"><span class="eyebrow-index">01</span><span class="mono-tag">selected work</span></div>
-        <div class="section-title">Six systems, each graded against its own harness</div>
-      </div>
-      <div class="section-note">Not demos. Statistical validation, model benchmarking and production guardrails, applied across recommenders, causal inference, forecasting, RAG and autonomous agents.</div>
-    </div>
-
-    <div class="filters reveal">
-      <button class="fpill" type="button" data-filter="all" aria-pressed="true">All<span class="c">06</span></button>
-      <button class="fpill" type="button" data-filter="ml" aria-pressed="false">ML Engineering<span class="c">02</span></button>
-      <button class="fpill" type="button" data-filter="ai" aria-pressed="false">AI &amp; LLM Systems<span class="c">02</span></button>
-      <button class="fpill" type="button" data-filter="ds" aria-pressed="false">Data Science<span class="c">02</span></button>
-    </div>
-
-    <div class="projects" id="projects">
-      <article class="proj reveal" data-cat="ml">
-        <div class="pinfo">
-          <div class="phead"><span class="n">01</span><span class="meta">2026 &nbsp;/&nbsp; MLOps &amp; Governance</span></div>
-          <h3>Continuous Credit Risk Governance Pipeline</h3>
-          <p class="one">A self-governing MLOps pipeline that runs the full credit-risk model lifecycle end to end: drift detection, retraining, statistical gating, promotion, rollback, with no human in the loop.</p>
-          <ul class="results">
-            <li><b>01</b><span>637 live batches over 150K+ credit records, zero manual intervention.</span></li>
-            <li><b>02</b><span>Tuned drift threshold cut false retrain triggers from about 40% to about 1%, without missing real injected drift.</span></li>
-            <li><b>03</b><span>Three-gate promotion: a tolerance band, strict dominance, and McNemar or bootstrap significance testing.</span></li>
-            <li><b>04</b><span>Rollback is held to the same bar, confirmed by a bootstrap CI rather than one bad batch.</span></li>
-            <li><b>05</b><span>55 automated tests audit every governance decision, including the ones that changed nothing.</span></li>
-          </ul>
-          <p class="pnotes">AUC-PR is tracked over accuracy given the low positive rate, and every decision, including rejections and suppressions, lands in a Postgres audit trail.</p>
-          <div class="tags" style="margin-top:22px;">
-            <span class="tag">MLflow</span><span class="tag">DVC</span><span class="tag">Evidently</span><span class="tag">Postgres</span><span class="tag">FastAPI</span><span class="tag">Streamlit</span><span class="tag">scikit-learn</span>
-          </div>
-          <div class="plinks">
-            <a class="btn-primary" href="https://github.com/abhinavharbola/credit-risk-autopilot" target="_blank" rel="noopener">
-              <span>Read the code</span>
-              <span class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
-            </a>
-          </div>
-        </div>
-        <div class="tray shot" data-gal="mlops">
-          <div class="core">
-            <div class="chrome">
-              <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
-              <span class="path">governance / overview</span>
-              <button class="exp" type="button" data-open aria-label="Open screenshot full size"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 4h6v6M20 4l-7 7M10 20H4v-6M4 20l7-7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            </div>
-            <div class="stage" data-open>
-              <img class="on" src="assets/shots/mlops-1.webp" alt="Governance dashboard overview: current batch, production model version, promotions and rollbacks" loading="lazy">
-              <img src="assets/shots/mlops-2.webp" alt="Drift tab: per batch drift share against the training reference, retrain triggers marked" loading="lazy">
-              <img src="assets/shots/mlops-3.webp" alt="Champion lineage view showing promotion history across model versions" loading="lazy">
-            </div>
-            <div class="strip2" role="group" aria-label="Screenshots of Continuous Credit Risk Governance Pipeline">
-              <button class="thumb" type="button" aria-pressed="true" data-cap="Overview: current champion, batch clock, promotions and rollbacks."><img src="assets/shots/mlops-1.webp" alt="Governance dashboard overview: current batch, production model version, promotions and rollbacks thumbnail" loading="lazy"></button>
-              <button class="thumb" type="button" aria-pressed="false" data-cap="Drift: per-batch drift share against the training reference, retrain triggers marked."><img src="assets/shots/mlops-2.webp" alt="Drift tab: per batch drift share against the training reference, retrain triggers marked thumbnail" loading="lazy"></button>
-              <button class="thumb" type="button" aria-pressed="false" data-cap="Lineage: promotion history with the metric each challenger was gated against."><img src="assets/shots/mlops-3.webp" alt="Champion lineage view showing promotion history across model versions thumbnail" loading="lazy"></button>
-            </div>
-            <p class="cap">Overview: current champion, batch clock, promotions and rollbacks.</p>
-          </div>
-        </div>
-      </article>
-      <article class="proj flip reveal" data-cat="ai">
-        <div class="pinfo">
-          <div class="phead"><span class="n">02</span><span class="meta">2025 &nbsp;/&nbsp; RAG &amp; Guardrails</span></div>
-          <h3>Kubernetes Gated RAG</h3>
-          <p class="one">A defense-in-depth RAG system for Kubernetes Q&amp;A, built as a LangGraph state machine that refuses to answer rather than answer wrong.</p>
-          <ul class="results">
-            <li><b>01</b><span>Fail-closed safety and topic gates run before any expensive retrieval or generation work.</span></li>
-            <li><b>02</b><span>Threshold-gated cross-encoder reranking, not just reordering, on a no-GPU 16GB machine.</span></li>
-            <li><b>03</b><span>Two-layer cache, exact match plus semantic at cosine 0.95 or above, skips redundant work on repeated or paraphrased questions.</span></li>
-            <li><b>04</b><span>RAGAS evaluation across 6 metrics, judged by a model family isolated from the pipeline it grades.</span></li>
-          </ul>
-          <p class="pnotes">A three-provider failover chain keeps the system answering even when a single LLM provider is rate-limited or down, with full node- and provider-level tracing via Logfire.</p>
-          <div class="tags" style="margin-top:22px;">
-            <span class="tag">LangGraph</span><span class="tag">Qdrant</span><span class="tag">FlashRank</span><span class="tag">Groq</span><span class="tag">Gemini</span><span class="tag">Streamlit</span>
-          </div>
-          <div class="plinks">
-            <a class="btn-primary" href="https://github.com/abhinavharbola/kubernetes-gated-rag" target="_blank" rel="noopener">
-              <span>Read the code</span>
-              <span class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
-            </a>
-          </div>
-        </div>
-        <div class="tray shot" data-gal="rag">
-          <div class="core">
-            <div class="chrome">
-              <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
-              <span class="path">k8s-rag / chat</span>
-              <button class="exp" type="button" data-open aria-label="Open screenshot full size"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 4h6v6M20 4l-7 7M10 20H4v-6M4 20l7-7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            </div>
-            <div class="stage" data-open>
-              <img class="on" src="assets/shots/rag-1.webp" alt="Kubernetes Q&A interface with corpus stats and provider panel" loading="lazy">
-              <img src="assets/shots/rag-2.webp" alt="Safety and topic gate blocking an off-scope question" loading="lazy">
-              <img src="assets/shots/rag-3.webp" alt="Semantic cache returning an exact hit on a paraphrased question" loading="lazy">
-            </div>
-            <div class="strip2" role="group" aria-label="Screenshots of Kubernetes Gated RAG">
-              <button class="thumb" type="button" aria-pressed="true" data-cap="Chat: corpus stats, session cache hits, and the live provider chain."><img src="assets/shots/rag-1.webp" alt="Kubernetes Q&A interface with corpus stats and provider panel thumbnail" loading="lazy"></button>
-              <button class="thumb" type="button" aria-pressed="false" data-cap="Gates: safety and topic checks blocking an off-scope question."><img src="assets/shots/rag-2.webp" alt="Safety and topic gate blocking an off-scope question thumbnail" loading="lazy"></button>
-              <button class="thumb" type="button" aria-pressed="false" data-cap="Cache: a semantic-match exact hit on a paraphrased question."><img src="assets/shots/rag-3.webp" alt="Semantic cache returning an exact hit on a paraphrased question thumbnail" loading="lazy"></button>
-            </div>
-            <p class="cap">Chat: corpus stats, session cache hits, and the live provider chain.</p>
-          </div>
-        </div>
-      </article>
-      <article class="proj reveal" data-cat="ai">
-        <div class="pinfo">
-          <div class="phead"><span class="n">03</span><span class="meta">2025 &nbsp;/&nbsp; Agentic Research</span></div>
-          <h3>Competitive Intelligence Agent</h3>
-          <p class="one">A Planner, Executor, Critic, Synthesizer research agent that turns a company name into a sourced brief, and marks what it can't verify as unknown rather than guessing.</p>
-          <ul class="results">
-            <li><b>01</b><span>Bounded critique and replan loop, max 3 cycles, with hard stops on tool calls and wall-clock time.</span></li>
-            <li><b>02</b><span>4 model families across 3 providers, keeping the grading model structurally isolated from what it grades.</span></li>
-            <li><b>03</b><span>Ablation study measures the Critic loop's actual effect on groundedness and completeness.</span></li>
-            <li><b>04</b><span>Every completed run is saved to Postgres, whether or not it started from cache.</span></li>
-          </ul>
-          <p class="pnotes">Fuzzy entity matches are surfaced as a note for a human to check rather than auto-seeded, to avoid conflating similarly named companies.</p>
-          <div class="tags" style="margin-top:22px;">
-            <span class="tag">LangGraph-style</span><span class="tag">NIM</span><span class="tag">Groq</span><span class="tag">Gemini</span><span class="tag">Postgres</span>
-          </div>
-          <div class="plinks">
-            <a class="btn-primary" href="https://github.com/abhinavharbola/competitive-intelligence-agent" target="_blank" rel="noopener">
-              <span>Read the code</span>
-              <span class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
-            </a>
-          </div>
-        </div>
-        <div class="tray shot" data-gal="cia">
-          <div class="core">
-            <div class="chrome">
-              <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
-              <span class="path">cia / research log</span>
-              <button class="exp" type="button" data-open aria-label="Open screenshot full size"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 4h6v6M20 4l-7 7M10 20H4v-6M4 20l7-7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            </div>
-            <div class="stage" data-open>
-              <img class="on" src="assets/shots/cia-1.webp" alt="Competitive Intelligence Agent architecture: Planner, Executor, Critic, Synthesizer" loading="lazy">
-              <img src="assets/shots/cia-2.webp" alt="Live research log streaming plan, search and critic replan cycles" loading="lazy">
-            </div>
-            <div class="strip2" role="group" aria-label="Screenshots of Competitive Intelligence Agent">
-              <button class="thumb" type="button" aria-pressed="true" data-cap="Architecture: Planner, Executor, Critic and Synthesizer, wired end to end."><img src="assets/shots/cia-1.webp" alt="Competitive Intelligence Agent architecture: Planner, Executor, Critic, Synthesizer thumbnail" loading="lazy"></button>
-              <button class="thumb" type="button" aria-pressed="false" data-cap="Live run: the research log streaming search steps and a critic replan cycle."><img src="assets/shots/cia-2.webp" alt="Live research log streaming plan, search and critic replan cycles thumbnail" loading="lazy"></button>
-            </div>
-            <p class="cap">Architecture: Planner, Executor, Critic and Synthesizer, wired end to end.</p>
-          </div>
-        </div>
-      </article>
-      <article class="proj flip reveal" data-cat="ds">
-        <div class="pinfo">
-          <div class="phead"><span class="n">04</span><span class="meta">2025 &nbsp;/&nbsp; Causal Inference</span></div>
-          <h3>Causal Impact &amp; Heterogeneity Lab</h3>
-          <p class="one">A causal inference pipeline that validates its own estimators against known ground truth before it trusts them on real ad-exposure data.</p>
-          <ul class="results">
-            <li><b>01</b><span>OLS, propensity matching, IPW and AIPW compared against a self-induced, calibrated confounder first.</span></li>
-            <li><b>02</b><span>A minimum-detectable-effect calculation, not a default, decides which outcome variable is usable per segment.</span></li>
-            <li><b>03</b><span>Benjamini-Hochberg correction controls the false discovery rate across every tested segment.</span></li>
-            <li><b>04</b><span>Rosenbaum bounds quantify how much unmeasured confounding would be needed to overturn the result.</span></li>
-          </ul>
-          <p class="pnotes">Matching is strict one-to-one without replacement, so under this dataset's treatment skew most treated units are discarded by design, and the dashboard reports that match rate rather than hiding it.</p>
-          <div class="tags" style="margin-top:22px;">
-            <span class="tag">scikit-learn</span><span class="tag">statsmodels</span><span class="tag">scipy</span><span class="tag">scikit-uplift</span>
-          </div>
-          <div class="plinks">
-            <a class="btn-primary" href="https://github.com/abhinavharbola/causal-inference-lab" target="_blank" rel="noopener">
-              <span>Read the code</span>
-              <span class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
-            </a>
-          </div>
-        </div>
-        <div class="tray shot" data-gal="causal">
-          <div class="core">
-            <div class="chrome">
-              <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
-              <span class="path">causal-lab / heterogeneity</span>
-              <button class="exp" type="button" data-open aria-label="Open screenshot full size"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 4h6v6M20 4l-7 7M10 20H4v-6M4 20l7-7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            </div>
-            <div class="stage" data-open>
-              <img class="on" src="assets/shots/causal-1.webp" alt="Causal Impact dashboard showing the segment-level CATE breakdown table" loading="lazy">
-              <img src="assets/shots/causal-2.webp" alt="Qini curve validating CATE model ranking against random targeting" loading="lazy">
-              <img src="assets/shots/causal-3.webp" alt="Sensitivity analysis panel with Rosenbaum bounds" loading="lazy">
-            </div>
-            <div class="strip2" role="group" aria-label="Screenshots of Causal Impact and Heterogeneity Lab">
-              <button class="thumb" type="button" aria-pressed="true" data-cap="Heterogeneity: segment-level CATE breakdown with bootstrap CIs."><img src="assets/shots/causal-1.webp" alt="Causal Impact dashboard showing the segment-level CATE breakdown table thumbnail" loading="lazy"></button>
-              <button class="thumb" type="button" aria-pressed="false" data-cap="Qini curve: the CATE model ranking checked against random targeting."><img src="assets/shots/causal-2.webp" alt="Qini curve validating CATE model ranking against random targeting thumbnail" loading="lazy"></button>
-              <button class="thumb" type="button" aria-pressed="false" data-cap="Sensitivity: Rosenbaum bounds on the matched-pairs conclusion."><img src="assets/shots/causal-3.webp" alt="Sensitivity analysis panel with Rosenbaum bounds thumbnail" loading="lazy"></button>
-            </div>
-            <p class="cap">Heterogeneity: segment-level CATE breakdown with bootstrap CIs.</p>
-          </div>
-        </div>
-      </article>
-      <article class="proj reveal" data-cat="ml">
-        <div class="pinfo">
-          <div class="phead"><span class="n">05</span><span class="meta">2025 &nbsp;/&nbsp; Recommender Systems</span></div>
-          <h3>ReelBench: Recommender Benchmark</h3>
-          <p class="one">A production-style two-stage recommender on MovieLens 25M, scoring five approaches through one identical, leakage-tested harness.</p>
-          <ul class="results">
-            <li><b>01</b><span>Popularity, item-item CF, ALS/BPR, a two-tower retriever and SASRec, all on Recall, NDCG and MAP at 10 and 20.</span></li>
-            <li><b>02</b><span>A single global timestamp cutoff, not a per-user split, closes a leakage path a per-user check alone would miss.</span></li>
-            <li><b>03</b><span>Row-blocked sparse similarity keeps item-item CF under 200MB against a projected 15GB dense matrix.</span></li>
-            <li><b>04</b><span>FAISS retrieval plus a LightGBM reranker served on CPU only, with a separate cold-start index for zero-interaction items.</span></li>
-          </ul>
-          <p class="pnotes">The committed comparison table currently scores the three CPU baselines; the harness can already score the two neural models, they just haven't been run against a trained checkpoint in this environment.</p>
-          <div class="tags" style="margin-top:22px;">
-            <span class="tag">PyTorch</span><span class="tag">FAISS</span><span class="tag">LightGBM</span><span class="tag">FastAPI</span>
-          </div>
-          <div class="plinks">
-            <a class="btn-primary" href="https://github.com/abhinavharbola/recsys-bench" target="_blank" rel="noopener">
-              <span>Read the code</span>
-              <span class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
-            </a>
-          </div>
-        </div>
-        <div class="tray shot" data-gal="reelbench">
-          <div class="core">
-            <div class="chrome">
-              <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
-              <span class="path">reelbench / performance</span>
-              <button class="exp" type="button" data-open aria-label="Open screenshot full size"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 4h6v6M20 4l-7 7M10 20H4v-6M4 20l7-7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            </div>
-            <div class="stage" data-open>
-              <img class="on" src="assets/shots/reelbench-1.webp" alt="ReelBench persona selector for curated MovieLens viewers" loading="lazy">
-              <img src="assets/shots/reelbench-2.webp" alt="Model performance comparison across recall, ndcg and map" loading="lazy">
-              <img src="assets/shots/reelbench-3.webp" alt="Ranked recommendations compared across all five approaches" loading="lazy">
-            </div>
-            <div class="strip2" role="group" aria-label="Screenshots of ReelBench: Recommender Benchmark">
-              <button class="thumb" type="button" aria-pressed="true" data-cap="Viewer select: curated personas or browse by any real MovieLens user ID."><img src="assets/shots/reelbench-1.webp" alt="ReelBench persona selector for curated MovieLens viewers thumbnail" loading="lazy"></button>
-              <button class="thumb" type="button" aria-pressed="false" data-cap="Metrics: recall, NDCG and MAP compared across every approach."><img src="assets/shots/reelbench-2.webp" alt="Model performance comparison across recall, ndcg and map thumbnail" loading="lazy"></button>
-              <button class="thumb" type="button" aria-pressed="false" data-cap="Recommendations: the same viewer, ranked by all five approaches side by side."><img src="assets/shots/reelbench-3.webp" alt="Ranked recommendations compared across all five approaches thumbnail" loading="lazy"></button>
-            </div>
-            <p class="cap">Viewer select: curated personas or browse by any real MovieLens user ID.</p>
-          </div>
-        </div>
-      </article>
-      <article class="proj flip reveal" data-cat="ds">
-        <div class="pinfo">
-          <div class="phead"><span class="n">06</span><span class="meta">2026 &nbsp;/&nbsp; Forecasting &amp; Anomalies</span></div>
-          <h3>RetailCast: Forecasting &amp; Anomaly Bench</h3>
-          <p class="one">A demand forecasting and anomaly detection bench across 60 retail series, with a narrative layer that verifies its own numbers before showing them.</p>
-          <ul class="results">
-            <li><b>01</b><span>Prophet, SARIMA, LightGBM and XGBoost compared with expanding-window walk-forward cross-validation.</span></li>
-            <li><b>02</b><span>XGBoost wins on holdout at MASE 0.632, ahead of LightGBM at 0.674; both classical models sit at or above MASE 1.0.</span></li>
-            <li><b>03</b><span>Control limits at k=2.5 beat Isolation Forest on F1, 0.694 against 0.632, driven by higher recall.</span></li>
-            <li><b>04</b><span>A regex-based grounding check verifies every generated number against source data before the dashboard shows it.</span></li>
-          </ul>
-          <p class="pnotes">Cost-of-error figures are illustrative, grounded in published grocery-retail margins rather than this business's actual P&amp;L.</p>
-          <div class="tags" style="margin-top:22px;">
-            <span class="tag">Prophet</span><span class="tag">SARIMA</span><span class="tag">XGBoost</span><span class="tag">Supabase</span>
-          </div>
-          <div class="plinks">
-            <a class="btn-primary" href="https://github.com/abhinavharbola/retailcast" target="_blank" rel="noopener">
-              <span>Read the code</span>
-              <span class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
-            </a>
-          </div>
-        </div>
-        <div class="tray shot" data-gal="retail">
-          <div class="core">
-            <div class="chrome">
-              <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
-              <span class="path">retailcast / forecast</span>
-              <button class="exp" type="button" data-open aria-label="Open screenshot full size"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 4h6v6M20 4l-7 7M10 20H4v-6M4 20l7-7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            </div>
-            <div class="stage" data-open>
-              <img class="on" src="assets/shots/retailcast-1.webp" alt="RetailCast landing view with series, model and holdout stats" loading="lazy">
-              <img src="assets/shots/retailcast-2.webp" alt="Forecast explorer comparing MASE, MAPE and WAPE across models" loading="lazy">
-              <img src="assets/shots/retailcast-3.webp" alt="Anomaly detection precision, recall and F1 comparison" loading="lazy">
-            </div>
-            <div class="strip2" role="group" aria-label="Screenshots of RetailCast: Forecasting and Anomaly Bench">
-              <button class="thumb" type="button" aria-pressed="true" data-cap="Overview: 60 series, 4 models, and the holdout window at a glance."><img src="assets/shots/retailcast-1.webp" alt="RetailCast landing view with series, model and holdout stats thumbnail" loading="lazy"></button>
-              <button class="thumb" type="button" aria-pressed="false" data-cap="Forecast: MASE, MAPE and WAPE compared across all four models."><img src="assets/shots/retailcast-2.webp" alt="Forecast explorer comparing MASE, MAPE and WAPE across models thumbnail" loading="lazy"></button>
-              <button class="thumb" type="button" aria-pressed="false" data-cap="Anomalies: control limits against Isolation Forest, scored on F1."><img src="assets/shots/retailcast-3.webp" alt="Anomaly detection precision, recall and F1 comparison thumbnail" loading="lazy"></button>
-            </div>
-            <p class="cap">Overview: 60 series, 4 models, and the holdout window at a glance.</p>
-          </div>
-        </div>
-      </article>
-    </div>
-
-
+<section class="stats-strip">
+  <div class="wrap stats-grid">
+    <div class="stat-item rv"><div class="stat-num"><span>9</span></div><div class="stat-label">End-to-end systems built</div></div>
+    <div class="stat-item rv"><div class="stat-num"><span>3</span></div><div class="stat-label">Domains: AI agents, MLOps, data science</div></div>
+    <div class="stat-item rv"><div class="stat-num"><span>270+</span></div><div class="stat-label">Automated tests across all projects</div></div>
+    <div class="stat-item rv"><div class="stat-num"><span>&#8377;0</span></div><div class="stat-label">Spent on paid infrastructure to build them</div></div>
   </div>
 </section>
 
-<section id="stack">
+<section class="section" id="about">
   <div class="wrap">
-    <div class="section-head reveal">
+    <div class="section-head rv">
       <div>
-        <div class="eyebrow"><span class="eyebrow-index">02</span><span class="mono-tag">stack</span></div>
-        <div class="section-title">The tools behind the modeling, the systems and the statistics</div>
+        <span class="eyebrow">Selected work</span>
+        <h2>A few systems worth a closer look</h2>
+        <p>Four projects that best show how I approach a problem: lock the design before touching data, test the guardrails as hard as the model, and measure the result honestly.</p>
+      </div>
+      <a href="#/projects" class="btn btn-ghost">All projects <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg></a>
+    </div>
+    <div class="feat-list">
+      
+    <div class="feat-card rv">
+      <div class="feat-media"><img src="assets/images/cia.webp" alt="Competitive Intelligence Agent" loading="lazy" class=""/></div>
+      <div class="feat-body">
+        <div class="feat-cat">AI Agents</div>
+        <h3>Competitive Intelligence Agent</h3>
+        <p>An autonomous research agent that turns a company name into a sourced, traceable intelligence brief.</p>
+        <div class="tag-row"><span class="tag">LangGraph-style multi-agent</span><span class="tag">NVIDIA NIM</span><span class="tag">Groq</span><span class="tag">Gemini</span><span class="tag">Postgres</span></div>
+        <div class="feat-stats"><div><div class="s-num">5</div><div class="s-lbl">required brief fields</div></div><div><div class="s-num">3</div><div class="s-lbl">max replan cycles</div></div><div><div class="s-num">15</div><div class="s-lbl">company eval benchmark</div></div></div>
+        <div class="feat-foot">
+          <button class="btn btn-primary btn-sm" onclick="openProject('cia')">View case study <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 7l-10 10"/><path d="M8 7l9 0l0 9"/></svg></button>
+        </div>
       </div>
     </div>
-    <div class="stack-groups reveal">
-      <div class="stack-row">
-        <div class="stack-cat">languages</div>
-        <div class="stack-chips"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">C++</span></div>
-      </div>
-      <div class="stack-row">
-        <div class="stack-cat">ml &amp; deep learning</div>
-        <div class="stack-chips">
-          <span class="chip">Scikit-learn</span><span class="chip">XGBoost</span><span class="chip">LightGBM</span><span class="chip">PyTorch</span><span class="chip">TensorFlow</span><span class="chip">Hugging Face Transformers</span><span class="chip">Two-Tower / SASRec</span><span class="chip">SHAP</span><span class="chip">LIME</span><span class="chip">McNemar / Bootstrap CI</span>
+    <div class="feat-card rv">
+      <div class="feat-media"><img src="assets/images/mlops.webp" alt="Continuous Credit Risk Governance Pipeline" loading="lazy" class=""/></div>
+      <div class="feat-body">
+        <div class="feat-cat">MLOps</div>
+        <h3>Continuous Credit Risk Governance Pipeline</h3>
+        <p>A self-governing pipeline that scores, drift-checks, retrains, gates, and rolls back a credit risk model with no human in the loop.</p>
+        <div class="tag-row"><span class="tag">MLflow</span><span class="tag">Evidently</span><span class="tag">DVC</span><span class="tag">Postgres</span><span class="tag">GitHub Actions</span></div>
+        <div class="feat-stats"><div><div class="s-num">637</div><div class="s-lbl">simulated live batches</div></div><div><div class="s-num">3</div><div class="s-lbl">promotion gates</div></div><div><div class="s-num">54</div><div class="s-lbl">automated tests</div></div></div>
+        <div class="feat-foot">
+          <button class="btn btn-primary btn-sm" onclick="openProject('mlops')">View case study <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 7l-10 10"/><path d="M8 7l9 0l0 9"/></svg></button>
         </div>
       </div>
-      <div class="stack-row">
-        <div class="stack-cat">genai &amp; llm systems</div>
-        <div class="stack-chips">
-          <span class="chip">LangGraph</span><span class="chip">RAG pipelines</span><span class="chip">Multi-agent orchestration</span><span class="chip">Gemini API</span><span class="chip">Groq</span><span class="chip">NVIDIA NIM</span><span class="chip">FAISS</span><span class="chip">Qdrant</span><span class="chip">RAGAS</span>
+    </div>
+    <div class="feat-card rv">
+      <div class="feat-media"><img src="assets/images/rag.webp" alt="Kubernetes Gated RAG" loading="lazy" class=""/></div>
+      <div class="feat-body">
+        <div class="feat-cat">GenAI / RAG</div>
+        <h3>Kubernetes Gated RAG</h3>
+        <p>A production-oriented RAG system for Kubernetes Q&A that answers only from ingested docs, defended in depth.</p>
+        <div class="tag-row"><span class="tag">LangGraph</span><span class="tag">Qdrant</span><span class="tag">FlashRank</span><span class="tag">Groq</span><span class="tag">RAGAS</span></div>
+        <div class="feat-stats"><div><div class="s-num">2</div><div class="s-lbl">cache layers</div></div><div><div class="s-num">3</div><div class="s-lbl">provider failover chain</div></div><div><div class="s-num">6</div><div class="s-lbl">RAGAS eval metrics</div></div></div>
+        <div class="feat-foot">
+          <button class="btn btn-primary btn-sm" onclick="openProject('rag')">View case study <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 7l-10 10"/><path d="M8 7l9 0l0 9"/></svg></button>
         </div>
       </div>
-      <div class="stack-row">
-        <div class="stack-cat">mlops &amp; production</div>
-        <div class="stack-chips">
-          <span class="chip">Evidently</span><span class="chip">KS-test drift</span><span class="chip">MLflow</span><span class="chip">DVC</span><span class="chip">Model governance &amp; rollback</span><span class="chip">CI/CD</span><span class="chip">Docker</span><span class="chip">LLMOps</span>
+    </div>
+    <div class="feat-card rv">
+      <div class="feat-media"><img src="assets/images/reelbench.webp" alt="ReelBench: Multi-Stage Recommender Benchmark" loading="lazy" class=""/></div>
+      <div class="feat-body">
+        <div class="feat-cat">Recommender Systems</div>
+        <h3>ReelBench: Multi-Stage Recommender Benchmark</h3>
+        <p>Five recommendation approaches benchmarked head to head on MovieLens 25M under one evaluation harness.</p>
+        <div class="tag-row"><span class="tag">PyTorch</span><span class="tag">FAISS</span><span class="tag">LightGBM</span><span class="tag">FastAPI</span></div>
+        <div class="feat-stats"><div><div class="s-num">5</div><div class="s-lbl">approaches compared</div></div><div><div class="s-num">62k</div><div class="s-lbl">catalog items handled</div></div><div><div class="s-num"><1.4GB</div><div class="s-lbl">peak memory at scale</div></div></div>
+        <div class="feat-foot">
+          <button class="btn btn-primary btn-sm" onclick="openProject('reelbench')">View case study <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 7l-10 10"/><path d="M8 7l9 0l0 9"/></svg></button>
         </div>
       </div>
-      <div class="stack-row">
-        <div class="stack-cat">data, apis &amp; infra</div>
-        <div class="stack-chips">
-          <span class="chip">FastAPI</span><span class="chip">Streamlit</span><span class="chip">PostgreSQL / Neon</span><span class="chip">SQLite</span><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">Plotly</span><span class="chip">Tableau</span><span class="chip">AWS</span><span class="chip">Explainable AI</span>
-        </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight" id="skills">
+  <div class="wrap">
+    <div class="section-head rv">
+      <div>
+        <span class="eyebrow">Capabilities</span>
+        <h2>What I actually build with</h2>
+        <p>A working toolkit across modeling, LLM systems, and the production layer that keeps them running honestly.</p>
+      </div>
+    </div>
+    <div class="skill-rows">
+      
+      <div class="skill-row rv">
+        <div class="skill-row-head"><span class="ic-badge"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 13a3.5 3.5 0 0 0 -3.5 3.5v1a3.5 3.5 0 0 0 7 0v-1.8"/><path d="M8.5 13a3.5 3.5 0 0 1 3.5 3.5v1a3.5 3.5 0 0 1 -7 0v-1.8"/><path d="M17.5 16a3.5 3.5 0 0 0 0 -7h-.5"/><path d="M19 9.3v-2.8a3.5 3.5 0 0 0 -7 0"/><path d="M6.5 16a3.5 3.5 0 0 1 0 -7h.5"/><path d="M5 9.3v-2.8a3.5 3.5 0 0 1 7 0v10"/></svg></span><h4>Machine Learning &amp; Deep Learning</h4></div>
+        <div class="skill-flow">Scikit-learn<span class="dot">&middot;</span>XGBoost<span class="dot">&middot;</span>LightGBM<span class="dot">&middot;</span>PyTorch<span class="dot">&middot;</span>TensorFlow<span class="dot">&middot;</span>Hugging Face Transformers<span class="dot">&middot;</span>Two-Tower &amp; Sequential Recommenders<span class="dot">&middot;</span>SHAP<span class="dot">&middot;</span>LIME<span class="dot">&middot;</span>Statistical Significance Testing</div>
+      </div>
+      <div class="skill-row rv">
+        <div class="skill-row-head"><span class="ic-badge"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 1 0 12 0a6 6 0 0 0 -12 0"/><path d="M12 3c1.333 .333 2 2.333 2 6s-.667 5.667 -2 6"/><path d="M12 3c-1.333 .333 -2 2.333 -2 6s.667 5.667 2 6"/><path d="M6 9h12"/><path d="M3 20h7"/><path d="M14 20h7"/><path d="M10 20a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M12 15v3"/></svg></span><h4>Generative AI &amp; LLM Systems</h4></div>
+        <div class="skill-flow">LangGraph<span class="dot">&middot;</span>RAG Pipelines<span class="dot">&middot;</span>Multi-Agent Orchestration<span class="dot">&middot;</span>Prompt Engineering<span class="dot">&middot;</span>Gemini API<span class="dot">&middot;</span>Groq<span class="dot">&middot;</span>NVIDIA NIM<span class="dot">&middot;</span>FAISS<span class="dot">&middot;</span>Qdrant<span class="dot">&middot;</span>RAGAS</div>
+      </div>
+      <div class="skill-row rv">
+        <div class="skill-row-head"><span class="ic-badge"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 18a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M5 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M15 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M7 8l0 8"/><path d="M9 18h6a2 2 0 0 0 2 -2v-5"/><path d="M14 14l3 -3l3 3"/></svg></span><h4>MLOps &amp; Production Systems</h4></div>
+        <div class="skill-flow">Evidently<span class="dot">&middot;</span>KS-test Drift Detection<span class="dot">&middot;</span>MLflow<span class="dot">&middot;</span>DVC<span class="dot">&middot;</span>Model Monitoring<span class="dot">&middot;</span>CI/CD<span class="dot">&middot;</span>Docker<span class="dot">&middot;</span>Model Governance &amp; Rollback<span class="dot">&middot;</span>LLMOps</div>
+      </div>
+      <div class="skill-row rv">
+        <div class="skill-row-head"><span class="ic-badge"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6a8 3 0 1 0 16 0a8 3 0 1 0 -16 0"/><path d="M4 6v6a8 3 0 0 0 16 0v-6"/><path d="M4 12v6a8 3 0 0 0 16 0v-6"/></svg></span><h4>Data, APIs &amp; Infrastructure</h4></div>
+        <div class="skill-flow">FastAPI<span class="dot">&middot;</span>Streamlit<span class="dot">&middot;</span>PostgreSQL (Neon)<span class="dot">&middot;</span>SQLite<span class="dot">&middot;</span>Pandas<span class="dot">&middot;</span>NumPy<span class="dot">&middot;</span>Plotly<span class="dot">&middot;</span>Tableau<span class="dot">&middot;</span>REST APIs<span class="dot">&middot;</span>AWS</div>
+      </div>
+      <div class="skill-row rv">
+        <div class="skill-row-head"><span class="ic-badge"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9l3 3l-3 3"/><path d="M13 15l3 0"/><path d="M3 6a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2l0 -12"/></svg></span><h4>Languages</h4></div>
+        <div class="skill-flow">Python<span class="dot">&middot;</span>SQL<span class="dot">&middot;</span>C++</div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="experience">
+<section class="section-tight" id="experience">
   <div class="wrap">
-    <div class="section-head reveal">
+    <div class="section-head rv">
       <div>
-        <div class="eyebrow"><span class="eyebrow-index">03</span><span class="mono-tag">background</span></div>
-        <div class="section-title">Experience &amp; education</div>
+        <span class="eyebrow">Background</span>
+        <h2>Experience &amp; education</h2>
       </div>
     </div>
 
-    <div class="tl reveal">
-      <div class="tlrow">
-        <div class="when">jun &ndash; aug 2024</div>
-        <div>
-          <h3>Data Science Intern</h3>
-          <p class="org">Coding Blocks</p>
+    <div class="exp-rows">
+      <div class="exp-row rv">
+        <div class="exp-date">Jun 2024 to Aug 2024</div>
+        <div class="exp-main">
+          <h4>Data Science Intern</h4>
+          <div class="exp-sub">Coding Blocks</div>
           <ul>
-            <li>Built an XGBoost churn model to flag at-risk customers, improving baseline accuracy by 9% through GridSearchCV tuning and feature engineering on an imbalanced dataset.</li>
-            <li>Automated extraction of 5,000+ competitor reviews via Python web scraping into structured Pandas DataFrames for downstream sentiment modeling.</li>
+            <li>Built an XGBoost customer-churn model and tuned it with GridSearchCV, landing 9 percent above the baseline accuracy the team had been working from.</li>
+            <li>Scraped and cleaned over 5,000 competitor reviews into a structured dataset the product side could query directly.</li>
+            <li>Worked the full loop rather than a slice of it: ingestion, feature work, model selection, evaluation, and handover.</li>
           </ul>
-          <div class="tags" style="margin-top:18px;">
-            <span class="tag">XGBoost</span><span class="tag">GridSearchCV</span><span class="tag">Pandas</span><span class="tag">Web Scraping</span><span class="tag">Feature Engineering</span>
-          </div>
         </div>
       </div>
-
-      <div class="tlrow">
-        <div class="when">aug 2022 &ndash; may 2026</div>
-        <div>
-          <h3>B.Tech, Computer Science &amp; Engineering</h3>
-          <p class="org">Lovely Professional University, Punjab, India &nbsp;/&nbsp; CGPA 8.19 / 10.0</p>
+      <div class="exp-row rv">
+        <div class="exp-date">CGPA 8.23 / 10.0</div>
+        <div class="exp-main">
+          <h4>B.Tech, Computer Science and Engineering</h4>
+          <div class="exp-sub">Lovely Professional University, Punjab, India</div>
           <ul>
-            <li>Expected graduation May 2026. Coursework across machine learning, statistics, data structures, databases and cloud computing.</li>
+            <li>Dean's List, top 10 percent of students for 3 consecutive years (2023, 2024, 2025).</li>
+            <li>5-Star Badge in Python and C++ on HackerRank.</li>
           </ul>
         </div>
       </div>
+    </div>
 
-      <div class="tlrow">
-        <div class="when">2023 &ndash; 2026</div>
-        <div>
-          <h3>Certifications &amp; recognition</h3>
-          <p class="org">Verified coursework and standing outside the degree</p>
-          <div class="creds">
-            <div class="cred">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M12 3.2 21 7.6v8.8L12 20.8 3 16.4V7.6Z" stroke-linejoin="round"/><path d="M12 12.1 21 7.6M12 12.1v8.7M12 12.1 3 7.6" stroke-linejoin="round"/></svg>
-              <div><b>IBM DevOps &amp; Software Engineering Professional Certificate</b><span>Coursera &nbsp;/&nbsp; Nov 2025</span></div>
-            </div>
-            <div class="cred">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M4 15.5a4 4 0 0 1 1-7.87A5.2 5.2 0 0 1 15.2 6.6 4.4 4.4 0 0 1 20 11a4.5 4.5 0 0 1-4.5 4.5Z" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 19h9" stroke-linecap="round"/></svg>
-              <div><b>Cloud Computing, NPTEL</b><span>IIT Kharagpur &nbsp;/&nbsp; Oct 2024</span></div>
-            </div>
-            <div class="cred">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M8 6 3.5 12 8 18M16 6l4.5 6L16 18" stroke-linecap="round" stroke-linejoin="round"/><path d="M13.5 4.5 10.5 19.5" stroke-linecap="round"/></svg>
-              <div><b>Google IT Automation with Python</b><span>Coursera &nbsp;/&nbsp; Dec 2023</span></div>
-            </div>
-            <div class="cred">
-              <a href="https://www.credly.com/badges/8e862ad3-354e-40d9-b1e3-c63c7bb3d3f8" target="_blank" rel="noopener" style="display:contents;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M3.5 19V9.2L12 4l8.5 5.2V19" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 19v-6h8v6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <div><b>SAP Certified, Data Analyst, SAP Analytics Cloud</b><span>SAP &nbsp;/&nbsp; Apr 2026</span></div>
-              </a>
-            </div>
-            <div class="cred">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M12 3.5 14.6 9l6 .85-4.35 4.28L17.3 20 12 17.1 6.7 20l1.05-5.87L3.4 9.85 9.4 9Z" stroke-linejoin="round"/></svg>
-              <div><b>Dean's List, top 10% of the programme</b><span>2023, 2024, 2025</span></div>
-            </div>
-            <div class="cred">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M9 8 5 12l4 4M15 8l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <div><b>HackerRank 5-star, Python and C++</b><span>Problem solving &nbsp;/&nbsp; ongoing</span></div>
-            </div>
-          </div>
+    <div class="cert-block-title rv">Certifications &amp; achievements</div>
+    <div class="cert-rows rv">
+      
+    <div class="cert-row">
+      <span class="ic-badge"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M9 12l2 2l4 -4"/></svg></span>
+      <span><b>SAP Certified, Data Analyst, SAP Analytics Cloud</b><span class="cert-issuer">Credly</span></span>
+      <span class="cert-date">Apr 2026</span>
+    </div>
+    <div class="cert-row">
+      <span class="ic-badge"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M9 12l2 2l4 -4"/></svg></span>
+      <span><b>IBM DevOps &amp; Software Engineering Professional Certificate</b><span class="cert-issuer">Coursera</span></span>
+      <span class="cert-date">Nov 2025</span>
+    </div>
+    <div class="cert-row">
+      <span class="ic-badge"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M9 12l2 2l4 -4"/></svg></span>
+      <span><b>NPTEL Cloud Computing</b><span class="cert-issuer">IIT Kharagpur</span></span>
+      <span class="cert-date">Oct 2024</span>
+    </div>
+    <div class="cert-row">
+      <span class="ic-badge"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M9 12l2 2l4 -4"/></svg></span>
+      <span><b>Google IT Automation with Python</b><span class="cert-issuer">Coursera</span></span>
+      <span class="cert-date">Dec 2023</span>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="contact-band rv">
+      <div>
+        <span class="eyebrow">Get in touch</span>
+        <h2>Open to AI/ML engineering, GenAI, and data science roles.</h2>
+        <p>If you are building something that needs a system that is tested as hard as it is trained, I would like to hear about it.</p>
+        <div class="contact-actions">
+          <a href="mailto:abhinavdaharbola@gmail.com" class="btn btn-primary">Email me <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10"/><path d="M3 7l9 6l9 -6"/></svg></a>
+          <a href="assets/resume.pdf" download="Abhinav_Harbola_Resume.pdf" class="btn btn-ghost">Download resume <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg></a>
         </div>
+      </div>
+      <div class="contact-list">
+        <a class="contact-row" href="mailto:abhinavdaharbola@gmail.com">
+          <span class="ic-badge"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10"/><path d="M3 7l9 6l9 -6"/></svg></span>
+          <span><span class="c-label">Email</span><span class="c-val">abhinavdaharbola@gmail.com</span></span>
+        </a>
+        <a class="contact-row" href="tel:+919415291480">
+          <span class="ic-badge"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/></svg></span>
+          <span><span class="c-label">Phone</span><span class="c-val">+91 94152 91480</span></span>
+        </a>
+        <a class="contact-row" href="https://linkedin.com/in/abhinavharbola" target="_blank" rel="noopener">
+          <span class="ic-badge"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 11v5"/><path d="M8 8v.01"/><path d="M12 16v-5"/><path d="M16 16v-3a2 2 0 1 0 -4 0"/><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4l0 -10"/></svg></span>
+          <span><span class="c-label">LinkedIn</span><span class="c-val">linkedin.com/in/abhinavharbola</span></span>
+        </a>
+        <a class="contact-row" href="https://github.com/abhinavharbola" target="_blank" rel="noopener">
+          <span class="ic-badge"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"/></svg></span>
+          <span><span class="c-label">GitHub</span><span class="c-val">github.com/abhinavharbola</span></span>
+        </a>
       </div>
     </div>
   </div>
 </section>
-
-<section id="contact">
-  <div class="wrap">
-    <div class="eyebrow center reveal"><span class="eyebrow-index">04</span><span class="mono-tag">open to opportunities</span></div>
-    <h2 class="contact-heading reveal">Looking for an AI, ML or data science role, available immediately.</h2>
-    <p class="contact-lead reveal">If you're hiring for a team that cares whether the model still works in month six, I'd like to talk. Fastest route is email, and I read everything.</p>
-
-    <div class="mailrow reveal">
-      <a class="btn-primary" href="mailto:abhinavdaharbola@gmail.com?subject=Role%20opportunity">
-        <span>Send an email</span>
-        <span class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
-      </a>
-      <button class="copybtn" id="copyEmail" type="button" data-mail="abhinavdaharbola@gmail.com">
-        <span class="txt">abhinavdaharbola@gmail.com</span>
-        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="9" y="9" width="11" height="11" rx="2.4"/><path d="M15 5.6A2.6 2.6 0 0 0 12.4 3H6.6A2.6 2.6 0 0 0 4 5.6v5.8A2.6 2.6 0 0 0 6.6 14" stroke-linecap="round"/></svg></span>
-        <span class="ok">Copied to clipboard</span>
-      </button>
-      <a class="btn-secondary" href="assets/resume.pdf" download>
-        <span>Download CV</span>
-        <span class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 3.8v11M12 14.8 8 10.9M12 14.8l4-3.9M4.5 19.5h15" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      </a>
-    </div>
-
-    <div class="social reveal">
-      <a href="https://github.com/abhinavharbola" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M9.2 20.4v-2.6c-3 .55-3.7-1.4-3.7-1.4-.5-1.2-1.2-1.55-1.2-1.55-1-.7.07-.68.07-.68 1.1.08 1.68 1.14 1.68 1.14.97 1.66 2.53 1.18 3.15.9.1-.7.38-1.18.7-1.45-2.4-.28-4.9-1.2-4.9-5.34 0-1.18.42-2.14 1.1-2.9-.1-.28-.48-1.38.1-2.86 0 0 .9-.3 2.96 1.1a10.3 10.3 0 0 1 5.4 0c2.05-1.4 2.95-1.1 2.95-1.1.58 1.48.2 2.58.1 2.86.69.76 1.1 1.72 1.1 2.9 0 4.15-2.5 5.06-4.92 5.33.4.34.75 1 .75 2.03v3.02" stroke-linecap="round" stroke-linejoin="round"/></svg>GitHub</a>
-      <a href="https://linkedin.com/in/abhinavharbola" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="2.6"/><path d="M8 10.5v6M8 7.6v.1M12 16.5v-3.4a2.1 2.1 0 0 1 4.2 0v3.4M12 10.5v6" stroke-linecap="round"/></svg>LinkedIn</a>
-      <a href="mailto:abhinavdaharbola@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="3" y="5.2" width="18" height="13.6" rx="2.4"/><path d="m3.8 7 8.2 5.6L20.2 7" stroke-linecap="round" stroke-linejoin="round"/></svg>Email</a>
-    </div>
-  </div>
-</section>
-
 </main>
 
-<footer>
+<main id="view-projects" class="view hide">
+  <div class="page-header">
+    <div class="wrap">
+      <a href="#/" class="back"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l14 0"/><path d="M5 12l6 6"/><path d="M5 12l6 -6"/></svg> Back to home</a>
+      <h1>All projects</h1>
+      <p>Nine self-directed, end-to-end systems across AI agents, MLOps governance, retrieval-augmented generation, recommenders, and applied data science. Every one runs on free-tier infrastructure and comes with its own test suite.</p>
+      <div class="filter-row"><button class="filter-chip active" data-filter="all" onclick="filterProjects('all',this)">All work</button><button class="filter-chip" data-filter="agents" onclick="filterProjects('agents',this)">AI Agents</button><button class="filter-chip" data-filter="genai" onclick="filterProjects('genai',this)">GenAI / RAG</button><button class="filter-chip" data-filter="mlops" onclick="filterProjects('mlops',this)">MLOps</button><button class="filter-chip" data-filter="recsys" onclick="filterProjects('recsys',this)">Recommender Systems</button><button class="filter-chip" data-filter="ds" onclick="filterProjects('ds',this)">Data Science</button></div>
+    </div>
+  </div>
   <div class="wrap">
-    <div class="foot-row">
-      <span>Abhinav Harbola, Varanasi, UP, India</span>
-      <span>built with html, css, js</span>
+    <div class="proj-grid">
+      
+    <button class="proj-card rv" data-cat="agents" onclick="openProject('cia')">
+      <div class="proj-media"><img src="assets/images/cia.webp" alt="Competitive Intelligence Agent" loading="lazy" class=""/></div>
+      <div class="proj-body">
+        <div class="proj-cat">AI Agents</div>
+        <h3>Competitive Intelligence Agent</h3>
+        <p>An autonomous research agent that turns a company name into a sourced, traceable intelligence brief.</p>
+        <div class="proj-tags"><span class="tag">LangGraph-style multi-agent</span><span class="tag">NVIDIA NIM</span><span class="tag">Groq</span><span class="tag">Gemini</span></div>
+        <span class="proj-link">View case study <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 7l-10 10"/><path d="M8 7l9 0l0 9"/></svg></span>
+      </div>
+    </button>
+    <button class="proj-card rv" data-cat="mlops" onclick="openProject('mlops')">
+      <div class="proj-media"><img src="assets/images/mlops.webp" alt="Continuous Credit Risk Governance Pipeline" loading="lazy" class=""/></div>
+      <div class="proj-body">
+        <div class="proj-cat">MLOps</div>
+        <h3>Continuous Credit Risk Governance Pipeline</h3>
+        <p>A self-governing pipeline that scores, drift-checks, retrains, gates, and rolls back a credit risk model with no human in the loop.</p>
+        <div class="proj-tags"><span class="tag">MLflow</span><span class="tag">Evidently</span><span class="tag">DVC</span><span class="tag">Postgres</span></div>
+        <span class="proj-link">View case study <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 7l-10 10"/><path d="M8 7l9 0l0 9"/></svg></span>
+      </div>
+    </button>
+    <button class="proj-card rv" data-cat="genai" onclick="openProject('rag')">
+      <div class="proj-media"><img src="assets/images/rag.webp" alt="Kubernetes Gated RAG" loading="lazy" class=""/></div>
+      <div class="proj-body">
+        <div class="proj-cat">GenAI / RAG</div>
+        <h3>Kubernetes Gated RAG</h3>
+        <p>A production-oriented RAG system for Kubernetes Q&A that answers only from ingested docs, defended in depth.</p>
+        <div class="proj-tags"><span class="tag">LangGraph</span><span class="tag">Qdrant</span><span class="tag">FlashRank</span><span class="tag">Groq</span></div>
+        <span class="proj-link">View case study <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 7l-10 10"/><path d="M8 7l9 0l0 9"/></svg></span>
+      </div>
+    </button>
+    <button class="proj-card rv" data-cat="recsys" onclick="openProject('reelbench')">
+      <div class="proj-media"><img src="assets/images/reelbench.webp" alt="ReelBench: Multi-Stage Recommender Benchmark" loading="lazy" class=""/></div>
+      <div class="proj-body">
+        <div class="proj-cat">Recommender Systems</div>
+        <h3>ReelBench: Multi-Stage Recommender Benchmark</h3>
+        <p>Five recommendation approaches benchmarked head to head on MovieLens 25M under one evaluation harness.</p>
+        <div class="proj-tags"><span class="tag">PyTorch</span><span class="tag">FAISS</span><span class="tag">LightGBM</span><span class="tag">FastAPI</span></div>
+        <span class="proj-link">View case study <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 7l-10 10"/><path d="M8 7l9 0l0 9"/></svg></span>
+      </div>
+    </button>
+    <button class="proj-card rv" data-cat="ds" onclick="openProject('churn')">
+      <div class="proj-media"><img src="assets/images/churn.webp" alt="Customer Churn Prediction with Profit Optimization" loading="lazy" class=""/></div>
+      <div class="proj-body">
+        <div class="proj-cat">Data Science</div>
+        <h3>Customer Churn Prediction with Profit Optimization</h3>
+        <p>Turns churn probability into a per-customer intervene or do-not-intervene call based on expected financial gain, not a raw cutoff.</p>
+        <div class="proj-tags"><span class="tag">XGBoost</span><span class="tag">Optuna</span><span class="tag">SHAP</span><span class="tag">Streamlit</span></div>
+        <span class="proj-link">View case study <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 7l-10 10"/><path d="M8 7l9 0l0 9"/></svg></span>
+      </div>
+    </button>
+    <button class="proj-card rv" data-cat="ds" onclick="openProject('causal')">
+      <div class="proj-media"><img src="assets/images/causal.webp" alt="Causal Impact & Heterogeneous Response Analysis" loading="lazy" class=""/></div>
+      <div class="proj-body">
+        <div class="proj-cat">Causal Inference</div>
+        <h3>Causal Impact & Heterogeneous Response Analysis</h3>
+        <p>Validates four causal estimators against known ground truth before trusting any of them on a real segment-level question.</p>
+        <div class="proj-tags"><span class="tag">AIPW</span><span class="tag">IPW</span><span class="tag">PSM</span><span class="tag">CATE</span></div>
+        <span class="proj-link">View case study <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 7l-10 10"/><path d="M8 7l9 0l0 9"/></svg></span>
+      </div>
+    </button>
+    <button class="proj-card rv" data-cat="ds" onclick="openProject('abtesting')">
+      <div class="proj-media"><img src="assets/images/abtesting.webp" alt="Experiment Design & Power Analysis" loading="lazy" class=""/></div>
+      <div class="proj-body">
+        <div class="proj-cat">Experimentation</div>
+        <h3>Experiment Design & Power Analysis</h3>
+        <p>A preregistered A/B test pipeline for a shipping policy change, with the metric, sample size, and tests locked before data exists.</p>
+        <div class="proj-tags"><span class="tag">Power analysis</span><span class="tag">Welch's t-test</span><span class="tag">Streamlit</span></div>
+        <span class="proj-link">View case study <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 7l-10 10"/><path d="M8 7l9 0l0 9"/></svg></span>
+      </div>
+    </button>
+    <button class="proj-card rv" data-cat="ds" onclick="openProject('retailcast')">
+      <div class="proj-media"><img src="assets/images/retailcast.webp" alt="RetailCast: Forecasting and Anomaly Bench" loading="lazy" class=""/></div>
+      <div class="proj-body">
+        <div class="proj-cat">Forecasting</div>
+        <h3>RetailCast: Forecasting and Anomaly Bench</h3>
+        <p>Benchmarks four forecasting models and two anomaly detectors across 60 retail series, with grounded, verified LLM reporting.</p>
+        <div class="proj-tags"><span class="tag">Prophet</span><span class="tag">SARIMA</span><span class="tag">LightGBM</span><span class="tag">Isolation Forest</span></div>
+        <span class="proj-link">View case study <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 7l-10 10"/><path d="M8 7l9 0l0 9"/></svg></span>
+      </div>
+    </button>
+    <button class="proj-card rv" data-cat="agents" onclick="openProject('mcp')">
+      <div class="proj-media noimg"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h3a1 1 0 0 0 1 -1v-1a2 2 0 0 1 4 0v1a1 1 0 0 0 1 1h3a1 1 0 0 1 1 1v3a1 1 0 0 0 1 1h1a2 2 0 0 1 0 4h-1a1 1 0 0 0 -1 1v3a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-1a2 2 0 0 0 -4 0v1a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h1a2 2 0 0 0 0 -4h-1a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1"/></svg></div>
+      <div class="proj-body">
+        <div class="proj-cat">AI Agents / MCP</div>
+        <h3>IssueOps MCP</h3>
+        <p>A guarded MCP server for GitHub issue triage. Every mutating action is proposed, never executed, without a human approval step.</p>
+        <div class="proj-tags"><span class="tag">MCP</span><span class="tag">Postgres</span><span class="tag">GitHub API</span><span class="tag">Streamlit</span></div>
+        <span class="proj-link">View case study <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 7l-10 10"/><path d="M8 7l9 0l0 9"/></svg></span>
+      </div>
+    </button>
+    </div>
+  </div>
+</main>
+
+
+
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this) closeProject();">
+  
+  <div class="modal" id="modal-cia">
+    <div class="modal-media"><img src="assets/images/cia.webp" alt="Competitive Intelligence Agent" loading="lazy" class=""/></div>
+    <button class="modal-close" onclick="closeProject()"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg></button>
+    <div class="modal-body">
+      <div class="modal-cat">AI Agents</div>
+      <h2>Competitive Intelligence Agent</h2>
+      <p class="modal-tagline">An autonomous research agent that turns a company name into a sourced, traceable intelligence brief.</p>
+      <div class="modal-stats"><div><div class="s-num">5</div><div class="s-lbl">required brief fields</div></div><div><div class="s-num">3</div><div class="s-lbl">max replan cycles</div></div><div><div class="s-num">15</div><div class="s-lbl">company eval benchmark</div></div></div>
+
+      <div class="modal-section">
+        <h5>Overview</h5>
+        <p>Given a company or product name, a four-role pipeline plans research sub-questions, executes web search and calculation tools, critiques its own coverage against five required fields, and synthesizes a final brief with numbered citations. Anything it cannot source is marked insufficient information rather than invented.</p>
+      </div>
+
+      <div class="modal-section">
+        <h5>How it works</h5>
+        <ul><li>Planner, Executor, Critic, and Synthesizer each run on a different model and provider, matched to that role's actual call volume against free-tier rate limits rather than picked for variety.</li><li>The Critic checks coverage against the five required fields and can send the run back to re-plan up to three times before handing off to the Synthesizer.</li><li>Hard stops cap a run at 3 replans, 15 tool calls, and 8 minutes of wall clock time. On any limit the run returns whatever it confirmed and marks the rest insufficient information.</li></ul>
+      </div>
+
+      <div class="modal-section">
+        <h5>Guardrails</h5>
+        <ul><li>Every search result is wrapped in untrusted-content delimiters before reaching a prompt, a direct mitigation against prompt injection from open-web content.</li><li>Postgres-backed memory seeds a run from an exact entity match under 7 days old, but never auto-seeds on a fuzzy match, avoiding conflating similarly named companies.</li><li>Per-step failure isolation keeps a single blocked research step from crashing the run, and the Synthesizer falls back to a plain scratchpad-built report if its own LLM call fails.</li></ul>
+      </div>
+
+      <div class="modal-section">
+        <h5>Results</h5>
+        <p>An evaluation harness scores groundedness and completeness with an isolated judge model across a 15-company benchmark, and an ablation study measures the Critic loop's actual effect on output quality rather than assuming the extra latency is worth it.</p>
+      </div>
+
+      <div class="modal-section">
+        <h5>Stack</h5>
+        <div class="chip-row"><span class="chip">Python</span><span class="chip">LangGraph-style orchestration</span><span class="chip">NVIDIA NIM</span><span class="chip">Groq</span><span class="chip">Gemini</span><span class="chip">Postgres (Neon)</span><span class="chip">FastAPI</span><span class="chip">Streamlit</span><span class="chip">Logfire</span></div>
+      </div>
+
+      <div class="modal-foot">
+        <a class="btn btn-primary btn-sm" href="https://github.com/abhinavharbola/competitive-intelligence-agent" target="_blank" rel="noopener">View repository <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="modal-mlops">
+    <div class="modal-media"><img src="assets/images/mlops.webp" alt="Continuous Credit Risk Governance Pipeline" loading="lazy" class=""/></div>
+    <button class="modal-close" onclick="closeProject()"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg></button>
+    <div class="modal-body">
+      <div class="modal-cat">MLOps</div>
+      <h2>Continuous Credit Risk Governance Pipeline</h2>
+      <p class="modal-tagline">A self-governing pipeline that scores, drift-checks, retrains, gates, and rolls back a credit risk model with no human in the loop.</p>
+      <div class="modal-stats"><div><div class="s-num">637</div><div class="s-lbl">simulated live batches</div></div><div><div class="s-num">3</div><div class="s-lbl">promotion gates</div></div><div><div class="s-num">54</div><div class="s-lbl">automated tests</div></div></div>
+
+      <div class="modal-section">
+        <h5>Overview</h5>
+        <p>Simulates the part of the ML lifecycle a portfolio project usually skips: what happens after deployment. Each cycle scores a live batch, releases delayed ground-truth labels, checks for distribution drift, and, if warranted, retrains a challenger and gates it against the current champion before promoting or rejecting it.</p>
+      </div>
+
+      <div class="modal-section">
+        <h5>How it works</h5>
+        <ul><li>A three-gate promotion system, tolerance band, dominance, and statistical significance via McNemar or a bootstrap confidence interval, separates a genuine improvement from sampling noise on batches of roughly 200 rows.</li><li>Rollback is held to the same rigor as promotion: a raw point-estimate drop is not enough, the bootstrap interval's upper bound has to confirm a real performance decline.</li><li>Every governance decision, promotions, rejections, drift checks, and rollback checks, is written to an audit log, not only the ones that changed something.</li></ul>
+      </div>
+
+      <div class="modal-section">
+        <h5>Guardrails</h5>
+        <ul><li>The drift threshold is empirically tuned: 3 or more of 10 flagged features cuts false retrain triggers to roughly 1 percent of undrifted batches while still catching real injected drift.</li><li>Optimistic concurrency claims a batch before any work starts, so concurrent scheduled and manual runs cannot create duplicate predictions.</li><li>The true label is never stored alongside model input features, closing a leakage path a delayed-label design would otherwise be exposed to.</li></ul>
+      </div>
+
+      <div class="modal-section">
+        <h5>Results</h5>
+        <p>Runs on a schedule via GitHub Actions, with model artifacts tracked through MLflow and data versioned through DVC, verified running end to end on a real schedule rather than only in a local demo.</p>
+      </div>
+
+      <div class="modal-section">
+        <h5>Stack</h5>
+        <div class="chip-row"><span class="chip">Python</span><span class="chip">Postgres (Neon)</span><span class="chip">MLflow</span><span class="chip">Evidently</span><span class="chip">DVC</span><span class="chip">FastAPI</span><span class="chip">Streamlit</span><span class="chip">GitHub Actions</span></div>
+      </div>
+
+      <div class="modal-foot">
+        <a class="btn btn-primary btn-sm" href="https://github.com/abhinavharbola/credit-risk-autopilot" target="_blank" rel="noopener">View repository <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="modal-rag">
+    <div class="modal-media"><img src="assets/images/rag.webp" alt="Kubernetes Gated RAG" loading="lazy" class=""/></div>
+    <button class="modal-close" onclick="closeProject()"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg></button>
+    <div class="modal-body">
+      <div class="modal-cat">GenAI / RAG</div>
+      <h2>Kubernetes Gated RAG</h2>
+      <p class="modal-tagline">A production-oriented RAG system for Kubernetes Q&A that answers only from ingested docs, defended in depth.</p>
+      <div class="modal-stats"><div><div class="s-num">2</div><div class="s-lbl">cache layers</div></div><div><div class="s-num">3</div><div class="s-lbl">provider failover chain</div></div><div><div class="s-num">6</div><div class="s-lbl">RAGAS eval metrics</div></div></div>
+
+      <div class="modal-section">
+        <h5>Overview</h5>
+        <p>Every question passes through a safety gate and a topic gate before a generation call is spent, then through hard relevance thresholds on retrieval, and the generated answer itself is safety-checked again before it is shown or cached.</p>
+      </div>
+
+      <div class="modal-section">
+        <h5>How it works</h5>
+        <ul><li>Two layers of caching, exact match then semantic similarity, are both version-filtered so a policy or corpus change automatically invalidates stale answers.</li><li>Generation fails over across three provider links, Groq, a secondary Groq account, then NVIDIA NIM, on the same model string, so the failover is about separate rate-limit budgets, not model diversity.</li><li>Any infrastructure failure, a timeout, a reranker crash, every provider being down at once, is surfaced as temporarily unavailable and is never cached, so a transient outage cannot get baked in as a wrong answer.</li></ul>
+      </div>
+
+      <div class="modal-section">
+        <h5>Guardrails</h5>
+        <ul><li>Fail-closed safety: known jailbreak patterns are blocked locally first, everything else goes through a guarded classifier with a timeout and circuit breaker, and an unusable verdict blocks the request by default.</li><li>Rewritten, history-dependent questions are rechecked for jailbreak patterns rather than trusting the first-turn safety check alone.</li><li>Only rerank-approved chunks reach generation. A reranker crash is treated as an infrastructure failure, never a silent pass-through.</li></ul>
+      </div>
+
+      <div class="modal-section">
+        <h5>Results</h5>
+        <p>Evaluated with a Ragas harness across faithfulness, answer relevancy, and context precision and recall, judged by a model from a separate family than anything used in the live pipeline.</p>
+      </div>
+
+      <div class="modal-section">
+        <h5>Stack</h5>
+        <div class="chip-row"><span class="chip">Python</span><span class="chip">LangGraph</span><span class="chip">Qdrant</span><span class="chip">FlashRank</span><span class="chip">Groq</span><span class="chip">NVIDIA NIM</span><span class="chip">Gemini API</span><span class="chip">Streamlit</span><span class="chip">Logfire</span></div>
+      </div>
+
+      <div class="modal-foot">
+        <a class="btn btn-primary btn-sm" href="https://github.com/abhinavharbola/kubernetes-gated-rag" target="_blank" rel="noopener">View repository <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="modal-reelbench">
+    <div class="modal-media"><img src="assets/images/reelbench.webp" alt="ReelBench: Multi-Stage Recommender Benchmark" loading="lazy" class=""/></div>
+    <button class="modal-close" onclick="closeProject()"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg></button>
+    <div class="modal-body">
+      <div class="modal-cat">Recommender Systems</div>
+      <h2>ReelBench: Multi-Stage Recommender Benchmark</h2>
+      <p class="modal-tagline">Five recommendation approaches benchmarked head to head on MovieLens 25M under one evaluation harness.</p>
+      <div class="modal-stats"><div><div class="s-num">5</div><div class="s-lbl">approaches compared</div></div><div><div class="s-num">62k</div><div class="s-lbl">catalog items handled</div></div><div><div class="s-num"><1.4GB</div><div class="s-lbl">peak memory at scale</div></div></div>
+
+      <div class="modal-section">
+        <h5>Overview</h5>
+        <p>Popularity, item-item collaborative filtering, ALS/BPR, a two-tower neural retriever, and SASRec are all scored through one identical, leakage-tested evaluation harness, built and unit-tested before any model existed.</p>
+      </div>
+
+      <div class="modal-section">
+        <h5>How it works</h5>
+        <ul><li>A single global timestamp cutoff splits train and test, not a per-user-only split, which can look correct per user while still leaking future signal across users.</li><li>Two-tower and SASRec embeddings feed a FAISS retrieval index; a LightGBM ranker re-scores survivors on similarity, recency, popularity, and genre match, all served from cached artifacts with no live model calls at request time.</li><li>A cold-start path embeds movie titles and genres once with a local sentence-transformer model, giving zero-interaction items a content-based path independent of the main retrieval space.</li></ul>
+      </div>
+
+      <div class="modal-section">
+        <h5>Guardrails</h5>
+        <ul><li>Sparse, row-blocked similarity keeps item-item CF's peak memory under 1.4GB at full catalog scale, against roughly 15GB for a naive dense similarity matrix.</li><li>Both neural models checkpoint every epoch and resume automatically, since free-tier GPU sessions can disconnect without warning mid-training.</li><li>Ranker training features are built from a second temporal split applied only to outer train, after an earlier version was found to leak the label slice into ranker features.</li></ul>
+      </div>
+
+      <div class="modal-section">
+        <h5>Results</h5>
+        <p>The evaluation comparison table is the deliverable, not the model count. Every approach in it was scored through the same harness on the same held-out split, with a leakage assertion that runs before any model is trained.</p>
+      </div>
+
+      <div class="modal-section">
+        <h5>Stack</h5>
+        <div class="chip-row"><span class="chip">Python</span><span class="chip">PyTorch</span><span class="chip">FAISS</span><span class="chip">LightGBM</span><span class="chip">scikit-learn</span><span class="chip">FastAPI</span><span class="chip">Streamlit</span></div>
+      </div>
+
+      <div class="modal-foot">
+        <a class="btn btn-primary btn-sm" href="https://github.com/abhinavharbola/recsys-bench" target="_blank" rel="noopener">View repository <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="modal-churn">
+    <div class="modal-media"><img src="assets/images/churn.webp" alt="Customer Churn Prediction with Profit Optimization" loading="lazy" class=""/></div>
+    <button class="modal-close" onclick="closeProject()"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg></button>
+    <div class="modal-body">
+      <div class="modal-cat">Data Science</div>
+      <h2>Customer Churn Prediction with Profit Optimization</h2>
+      <p class="modal-tagline">Turns churn probability into a per-customer intervene or do-not-intervene call based on expected financial gain, not a raw cutoff.</p>
+      <div class="modal-stats"><div><div class="s-num">12</div><div class="s-lbl">RFM features per window</div></div><div><div class="s-num">31</div><div class="s-lbl">unit tests</div></div><div><div class="s-num">90-day</div><div class="s-lbl">churn lookahead</div></div></div>
+
+      <div class="modal-section">
+        <h5>Overview</h5>
+        <p>XGBoost is tuned on an earlier validation period, calibrated with isotonic regression on that same pre-test period, and the profit threshold is swept and locked before the final chronological test period is ever touched.</p>
+      </div>
+
+      <div class="modal-section">
+        <h5>How it works</h5>
+        <ul><li>Sliding 365-day observation and 90-day prediction windows let the same customer contribute multiple labeled examples across time, instead of one static snapshot.</li><li>An expected-value formula, probability of churn times intervention success rate times monthly spend, minus intervention cost, decides who gets targeted, so a high-risk, low-spend customer can be correctly left alone.</li><li>A SHAP waterfall explains every single-customer prediction in the dashboard, without touching training, tuning, or thresholding.</li></ul>
+      </div>
+
+      <div class="modal-section">
+        <h5>Guardrails</h5>
+        <ul><li>Cancellation netting only decrements the specific invoice and line item it matches, verified against duplicate and multi-cancellation edge cases, not only the common case.</li><li>Every dashboard tab checks for its required artifact before rendering, and shows a run-the-pipeline message instead of a raw traceback.</li></ul>
+      </div>
+
+      <div class="modal-section">
+        <h5>Results</h5>
+        <p>PR-AUC is used over ROC-AUC on purpose, since ROC-AUC inflates apparent performance on this class-imbalanced churn rate by rewarding correct ranking of the abundant negative class.</p>
+      </div>
+
+      <div class="modal-section">
+        <h5>Stack</h5>
+        <div class="chip-row"><span class="chip">Python</span><span class="chip">XGBoost</span><span class="chip">Optuna</span><span class="chip">scikit-learn</span><span class="chip">SHAP</span><span class="chip">Streamlit</span></div>
+      </div>
+
+      <div class="modal-foot">
+        <a class="btn btn-primary btn-sm" href="https://github.com/abhinavharbola" target="_blank" rel="noopener">View GitHub profile <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="modal-causal">
+    <div class="modal-media"><img src="assets/images/causal.webp" alt="Causal Impact & Heterogeneous Response Analysis" loading="lazy" class=""/></div>
+    <button class="modal-close" onclick="closeProject()"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg></button>
+    <div class="modal-body">
+      <div class="modal-cat">Causal Inference</div>
+      <h2>Causal Impact & Heterogeneous Response Analysis</h2>
+      <p class="modal-tagline">Validates four causal estimators against known ground truth before trusting any of them on a real segment-level question.</p>
+      <div class="modal-stats"><div><div class="s-num">14M</div><div class="s-lbl">rows of randomized exposure data</div></div><div><div class="s-num">4</div><div class="s-lbl">estimators stress-tested</div></div><div><div class="s-num">34</div><div class="s-lbl">automated tests</div></div></div>
+
+      <div class="modal-section">
+        <h5>Overview</h5>
+        <p>On the Criteo Uplift dataset, a subsample is artificially confounded so naive OLS, propensity score matching, IPW, and AIPW can each be checked against a known ground-truth effect before any of them touches a real segmentation question.</p>
+      </div>
+
+      <div class="modal-section">
+        <h5>How it works</h5>
+        <ul><li>A minimum-detectable-effect calculation, not a default, decides that the heterogeneity analysis uses the visit outcome instead of the far rarer conversion outcome.</li><li>A calibrated T-learner estimates individual treatment effects, evaluated honestly against random targeting via the Qini coefficient rather than assumed correct because it ran.</li><li>Benjamini-Hochberg correction and per-segment power analysis check whether each significant segment finding is even statistically defensible at its own sample size.</li></ul>
+      </div>
+
+      <div class="modal-section">
+        <h5>Guardrails</h5>
+        <ul><li>Rosenbaum bounds quantify exactly how much unmeasured confounding, roughly a 15 percent shift in treatment odds, would be needed to overturn the matched-pairs conclusion.</li><li>The one LLM step in the pipeline, a diagnostic critique of balance and sensitivity outputs, falls back from Groq to NVIDIA NIM to a deterministic rule-based critique, and never touches the analysis itself.</li></ul>
+      </div>
+
+      <div class="modal-section">
+        <h5>Results</h5>
+        <p>IPW and AIPW stayed within roughly 3 to 8 percent of the ground-truth effect across every confounding severity tested, while naive OLS bias grew past 200 percent at the strongest severity.</p>
+      </div>
+
+      <div class="modal-section">
+        <h5>Stack</h5>
+        <div class="chip-row"><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">scikit-learn</span><span class="chip">statsmodels</span><span class="chip">scikit-uplift</span><span class="chip">Streamlit</span></div>
+      </div>
+
+      <div class="modal-foot">
+        <a class="btn btn-primary btn-sm" href="https://github.com/abhinavharbola/causal-inference-lab" target="_blank" rel="noopener">View repository <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="modal-abtesting">
+    <div class="modal-media"><img src="assets/images/abtesting.webp" alt="Experiment Design & Power Analysis" loading="lazy" class=""/></div>
+    <button class="modal-close" onclick="closeProject()"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg></button>
+    <div class="modal-body">
+      <div class="modal-cat">Experimentation</div>
+      <h2>Experiment Design & Power Analysis</h2>
+      <p class="modal-tagline">A preregistered A/B test pipeline for a shipping policy change, with the metric, sample size, and tests locked before data exists.</p>
+      <div class="modal-stats"><div><div class="s-num">2,499</div><div class="s-lbl">sellers per arm required</div></div><div><div class="s-num">23</div><div class="s-lbl">automated tests</div></div><div><div class="s-num">R$28</div><div class="s-lbl">injected lift recovered</div></div></div>
+
+      <div class="modal-section">
+        <h5>Overview</h5>
+        <p>Calibrated from the real Olist e-commerce dataset but entirely simulated end to end: a population with a known injected effect is created, randomized, and analyzed with exactly the tests locked into a preregistration document before the simulation ever runs.</p>
+      </div>
+
+      <div class="modal-section">
+        <h5>How it works</h5>
+        <ul><li>Sellers, not orders, are the randomization unit, avoiding a violation of the no-interference assumption within a single seller's order stream.</li><li>A guardrail metric, the delivery-complaint rate, is tested for non-inferiority alongside the primary average-order-value lift, so a revenue win cannot quietly mask a satisfaction loss.</li><li>Dataset-role enforcement, checked at the AST level, verifies the raw data and the known injected effect can never reach the analysis or reporting code.</li></ul>
+      </div>
+
+      <div class="modal-section">
+        <h5>Guardrails</h5>
+        <ul><li>The analysis function raises an error unless it receives exactly the preregistered sample size, preventing repeated interim peeking and stopping the moment a result looks significant.</li><li>A mutation test deliberately breaks randomization and confirms the ground-truth recovery check actually catches the resulting error.</li></ul>
+      </div>
+
+      <div class="modal-section">
+        <h5>Results</h5>
+        <p>The preregistered analysis recovered the injected order-value lift within its confidence interval, and the guardrail decision held even though that interval narrowly missed the injected complaint-rate value, consistent with the miss rate expected from a 95 percent interval.</p>
+      </div>
+
+      <div class="modal-section">
+        <h5>Stack</h5>
+        <div class="chip-row"><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">statsmodels</span><span class="chip">Streamlit</span></div>
+      </div>
+
+      <div class="modal-foot">
+        <a class="btn btn-primary btn-sm" href="https://github.com/abhinavharbola" target="_blank" rel="noopener">View GitHub profile <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="modal-retailcast">
+    <div class="modal-media"><img src="assets/images/retailcast.webp" alt="RetailCast: Forecasting and Anomaly Bench" loading="lazy" class=""/></div>
+    <button class="modal-close" onclick="closeProject()"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg></button>
+    <div class="modal-body">
+      <div class="modal-cat">Forecasting</div>
+      <h2>RetailCast: Forecasting and Anomaly Bench</h2>
+      <p class="modal-tagline">Benchmarks four forecasting models and two anomaly detectors across 60 retail series, with grounded, verified LLM reporting.</p>
+      <div class="modal-stats"><div><div class="s-num">60</div><div class="s-lbl">retail series benchmarked</div></div><div><div class="s-num">0.632</div><div class="s-lbl">best MASE, XGBoost</div></div><div><div class="s-num">20</div><div class="s-lbl">automated tests</div></div></div>
+
+      <div class="modal-section">
+        <h5>Overview</h5>
+        <p>A global XGBoost model pooling across all 60 series beat per-series statistical baselines on average error, at the cost of series-specific interpretability, while Prophet and SARIMA landed near or above a naive seasonal baseline.</p>
+      </div>
+
+      <div class="modal-section">
+        <h5>How it works</h5>
+        <ul><li>Heavy computation runs on Kaggle's free GPU notebooks; a lightweight local Streamlit dashboard reads only the committed notebook outputs, never recomputing results from a different source.</li><li>An LLM narrative report verifies every numeric claim it makes against the underlying source data before it is displayed, with automatic provider fallback across Groq, NVIDIA NIM, and Gemini.</li></ul>
+      </div>
+
+      <div class="modal-section">
+        <h5>Guardrails</h5>
+        <ul><li>Isolation Forest's evaluation features are scaled from clean, pre-injection statistics rather than statistics computed on the injected anomalies themselves, which had been silently inflating its apparent precision.</li><li>A synced constants script keeps the shared metrics module and its two notebook copies byte-identical, with a test that fails the suite if a change is forgotten.</li></ul>
+      </div>
+
+      <div class="modal-section">
+        <h5>Results</h5>
+        <p>Isolation Forest reached 0.867 precision and 0.821 F1 on synthetic-injection evaluation, against 0.581 precision for simple control limits, which still caught slightly more injected anomalies at the cost of far more false positives.</p>
+      </div>
+
+      <div class="modal-section">
+        <h5>Stack</h5>
+        <div class="chip-row"><span class="chip">Python</span><span class="chip">Prophet</span><span class="chip">statsmodels</span><span class="chip">LightGBM</span><span class="chip">XGBoost</span><span class="chip">scikit-learn</span><span class="chip">Supabase</span><span class="chip">Streamlit</span></div>
+      </div>
+
+      <div class="modal-foot">
+        <a class="btn btn-primary btn-sm" href="https://github.com/abhinavharbola" target="_blank" rel="noopener">View GitHub profile <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="modal-mcp">
+    <div class="modal-media noimg"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h3a1 1 0 0 0 1 -1v-1a2 2 0 0 1 4 0v1a1 1 0 0 0 1 1h3a1 1 0 0 1 1 1v3a1 1 0 0 0 1 1h1a2 2 0 0 1 0 4h-1a1 1 0 0 0 -1 1v3a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-1a2 2 0 0 0 -4 0v1a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h1a2 2 0 0 0 0 -4h-1a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1"/></svg></div>
+    <button class="modal-close" onclick="closeProject()"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg></button>
+    <div class="modal-body">
+      <div class="modal-cat">AI Agents / MCP</div>
+      <h2>IssueOps MCP</h2>
+      <p class="modal-tagline">A guarded MCP server for GitHub issue triage. Every mutating action is proposed, never executed, without a human approval step.</p>
+      <div class="modal-stats"><div><div class="s-num">10</div><div class="s-lbl">model-facing tools</div></div><div><div class="s-num">0</div><div class="s-lbl">execute tools on that surface</div></div><div><div class="s-num">48h</div><div class="s-lbl">proposal expiry window</div></div></div>
+
+      <div class="modal-section">
+        <h5>Overview</h5>
+        <p>Ten tools sit on the model-facing surface: five read-only, five that only ever queue a proposed comment, label, assignment, or close for a human to review. No execute or confirm tool exists anywhere on that surface, for any client.</p>
+      </div>
+
+      <div class="modal-section">
+        <h5>How it works</h5>
+        <ul><li>The GitHub write credential lives in exactly one process, the human-facing approval dashboard, and is actively dropped from every other process's environment even when it was never injected there.</li><li>Before executing an approved action, the dashboard re-fetches the issue's live state and compares it against the snapshot taken at proposal time, marking the action stale instead of executing against outdated context.</li><li>Every read, proposal, approval, rejection, and execution writes to an audit log, so the log reflects what actually happened on GitHub, not only what was attempted.</li></ul>
+      </div>
+
+      <div class="modal-section">
+        <h5>Guardrails</h5>
+        <ul><li>An identical pending proposal is deduplicated rather than inserted twice, and proposals older than 48 hours auto-expire rather than executing later against a stale issue.</li><li>A heuristic prompt-injection phrase flag is surfaced in the dashboard as an advisory signal only. It is never checked in the approval or execution path and is explicitly not treated as a security boundary.</li></ul>
+      </div>
+
+      <div class="modal-section">
+        <h5>Results</h5>
+        <p>An execution-level guarantee check runs a direct SQL query confirming every completed GitHub mutation in the audit log is backed by an approved, human-authorized proposal. That number is required to be zero.</p>
+      </div>
+
+      <div class="modal-section">
+        <h5>Stack</h5>
+        <div class="chip-row"><span class="chip">Python</span><span class="chip">MCP (stdio server)</span><span class="chip">Postgres (Neon)</span><span class="chip">GitHub REST API</span><span class="chip">Streamlit</span><span class="chip">Groq</span></div>
+      </div>
+
+      <div class="modal-foot">
+        <a class="btn btn-primary btn-sm" href="https://github.com/abhinavharbola" target="_blank" rel="noopener">View GitHub profile <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"/></svg></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<footer>
+  <div class="wrap footer-inner">
+    <p>&copy; 2026 Abhinav Harbola. Designed and built independently.</p>
+    <div class="footer-links">
+      <a href="mailto:abhinavdaharbola@gmail.com">Email</a>
+      <a href="https://linkedin.com/in/abhinavharbola" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/abhinavharbola" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </footer>
 
-<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Screenshot viewer" hidden>
-  <div class="bar">
-    <span class="t" id="lbt">Screenshot</span>
-    <span class="sp">
-      <span class="count" id="lbc">1 / 1</span>
-      <button class="iconbtn" id="lbprev" type="button" aria-label="Previous screenshot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14.5 5 8 12l6.5 7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <button class="iconbtn" id="lbnext" type="button" aria-label="Next screenshot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9.5 5 16 12l-6.5 7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <button class="iconbtn" id="lbclose" type="button" aria-label="Close viewer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
-    </span>
-  </div>
-  <div class="view"><img id="lbimg" src="" alt=""></div>
-</div>
 
 <script>
-(function(){
-  var root = document.documentElement;
-  var toggle = document.getElementById('themeToggle');
-  var stored = localStorage.getItem('theme');
-  var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-  var initial = stored || (prefersLight ? 'light' : 'dark');
-  root.setAttribute('data-theme', initial);
-
-  toggle.addEventListener('click', function(){
-    var current = root.getAttribute('data-theme');
-    var next = current === 'dark' ? 'light' : 'dark';
-    root.setAttribute('data-theme', next);
-    localStorage.setItem('theme', next);
-  });
-
-  if('IntersectionObserver' in window){
-    var observer = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if(entry.isIntersecting){
-          entry.target.classList.add('in');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-
-    document.querySelectorAll('.reveal').forEach(function(el){
-      observer.observe(el);
-    });
-  } else {
-    document.querySelectorAll('.reveal').forEach(function(el){
-      el.classList.add('in');
-    });
+function applyStoredTheme(){
+  var saved = null;
+  try{ saved = localStorage.getItem('theme'); }catch(e){}
+  if(saved === 'light' || saved === 'dark'){
+    document.documentElement.setAttribute('data-theme', saved);
+  } else if(window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches){
+    document.documentElement.setAttribute('data-theme', 'light');
   }
+}
+function toggleTheme(){
+  var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+  var next = isLight ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', next);
+  try{ localStorage.setItem('theme', next); }catch(e){}
+}
+applyStoredTheme();
 
-  var navEl = document.querySelector('nav');
-  window.addEventListener('scroll', function(){
-    if(window.scrollY > 40){
-      navEl.style.boxShadow = '0 16px 40px rgba(0,0,0,0.28)';
-    } else {
-      navEl.style.boxShadow = 'var(--shadow)';
+function showView(name){
+  document.getElementById('view-home').classList.toggle('hide', name !== 'home');
+  document.getElementById('view-projects').classList.toggle('hide', name !== 'projects');
+  window.scrollTo(0,0);
+  closeMobileMenu();
+  revealAll();
+}
+function routeFromHash(){
+  var h = window.location.hash;
+  if(h.indexOf('projects') !== -1){ showView('projects'); }
+  else { showView('home'); }
+}
+window.addEventListener('hashchange', routeFromHash);
+
+function toggleMobileMenu(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+function closeMobileMenu(){
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+
+function openProject(id){
+  document.querySelectorAll('.modal').forEach(function(m){ m.classList.add('hide'); });
+  var m = document.getElementById('modal-'+id);
+  if(m){ m.classList.remove('hide'); }
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeProject(){
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape'){ closeProject(); }
+});
+
+function filterProjects(cat, btn){
+  document.querySelectorAll('.filter-chip').forEach(function(c){ c.classList.remove('active'); });
+  btn.classList.add('active');
+  document.querySelectorAll('.proj-card').forEach(function(card){
+    var show = (cat === 'all') || (card.getAttribute('data-cat') === cat);
+    card.classList.toggle('hide', !show);
+  });
+}
+
+function revealAll(){
+  document.querySelectorAll('.rv').forEach(function(el){
+    if(el.offsetParent !== null){ el.classList.add('in'); }
+  });
+}
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting){
+      entry.target.classList.add('in');
+      io.unobserve(entry.target);
     }
-  }, { passive: true });
-
-  var projects = document.querySelectorAll('#projects .proj');
-  document.querySelectorAll('.fpill').forEach(function(b){
-    b.addEventListener('click', function(){
-      var f = b.dataset.filter;
-      document.querySelectorAll('.fpill').forEach(function(o){ o.setAttribute('aria-pressed', String(o === b)); });
-      projects.forEach(function(p){
-        p.classList.toggle('hide', f !== 'all' && p.dataset.cat !== f);
-      });
-    });
   });
+}, {threshold:0.12});
+document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
 
-  var gals = {};
-  document.querySelectorAll('.shot').forEach(function(shot){
-    var key = shot.dataset.gal;
-    var imgs = shot.querySelectorAll('.stage img');
-    var thumbs = shot.querySelectorAll('.thumb');
-    var cap = shot.querySelector('.cap');
-    var titleEl = shot.closest('.proj').querySelector('h3');
-    gals[key] = { idx: 0, imgs: imgs, thumbs: thumbs, cap: cap, title: titleEl };
-
-    function show(k, i){
-      var g = gals[k]; g.idx = i;
-      g.imgs.forEach(function(im, j){ im.classList.toggle('on', j === i); });
-      g.thumbs.forEach(function(th, j){ th.setAttribute('aria-pressed', String(j === i)); });
-      if(g.cap) g.cap.textContent = g.thumbs[i].dataset.cap || '';
-    }
-    gals[key].show = show;
-
-    thumbs.forEach(function(t, i){
-      t.addEventListener('click', function(){ show(key, i); });
-    });
-  });
-
-  var lb = document.getElementById('lb');
-  var lbimg = document.getElementById('lbimg');
-  var lbt = document.getElementById('lbt');
-  var lbc = document.getElementById('lbc');
-  var active = null, lastFocus = null;
-
-  function renderLb(){
-    var g = gals[active]; if(!g) return;
-    var im = g.imgs[g.idx];
-    lbimg.src = im.getAttribute('src');
-    lbimg.alt = im.getAttribute('alt') || '';
-    lbt.textContent = g.title ? g.title.textContent : 'Screenshot';
-    lbc.textContent = (g.idx + 1) + ' / ' + g.imgs.length;
-  }
-  function openLb(key){
-    active = key; lastFocus = document.activeElement;
-    lb.hidden = false;
-    renderLb();
-    requestAnimationFrame(function(){ lb.classList.add('open'); });
-    document.body.style.overflow = 'hidden';
-    document.getElementById('lbclose').focus();
-  }
-  function closeLb(){
-    lb.classList.remove('open');
-    document.body.style.overflow = '';
-    window.setTimeout(function(){
-      if(!lb.classList.contains('open')){ lb.hidden = true; lbimg.src = ''; }
-    }, 420);
-    if(lastFocus && lastFocus.focus) lastFocus.focus();
-  }
-  function step(d){
-    var g = gals[active]; if(!g) return;
-    var n = (g.idx + d + g.imgs.length) % g.imgs.length;
-    g.show(active, n);
-    renderLb();
-  }
-
-  document.querySelectorAll('.shot [data-open]').forEach(function(el){
-    el.addEventListener('click', function(){ openLb(el.closest('.shot').dataset.gal); });
-  });
-  document.getElementById('lbclose').addEventListener('click', closeLb);
-  document.getElementById('lbprev').addEventListener('click', function(){ step(-1); });
-  document.getElementById('lbnext').addEventListener('click', function(){ step(1); });
-  lb.addEventListener('click', function(e){
-    if(e.target === lb || e.target.classList.contains('view')) closeLb();
-  });
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape'){
-      if(lb.classList.contains('open')) closeLb();
-      return;
-    }
-    if(!lb.classList.contains('open')) return;
-    if(e.key === 'ArrowLeft'){ e.preventDefault(); step(-1); }
-    if(e.key === 'ArrowRight'){ e.preventDefault(); step(1); }
-  });
-
-  var copyBtn = document.getElementById('copyEmail');
-  if(copyBtn){
-    copyBtn.addEventListener('click', function(){
-      var mail = copyBtn.dataset.mail;
-      var done = function(){
-        copyBtn.classList.add('done');
-        window.setTimeout(function(){ copyBtn.classList.remove('done'); }, 1600);
-      };
-      if(navigator.clipboard && navigator.clipboard.writeText){
-        navigator.clipboard.writeText(mail).then(done, function(){ window.location.href = 'mailto:' + mail; });
-      } else {
-        window.location.href = 'mailto:' + mail;
-      }
-    });
-  }
-})();
+routeFromHash();
 </script>
-
 </body>
 </html>
