@@ -50,7 +50,7 @@
   --text-faint:#888e95;
   --accent:#d9a441;
   --accent-strong:#c78f2e;
-  --accent-text:#9c6b1f;
+  --accent-text:#8a5c19;
   --accent-soft:rgba(184,120,31,.10);
   --accent-border:rgba(184,120,31,.32);
   --btn-primary-text:#161207;
@@ -184,9 +184,7 @@ button{font-family:inherit;cursor:pointer;}
 }
 .hero h1 em{font-style:normal;color:var(--accent-text);}
 .hero p.lead{font-size:17.5px;color:var(--text-muted);max-width:56ch;margin:0 0 30px;}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:38px;}
-.hero-meta{display:flex;flex-wrap:wrap;gap:22px;color:var(--text-faint);font-size:13.5px;}
-.hero-meta span{display:inline-flex;align-items:center;gap:7px;}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
 
 .hero-photo-wrap{position:relative;justify-self:center;width:100%;max-width:264px;}
 .hero-rings{position:absolute;top:50%;left:50%;width:165%;height:165%;transform:translate(-50%,-50%);z-index:0;pointer-events:none;}
@@ -423,7 +421,7 @@ footer{border-top:1px solid var(--border);padding:36px 0;}
     <div style="display:flex;align-items:center;gap:12px;">
       <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle color theme"><svg class="ic sun-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"/></svg><svg class="ic moon-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454l0 .008"/></svg></button>
       <a href="#contact" class="nav-cta">Get in touch <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 7l-10 10"/><path d="M8 7l9 0l0 9"/></svg></a>
-      <button class="nav-burger" onclick="toggleMobileMenu()"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l16 0"/><path d="M4 12l16 0"/><path d="M4 18l16 0"/></svg></button>
+      <button class="nav-burger" onclick="toggleMobileMenu()" aria-label="Open menu"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l16 0"/><path d="M4 12l16 0"/><path d="M4 18l16 0"/></svg></button>
     </div>
   </div>
 </nav>
@@ -444,15 +442,10 @@ footer{border-top:1px solid var(--border);padding:36px 0;}
     <div class="rv in">
       <span class="eyebrow">AI/ML Engineer &middot; open to Data Science roles</span>
       <h1>ML and LLM systems built to hold up under <em>scrutiny</em>.</h1>
-      <p class="lead">Not just for a demo. Across recommenders, retrieval-augmented generation, autonomous agents, and MLOps governance, each system is self-initiated, tested, benchmarked, and honest about its own limits.</p>
+      <p class="lead">Not just for a demo. Across recommenders, retrieval-augmented generation, autonomous agents, and MLOps governance, each system is self-directed, tested, benchmarked, and honest about its own limits.</p>
       <div class="hero-actions">
         <a href="#/projects" class="btn btn-primary">View projects <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg></a>
         <a href="assets/resume.pdf" download="Abhinav_Harbola_Resume.pdf" class="btn btn-ghost">Download resume <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg></a>
-      </div>
-      <div class="hero-meta">
-        <span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0"/></svg> Varanasi, India</span>
-        <span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 1 0 12 0a6 6 0 0 0 -12 0"/><path d="M12 3c1.333 .333 2 2.333 2 6s-.667 5.667 -2 6"/><path d="M12 3c-1.333 .333 -2 2.333 -2 6s.667 5.667 2 6"/><path d="M6 9h12"/><path d="M3 20h7"/><path d="M14 20h7"/><path d="M10 20a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M12 15v3"/></svg> Open to remote or relocation</span>
-        <span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1v-6a1 1 0 0 1 1 -1"/><path d="M5 16h4a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1v-2a1 1 0 0 1 1 -1"/><path d="M15 12h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1v-6a1 1 0 0 1 1 -1"/><path d="M15 4h4a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1v-2a1 1 0 0 1 1 -1"/></svg> 9 end-to-end builds</span>
       </div>
     </div>
     <div class="hero-photo-wrap rv in">
@@ -535,7 +528,7 @@ footer{border-top:1px solid var(--border);padding:36px 0;}
         <h3>ReelBench: Multi-Stage Recommender Benchmark</h3>
         <p>Five recommendation approaches benchmarked head to head on MovieLens 25M under one evaluation harness.</p>
         <div class="tag-row"><span class="tag">PyTorch</span><span class="tag">FAISS</span><span class="tag">LightGBM</span><span class="tag">FastAPI</span></div>
-        <div class="feat-stats"><div><div class="s-num">5</div><div class="s-lbl">approaches compared</div></div><div><div class="s-num">62k</div><div class="s-lbl">catalog items handled</div></div><div><div class="s-num"><1.4GB</div><div class="s-lbl">peak memory at scale</div></div></div>
+        <div class="feat-stats"><div><div class="s-num">5</div><div class="s-lbl">approaches compared</div></div><div><div class="s-num">62k</div><div class="s-lbl">catalog items handled</div></div><div><div class="s-num">&lt;1.4GB</div><div class="s-lbl">peak memory at scale</div></div></div>
         <div class="feat-foot">
           <button class="btn btn-primary btn-sm" onclick="openProject('reelbench')">View case study <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 7l-10 10"/><path d="M8 7l9 0l0 9"/></svg></button>
         </div>
@@ -549,7 +542,6 @@ footer{border-top:1px solid var(--border);padding:36px 0;}
   <div class="wrap">
     <div class="section-head rv">
       <div>
-        <span class="eyebrow">Capabilities</span>
         <h2>What I actually build with</h2>
         <p>A working toolkit across modeling, LLM systems, and the production layer that keeps them running honestly.</p>
       </div>
@@ -588,7 +580,6 @@ footer{border-top:1px solid var(--border);padding:36px 0;}
   <div class="wrap">
     <div class="section-head rv">
       <div>
-        <span class="eyebrow">Background</span>
         <h2>Experience &amp; education</h2>
       </div>
     </div>
@@ -632,7 +623,6 @@ footer{border-top:1px solid var(--border);padding:36px 0;}
   <div class="wrap">
     <div class="contact-band rv">
       <div class="contact-top">
-        <span class="eyebrow">Get in touch</span>
         <h2>Open to AI/ML engineering, GenAI, and data science roles.</h2>
         <p>If you are building something that needs a system that is tested as hard as it is trained, I would like to hear about it.</p>
         <div class="contact-actions">
@@ -775,7 +765,7 @@ footer{border-top:1px solid var(--border);padding:36px 0;}
   
   <div class="modal" id="modal-cia">
     <div class="modal-media"><img src="assets/images/cia.webp" alt="Competitive Intelligence Agent" loading="lazy" class=""/></div>
-    <button class="modal-close" onclick="closeProject()"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg></button>
+    <button class="modal-close" onclick="closeProject()" aria-label="Close"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg></button>
     <div class="modal-body">
       <div class="modal-cat">AI Agents</div>
       <h2>Competitive Intelligence Agent</h2>
@@ -814,7 +804,7 @@ footer{border-top:1px solid var(--border);padding:36px 0;}
   </div>
   <div class="modal" id="modal-mlops">
     <div class="modal-media"><img src="assets/images/mlops.webp" alt="Continuous Credit Risk Governance Pipeline" loading="lazy" class=""/></div>
-    <button class="modal-close" onclick="closeProject()"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg></button>
+    <button class="modal-close" onclick="closeProject()" aria-label="Close"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg></button>
     <div class="modal-body">
       <div class="modal-cat">MLOps</div>
       <h2>Continuous Credit Risk Governance Pipeline</h2>
@@ -853,7 +843,7 @@ footer{border-top:1px solid var(--border);padding:36px 0;}
   </div>
   <div class="modal" id="modal-rag">
     <div class="modal-media"><img src="assets/images/rag.webp" alt="Kubernetes Gated RAG" loading="lazy" class=""/></div>
-    <button class="modal-close" onclick="closeProject()"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg></button>
+    <button class="modal-close" onclick="closeProject()" aria-label="Close"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg></button>
     <div class="modal-body">
       <div class="modal-cat">GenAI / RAG</div>
       <h2>Kubernetes Gated RAG</h2>
@@ -892,12 +882,12 @@ footer{border-top:1px solid var(--border);padding:36px 0;}
   </div>
   <div class="modal" id="modal-reelbench">
     <div class="modal-media"><img src="assets/images/reelbench.webp" alt="ReelBench: Multi-Stage Recommender Benchmark" loading="lazy" class=""/></div>
-    <button class="modal-close" onclick="closeProject()"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg></button>
+    <button class="modal-close" onclick="closeProject()" aria-label="Close"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg></button>
     <div class="modal-body">
       <div class="modal-cat">Recommender Systems</div>
       <h2>ReelBench: Multi-Stage Recommender Benchmark</h2>
       <p class="modal-tagline">Five recommendation approaches benchmarked head to head on MovieLens 25M under one evaluation harness.</p>
-      <div class="modal-stats"><div><div class="s-num">5</div><div class="s-lbl">approaches compared</div></div><div><div class="s-num">62k</div><div class="s-lbl">catalog items handled</div></div><div><div class="s-num"><1.4GB</div><div class="s-lbl">peak memory at scale</div></div></div>
+      <div class="modal-stats"><div><div class="s-num">5</div><div class="s-lbl">approaches compared</div></div><div><div class="s-num">62k</div><div class="s-lbl">catalog items handled</div></div><div><div class="s-num">&lt;1.4GB</div><div class="s-lbl">peak memory at scale</div></div></div>
 
       <div class="modal-section">
         <h5>Overview</h5>
@@ -931,7 +921,7 @@ footer{border-top:1px solid var(--border);padding:36px 0;}
   </div>
   <div class="modal" id="modal-churn">
     <div class="modal-media"><img src="assets/images/churn.webp" alt="Customer Churn Prediction with Profit Optimization" loading="lazy" class=""/></div>
-    <button class="modal-close" onclick="closeProject()"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg></button>
+    <button class="modal-close" onclick="closeProject()" aria-label="Close"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg></button>
     <div class="modal-body">
       <div class="modal-cat">Data Science</div>
       <h2>Customer Churn Prediction with Profit Optimization</h2>
@@ -970,7 +960,7 @@ footer{border-top:1px solid var(--border);padding:36px 0;}
   </div>
   <div class="modal" id="modal-causal">
     <div class="modal-media"><img src="assets/images/causal.webp" alt="Causal Impact & Heterogeneous Response Analysis" loading="lazy" class=""/></div>
-    <button class="modal-close" onclick="closeProject()"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg></button>
+    <button class="modal-close" onclick="closeProject()" aria-label="Close"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg></button>
     <div class="modal-body">
       <div class="modal-cat">Causal Inference</div>
       <h2>Causal Impact & Heterogeneous Response Analysis</h2>
@@ -1009,7 +999,7 @@ footer{border-top:1px solid var(--border);padding:36px 0;}
   </div>
   <div class="modal" id="modal-abtesting">
     <div class="modal-media"><img src="assets/images/abtesting.webp" alt="Experiment Design & Power Analysis" loading="lazy" class=""/></div>
-    <button class="modal-close" onclick="closeProject()"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg></button>
+    <button class="modal-close" onclick="closeProject()" aria-label="Close"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg></button>
     <div class="modal-body">
       <div class="modal-cat">Experimentation</div>
       <h2>Experiment Design & Power Analysis</h2>
@@ -1048,7 +1038,7 @@ footer{border-top:1px solid var(--border);padding:36px 0;}
   </div>
   <div class="modal" id="modal-retailcast">
     <div class="modal-media"><img src="assets/images/retailcast.webp" alt="RetailCast: Forecasting and Anomaly Bench" loading="lazy" class=""/></div>
-    <button class="modal-close" onclick="closeProject()"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg></button>
+    <button class="modal-close" onclick="closeProject()" aria-label="Close"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg></button>
     <div class="modal-body">
       <div class="modal-cat">Forecasting</div>
       <h2>RetailCast: Forecasting and Anomaly Bench</h2>
@@ -1087,7 +1077,7 @@ footer{border-top:1px solid var(--border);padding:36px 0;}
   </div>
   <div class="modal" id="modal-mcp">
     <div class="modal-media noimg"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h3a1 1 0 0 0 1 -1v-1a2 2 0 0 1 4 0v1a1 1 0 0 0 1 1h3a1 1 0 0 1 1 1v3a1 1 0 0 0 1 1h1a2 2 0 0 1 0 4h-1a1 1 0 0 0 -1 1v3a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-1a2 2 0 0 0 -4 0v1a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h1a2 2 0 0 0 0 -4h-1a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1"/></svg></div>
-    <button class="modal-close" onclick="closeProject()"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg></button>
+    <button class="modal-close" onclick="closeProject()" aria-label="Close"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg></button>
     <div class="modal-body">
       <div class="modal-cat">AI Agents / MCP</div>
       <h2>IssueOps MCP</h2>
@@ -1129,7 +1119,7 @@ footer{border-top:1px solid var(--border);padding:36px 0;}
 
 <footer>
   <div class="wrap footer-inner">
-    <p>&copy; 2026 Abhinav Harbola. Designed and built independently.</p>
+    <p>&copy; 2026 Abhinav Harbola. Varanasi, India &middot; open to remote or relocation. Designed and built independently.</p>
     <div class="footer-links">
       <a href="mailto:abhinavdaharbola@gmail.com">Email</a>
       <a href="https://linkedin.com/in/abhinavharbola" target="_blank" rel="noopener">LinkedIn</a>
