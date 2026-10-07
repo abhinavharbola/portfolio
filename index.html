@@ -337,10 +337,7 @@ a.stat-item{color:inherit}
 .stat-num{transition:color .15s ease}
 a.stat-item:hover .stat-num{color:var(--accent-text)}
 .about-wrap .section-head{margin-bottom:var(--s-3)}
-.about-quote{font-size:clamp(22px,2.6vw,30px);font-weight:500;line-height:1.35;margin:0 0 var(--s-3);max-width:34ch}
-.about-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 var(--s-4);border-top:1px solid var(--border)}
-.fact-chip{display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:var(--s-2) 0;border:0;border-radius:0;background:none}
-@media(max-width:640px){.about-facts{grid-template-columns:1fr}.hero-actions,.contact-actions{flex-direction:column}.hero-actions .btn,.contact-actions .btn{width:100%}.modal-pager{grid-template-columns:1fr}}
+@media(max-width:640px){.hero-actions,.contact-actions{flex-direction:column}.hero-actions .btn,.contact-actions .btn{width:100%}.modal-pager{grid-template-columns:1fr}}
 .section-title{font-size:clamp(28px,3.4vw,38px)}
 .tag{border-color:var(--border);border-radius:var(--r-sm)}
 #view-home .proj-tags{display:none}
@@ -424,11 +421,12 @@ a.stat-item:hover .stat-num{color:var(--accent-text)}
 
   <section class="section" id="about">
     <div class="wrap about-wrap">
-      <div class="section-head"><h2 class="section-title">About</h2></div>
-      <p class="about-quote">I write the evaluation before the model.</p>
+      <p class="label">About</p>
+      <h2 class="about-quote">I write the evaluation before the model.</h2>
       <p class="about-text">I build ML and LLM systems end to end: retrieval, agents, recommenders, causal inference, and the MLOps around them. In each project I fix the evaluation design first, build second, and report what the measurements show, including where the system falls short. Everything here runs on free-tier infrastructure.</p>
       <div class="about-facts">
         <span class="fact-chip"><span class="fact-key">Focus</span>LLM systems, evaluation, MLOps</span>
+        <span class="fact-chip"><span class="fact-key">Education</span>B.Tech, Computer Science and Engineering, Lovely Professional University</span>
         <span class="fact-chip"><span class="fact-key">Location</span>Varanasi, India</span>
         <span class="fact-chip"><span class="fact-key">Availability</span>Open to remote or relocation</span>
       </div>
