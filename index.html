@@ -20,11 +20,11 @@
 <link rel="icon" href="assets/favicon-48.png?v=2" sizes="48x48" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=2">
 <script>(function(){var d=document.documentElement;d.classList.add('js');var t=null;try{t=localStorage.getItem('theme');}catch(e){}if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark';}d.setAttribute('data-theme',t);})();</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600&family=Geist:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600&family=Geist:wght@400;500;600&display=swap"></noscript>
+<link rel="preload" href="assets/fonts/bricolage-grotesque-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+@font-face{font-family:"Bricolage Grotesque";font-style:normal;font-weight:200 800;font-display:swap;src:url(assets/fonts/bricolage-grotesque-latin-wght-normal.woff2) format("woff2")}
+@font-face{font-family:"Geist";font-style:normal;font-weight:100 900;font-display:swap;src:url(assets/fonts/geist-latin-wght-normal.woff2) format("woff2")}
 :root{
   --bg:#0a0b0d;
   --bg-soft:#0d0f12;
@@ -60,34 +60,41 @@
   --maxw:1180px;
   --split-gap:64px;
   --nav-h:64px;
-  --font-display:'Bricolage Grotesque',system-ui,-apple-system,'Segoe UI',sans-serif;
-  --font-body:'Geist',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --s-1:8px;
+  --s-2:16px;
+  --s-3:24px;
+  --s-4:32px;
+  --s-5:48px;
+  --s-6:64px;
+  --s-7:96px;
+  --font-display:'Bricolage Grotesque',Arial,system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-body:'Geist',Arial,system-ui,-apple-system,'Segoe UI',sans-serif;
   color-scheme:dark;
 }
 :root[data-theme="light"]{
-  --bg:#ece8df;
-  --bg-soft:#f4f2ee;
-  --surface:#e1d9cc;
-  --surface-2:#d6c9b6;
-  --border:rgba(42,34,27,.10);
-  --border-strong:rgba(42,34,27,.36);
-  --text:#2a221b;
-  --text-muted:#4a4136;
-  --text-faint:#6d6154;
+  --bg:#f5f3ef;
+  --bg-soft:#fbfaf8;
+  --surface:#ebe8e2;
+  --surface-2:#e1ddd6;
+  --border:rgba(28,26,23,.10);
+  --border-strong:rgba(28,26,23,.34);
+  --text:#1c1a17;
+  --text-muted:#47423b;
+  --text-faint:#675f55;
   --accent:#d9a441;
-  --accent-strong:#c1892d;
-  --accent-text:#8a5c14;
-  --accent-border:rgba(138,92,20,.35);
-  --accent-ind:#a06a18;
-  --aura:rgba(217,164,65,.16);
-  --focus:#8a5c14;
+  --accent-strong:#c8922e;
+  --accent-text:#855600;
+  --accent-border:rgba(133,86,0,.35);
+  --accent-ind:#9a6410;
+  --aura:rgba(217,164,65,.14);
+  --focus:#855600;
   --on-accent:#161207;
-  --grid-line:rgba(42,34,27,.06);
-  --wash:rgba(217,164,65,.1);
-  --nav-bg:rgba(236,232,223,.85);
-  --overlay:rgba(42,34,27,.66);
-  --shadow-sm:0 1px 2px rgba(42,34,27,.06),0 3px 8px -2px rgba(42,34,27,.09);
-  --shadow-lg:0 2px 4px rgba(42,34,27,.05),0 16px 40px -12px rgba(42,34,27,.20);
+  --grid-line:rgba(28,26,23,.06);
+  --wash:rgba(217,164,65,.10);
+  --nav-bg:rgba(245,243,239,.86);
+  --overlay:rgba(28,26,23,.6);
+  --shadow-sm:0 1px 2px rgba(28,26,23,.06),0 3px 8px -2px rgba(28,26,23,.08);
+  --shadow-lg:0 2px 4px rgba(28,26,23,.05),0 16px 40px -12px rgba(28,26,23,.18);
   color-scheme:light;
 }
 *{box-sizing:border-box}
@@ -120,7 +127,7 @@ main:focus{outline:none}
 .nav-links a:hover,.nav-links a[aria-current]{color:var(--text)}
 .nav-links a:hover::after,.nav-links a[aria-current]::after{transform:scaleX(1)}
 .nav-actions{display:flex;align-items:center;gap:12px}
-.icon-btn{width:38px;height:38px;border-radius:var(--r-pill);background:var(--surface-2);border:1px solid var(--border-strong);display:flex;align-items:center;justify-content:center;color:var(--text);transition:border-color .15s ease}
+.icon-btn{width:44px;height:44px;border-radius:var(--r-pill);background:var(--surface-2);border:1px solid var(--border-strong);display:flex;align-items:center;justify-content:center;color:var(--text);transition:border-color .15s ease}
 .icon-btn:hover{border-color:var(--accent-border)}
 .theme-toggle .moon-ic{display:none}
 :root[data-theme="light"] .theme-toggle .sun-ic{display:none}
@@ -145,12 +152,12 @@ main:focus{outline:none}
 .btn-ghost{border-color:var(--border-strong);color:var(--text)}
 .btn-ghost:hover{border-color:var(--accent-border);color:var(--accent-text)}
 .btn-sm{padding:9px 16px}
-.nav-actions .btn-sm{height:38px;padding-top:0;padding-bottom:0}
+.nav-actions .btn-sm{height:44px;padding-top:0;padding-bottom:0}
 @media(max-width:400px){.nav-inner,.nav-actions{gap:8px}.brand{font-size:16px;gap:8px}}
 
 .label{display:inline-flex;align-items:center;font-size:var(--fs-sm);font-weight:500;color:var(--text-muted)}
 
-.hero{position:relative;padding:72px 0 96px;overflow:hidden;overflow:clip}
+.hero{position:relative;padding:var(--s-6) 0;overflow:hidden;overflow:clip}
 .hero .wrap{position:relative;z-index:1}
 .hero-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:var(--split-gap);align-items:center}
 @media(max-width:860px){.hero-grid{grid-template-columns:1fr;gap:48px}.hero-grid .hero-visual{max-width:236px;justify-self:start}}
@@ -167,30 +174,28 @@ main:focus{outline:none}
 .js .hero .rv.in:nth-child(4){animation-delay:.18s}
 .js .hero .hero-visual.rv.in{animation-delay:.16s}
 
-.stats-strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin:24px 0 32px}
+.stats-strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin:0}
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
-.stat-item{padding:28px;border-left:1px solid var(--border);display:flex;flex-direction:column;justify-content:center;min-height:120px}
+.stat-item{padding:var(--s-3);border-left:1px solid var(--border);display:flex;flex-direction:column;justify-content:flex-start}
 .stat-item:first-child{border-left:0;padding-left:0}
 .stat-num{font-family:var(--font-display);font-size:clamp(24px,3vw,34px);font-weight:600;letter-spacing:-.01em;line-height:1.15}
-.stat-label{font-size:var(--fs-sm);color:var(--text-faint);margin-top:6px;max-width:32ch;line-height:1.5;min-height:3em;text-wrap:balance}
+.stat-label{font-size:var(--fs-sm);color:var(--text-faint);margin-top:6px;max-width:32ch;line-height:1.5;text-wrap:balance}
 .lbl-m{display:none}
 @media(max-width:860px){
   .stats-grid{grid-template-columns:repeat(2,1fr)}
-  .stat-item{padding:22px 16px;border-left:0;border-top:1px solid var(--border)}
+  .stat-item{padding:var(--s-3) 12px;border-left:0;border-top:1px solid var(--border)}
   .stat-item:nth-child(odd){padding-left:0;border-right:1px solid var(--border)}
   .stat-item:nth-child(-n+2){border-top:0}
-.stat-label{max-width:none;font-size:12px}
-.stat-item{padding:22px 12px}
-.stat-item:nth-child(odd){padding-left:0}
-.lbl-d{display:none}
-.lbl-m{display:inline}
+  .stat-label{max-width:none;font-size:13px}
+  .lbl-d{display:none}
+  .lbl-m{display:inline}
 }
 
-.section{padding:56px 0}
-#contact{padding-bottom:88px}
+.section{padding:var(--s-5) 0}
+#contact{padding-bottom:var(--s-7)}
 section[id]{scroll-margin-top:calc(var(--nav-h) - 24px)}
 .section-foot{margin-top:32px}
-.section-head{margin-bottom:40px}
+.section-head{margin-bottom:var(--s-5)}
 .section-title{font-family:var(--font-display);font-size:clamp(26px,3.2vw,36px);font-weight:600;letter-spacing:-.015em;line-height:1.15;text-wrap:balance}
 .section-sub{color:var(--text-muted);font-size:var(--fs-body);max-width:56ch;margin-top:10px;text-wrap:pretty}
 .pc-link{display:inline-flex;align-items:center;gap:6px;font-size:var(--fs-sm);font-weight:600;color:var(--accent-text)}
@@ -213,7 +218,7 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 24px)}
 .proj-row:hover .pc-link .ic{transform:translateX(3px)}
 
 .proj-list{border-top:1px solid var(--border)}
-.proj-row{position:relative;display:grid;grid-template-columns:56px 1fr 300px;gap:28px;align-items:start;padding:40px 0;border-bottom:1px solid var(--border);transition:border-color .2s ease}
+.proj-row{position:relative;display:grid;grid-template-columns:56px 1fr 300px;gap:28px;align-items:start;padding:var(--s-5) 0;border-bottom:1px solid var(--border);transition:border-color .2s ease}
 .proj-row:hover{border-color:var(--accent-border)}
 .proj-index{font-family:var(--font-display);font-size:var(--fs-lg);font-weight:600;color:var(--text-faint);line-height:1.3;transition:color .2s ease}
 .proj-row:hover .proj-index{color:var(--accent-text)}
@@ -230,17 +235,17 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 24px)}
 .proj-media{position:relative;width:300px;aspect-ratio:3/2;border-radius:var(--r-md);overflow:hidden;background:var(--surface);border:1px solid var(--border);flex-shrink:0;opacity:.82;transition:opacity .25s ease}
 .proj-row:hover .proj-media{opacity:1}
 .proj-media img{width:100%;height:100%;object-fit:cover;object-position:top}
-@media(max-width:860px){.proj-row{grid-template-columns:36px 1fr;gap:18px}.proj-media{display:none}}
+@media(max-width:860px){.proj-row{grid-template-columns:36px 1fr;gap:var(--s-2) 18px}.proj-index{grid-column:1;grid-row:1/span 2}.proj-media{grid-column:2;grid-row:1;width:100%;aspect-ratio:2/1}.proj-main{grid-column:2;grid-row:2}.proj-stats{flex-wrap:nowrap;gap:var(--s-2)}.proj-stats .stat-block{flex:1 1 0;min-width:0}}
 @media(max-width:640px){.proj-row{padding:32px 0}}
 
 .skills-list{border-top:1px solid var(--border)}
-.skill-row{display:grid;grid-template-columns:224px 1fr;gap:32px;padding:26px 0;border-bottom:1px solid var(--border)}
+.skill-row{display:grid;grid-template-columns:224px 1fr;gap:32px;padding:var(--s-3) 0;border-bottom:1px solid var(--border)}
 .skill-cat{font-family:var(--font-display);font-size:var(--fs-body);font-weight:600;letter-spacing:-.005em;padding-top:2px}
 .skill-items{display:flex;flex-wrap:wrap;margin-left:-24px;clip-path:inset(0 0 0 24px);font-size:var(--fs-body);line-height:1.9}
 .skill-items span{position:relative;padding-left:24px;color:var(--text-muted)}
 .skill-items span.core{color:var(--text);font-weight:600}
 .skill-items span::before{content:"\00b7";position:absolute;top:0;left:10px;color:var(--text-faint)}
-@media(max-width:640px){.skill-row{grid-template-columns:1fr;gap:6px;padding:20px 0}}
+@media(max-width:640px){.skill-row{grid-template-columns:1fr;gap:var(--s-1);padding:var(--s-2) 0}}
 
 .xp-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--split-gap);align-items:start}
 @media(max-width:860px){.xp-grid{grid-template-columns:1fr;gap:0}}
@@ -256,11 +261,11 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 24px)}
 .cert-list li+li{margin-top:14px}
 .cert-name{font-size:var(--fs-sm)}
 
-.contact-band{position:relative;background:radial-gradient(65% 90% at 38% 0%,var(--wash),transparent 70%),var(--bg-soft);border:1px solid var(--border);border-radius:var(--r-lg);padding:56px;box-shadow:var(--shadow-lg);transition:border-color .2s ease}
+.contact-band{position:relative;background:radial-gradient(65% 90% at 38% 0%,var(--wash),transparent 70%),var(--bg-soft);border:1px solid var(--border);border-radius:var(--r-lg);padding:var(--s-6);box-shadow:var(--shadow-lg);transition:border-color .2s ease}
 .contact-band:hover{border-color:var(--accent-border)}
 .contact-band::before{content:"";position:absolute;inset:0;z-index:1;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .25s ease;background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%),var(--wash),transparent 65%)}
 @media(hover:hover){.contact-band:hover::before{opacity:1}}
-@media(max-width:860px){.contact-band{padding:36px 24px}}
+@media(max-width:860px){.contact-band{padding:var(--s-4) var(--s-3)}}
 .contact-top{max-width:640px;margin:0 auto;text-align:center}
 .contact-top p{color:var(--text-muted);font-size:var(--fs-body);margin:12px auto 26px;max-width:48ch;text-wrap:pretty}
 .contact-actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
@@ -281,24 +286,24 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 24px)}
 .footer-links a:hover{color:var(--accent-text)}
 .rot-up{transform:rotate(-90deg)}
 
-.page-header{padding:48px 0 36px;border-bottom:1px solid var(--border)}
+.page-header{padding:var(--s-5) 0 var(--s-4);border-bottom:1px solid var(--border)}
 .back{display:inline-flex;align-items:center;gap:8px;color:var(--text-muted);font-size:var(--fs-sm);margin-bottom:24px}
 .back:hover{color:var(--text)}
 .page-header h1{font-family:var(--font-display);font-size:clamp(30px,4.2vw,44px);font-weight:600;letter-spacing:-.02em;margin-bottom:14px}
 .page-header p{color:var(--text-muted);font-size:var(--fs-body);max-width:60ch;margin:0 0 28px;text-wrap:pretty}
 .page-header .filter-status{margin:16px 0 0;font-size:var(--fs-sm);color:var(--text-faint)}
 .filter-row{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:10px}
-.filter-chip{font-size:var(--fs-sm);padding:9px 18px;border-radius:var(--r-pill);background:var(--surface-2);border:1px solid var(--border-strong);color:var(--text-muted);transition:border-color .15s ease,color .15s ease,background-color .15s ease}
+.filter-chip{font-size:var(--fs-sm);padding:12px 18px;border-radius:var(--r-pill);background:var(--surface-2);border:1px solid var(--border-strong);color:var(--text-muted);transition:border-color .15s ease,color .15s ease,background-color .15s ease}
 .filter-chip:hover{border-color:var(--accent-border);color:var(--text)}
 .filter-chip[aria-pressed="true"]{background:var(--accent);color:var(--on-accent);border-color:var(--accent);font-weight:600}
-.proj-page{padding:48px 0 96px}
+.proj-page{padding:var(--s-5) 0}
 
 .modal-overlay{position:fixed;inset:0;z-index:100;background:var(--overlay);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:flex-start;justify-content:center;overflow-y:auto;padding:48px 20px}
 .modal{position:relative;background:var(--bg-soft);border:1px solid var(--border-strong);border-radius:var(--r-lg);max-width:820px;width:100%;margin-bottom:48px;overflow:hidden;overflow:clip;box-shadow:var(--shadow-lg)}
 .modal:focus{outline:none}
 .modal-media{aspect-ratio:16/9;background:var(--surface);border-bottom:1px solid var(--border)}
 .modal-media img{width:100%;height:100%;object-fit:cover;object-position:top}
-.modal-close{position:sticky;top:16px;z-index:2;margin:16px 16px -54px auto;background:var(--nav-bg);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.modal-close{position:sticky;top:16px;z-index:2;margin:16px 16px -60px auto;background:var(--nav-bg);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .modal-body{padding:36px 40px 44px}
 @media(max-width:640px){.modal-body{padding:26px 22px 32px}.modal-overlay{padding:0}.modal{margin-bottom:0;min-height:100dvh;border-radius:0;border-width:0}}
 .modal-body h2{font-family:var(--font-display);font-size:clamp(22px,3vw,28px);font-weight:600;letter-spacing:-.015em;line-height:1.2;margin:8px 0 12px;text-wrap:balance}
@@ -328,6 +333,37 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 24px)}
   *,*::before,*::after{transition-duration:.01ms!important}
 }
 
+a.stat-item{color:inherit}
+.stat-num{transition:color .15s ease}
+a.stat-item:hover .stat-num{color:var(--accent-text)}
+.about-wrap .section-head{margin-bottom:var(--s-3)}
+.about-quote{font-size:clamp(22px,2.6vw,30px);font-weight:500;line-height:1.35;margin:0 0 var(--s-3);max-width:34ch}
+.about-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 var(--s-4);border-top:1px solid var(--border)}
+.fact-chip{display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:var(--s-2) 0;border:0;border-radius:0;background:none}
+@media(max-width:640px){.about-facts{grid-template-columns:1fr}.hero-actions,.contact-actions{flex-direction:column}.hero-actions .btn,.contact-actions .btn{width:100%}.modal-pager{grid-template-columns:1fr}}
+.section-title{font-size:clamp(28px,3.4vw,38px)}
+.tag{border-color:var(--border);border-radius:var(--r-sm)}
+#view-home .proj-tags{display:none}
+.proj-stats .s-num{font-size:var(--fs-lg)}
+.skill-items{display:block;margin:0;clip-path:none}
+.skill-items span{padding:0}
+.skill-items span::before{content:none}
+.skill-items span:not(:last-child)::after{content:", ";white-space:pre;color:var(--text-faint);font-weight:400}
+.skills-legend{margin-top:var(--s-3);font-size:var(--fs-sm);color:var(--text-faint)}
+.footer-links{flex-wrap:wrap}
+.footer-links a{padding:10px 0}
+.proj-page{padding-bottom:var(--s-5)}
+.proj-cta{padding-bottom:var(--s-7)}
+.proj-cta .contact-actions{margin-top:var(--s-3)}
+.proj-row.swap{animation:fade .25s ease}
+.modal-pager{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:var(--s-4);padding-top:var(--s-3);border-top:1px solid var(--border)}
+.pager-link{display:flex;align-items:center;gap:12px;min-width:0;padding:14px 16px;border:1px solid var(--border);border-radius:var(--r-md);transition:border-color .15s ease}
+.pager-link:hover{border-color:var(--accent-border)}
+.pager-next{justify-content:flex-end;text-align:right}
+.pager-text{display:flex;flex-direction:column;min-width:0}
+.pager-dir{font-size:12px;color:var(--text-faint)}
+.pager-title{font-size:var(--fs-sm);font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media(prefers-reduced-motion:reduce){.proj-row.swap{animation:none}}
 </style>
 </head>
 <body>
@@ -349,7 +385,7 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 24px)}
 <header class="nav">
   <div class="wrap nav-inner">
     <a class="brand" href="#/" aria-label="Abhinav Harbola, home"><span class="brand-mark" aria-hidden="true">A</span>Abhinav Harbola</a>
-    <nav class="nav-links" aria-label="Primary"><a href="#/" data-nav="home">Home</a><a href="#/about" data-nav="about">About</a><a href="#/projects" data-nav="projects">Projects</a><a href="#/skills" data-nav="skills">Skills</a><a href="#/experience" data-nav="experience">Experience</a></nav>
+    <nav class="nav-links" aria-label="Primary"><a href="#/about" data-nav="about">About</a><a href="#/projects" data-nav="projects">Projects</a><a href="#/skills" data-nav="skills">Skills</a><a href="#/experience" data-nav="experience">Experience</a></nav>
     <div class="nav-actions">
       <button class="icon-btn theme-toggle" type="button" aria-label="Switch to light theme"><svg class="ic sun-ic" aria-hidden="true"><use href="#i-sun"/></svg><svg class="ic moon-ic" aria-hidden="true"><use href="#i-moon"/></svg></button>
       <a class="btn btn-ghost btn-sm nav-cta" href="#/contact">Contact</a>
@@ -357,14 +393,13 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 24px)}
     </div>
   </div>
   </header>
-<div class="mobile-menu" id="mobileMenu" hidden>
-  <a href="#/" data-nav="home">Home</a>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile" hidden>
   <a href="#/about" data-nav="about">About</a>
   <a href="#/projects" data-nav="projects">Projects</a>
   <a href="#/skills" data-nav="skills">Skills</a>
   <a href="#/experience" data-nav="experience">Experience</a>
   <a class="btn btn-primary" href="#/contact">Contact</a>
-</div>
+</nav>
 
 <main id="main" tabindex="-1">
 <div id="view-home" class="view">
@@ -385,16 +420,15 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 24px)}
     </div>
   </section>
 
-  <div class="stats-strip"><div class="wrap"><div class="stats-grid" role="group" aria-label="Highlights from the projects below"><div class="stat-item rv"><span class="stat-num">42/50</span><span class="stat-label"><span class="lbl-d">planted sales spikes and drops caught by the best detector</span><span class="lbl-m">planted sales glitches caught</span></span></div><div class="stat-item rv"><span class="stat-num">4.8/5</span><span class="stat-label"><span class="lbl-d">AI research brief completeness, up from 3.8 with self-checking</span><span class="lbl-m">research score, up from 3.8</span></span></div><div class="stat-item rv"><span class="stat-num">1%</span><span class="stat-label"><span class="lbl-d">needless model rebuilds on unchanged data, down from 40%</span><span class="lbl-m">needless rebuilds, down from 40%</span></span></div><div class="stat-item rv"><span class="stat-num">5x</span><span class="stat-label"><span class="lbl-d">the profit of random outreach in a simulated retention campaign</span><span class="lbl-m">more profit than random, simulated</span></span></div></div></div></div>
+  <div class="stats-strip"><div class="wrap"><div class="stats-grid" role="group" aria-label="Highlights from the projects below"><a class="stat-item" href="#/projects/demand-lens"><span class="stat-num">42/50</span><span class="stat-label"><span class="lbl-d">planted sales spikes and drops caught by the best detector</span><span class="lbl-m">planted sales glitches caught</span></span></a><a class="stat-item" href="#/projects/cia"><span class="stat-num">4.8/5</span><span class="stat-label"><span class="lbl-d">AI research brief completeness, up from 3.8 with self-checking</span><span class="lbl-m">research score, up from 3.8</span></span></a><a class="stat-item" href="#/projects/mlops"><span class="stat-num">1%</span><span class="stat-label"><span class="lbl-d">needless model rebuilds on unchanged data, down from 40%</span><span class="lbl-m">needless rebuilds, down from 40%</span></span></a><a class="stat-item" href="#/projects/churn"><span class="stat-num">5x</span><span class="stat-label"><span class="lbl-d">the profit of random outreach in a simulated retention campaign</span><span class="lbl-m">more profit than random, simulated</span></span></a></div></div></div>
 
   <section class="section" id="about">
     <div class="wrap about-wrap">
-      <p class="label rv">About</p>
-      <h2 class="about-quote rv">I write the evaluation before the model.</h2>
-      <p class="about-text rv">I build ML and LLM systems end to end: retrieval, agents, recommenders, causal inference, and the MLOps around them. In each project I fix the evaluation design first, build second, and report what the measurements show, including where the system falls short. Everything here runs on free-tier infrastructure.</p>
-      <div class="about-facts rv">
+      <div class="section-head"><h2 class="section-title">About</h2></div>
+      <p class="about-quote">I write the evaluation before the model.</p>
+      <p class="about-text">I build ML and LLM systems end to end: retrieval, agents, recommenders, causal inference, and the MLOps around them. In each project I fix the evaluation design first, build second, and report what the measurements show, including where the system falls short. Everything here runs on free-tier infrastructure.</p>
+      <div class="about-facts">
         <span class="fact-chip"><span class="fact-key">Focus</span>LLM systems, evaluation, MLOps</span>
-        <span class="fact-chip"><span class="fact-key">Education</span>B.Tech, Computer Science and Engineering, Lovely Professional University</span>
         <span class="fact-chip"><span class="fact-key">Location</span>Varanasi, India</span>
         <span class="fact-chip"><span class="fact-key">Availability</span>Open to remote or relocation</span>
       </div>
@@ -403,61 +437,62 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 24px)}
 
   <section class="section" id="work">
     <div class="wrap">
-      <div class="section-head rv">
+      <div class="section-head">
         <div>
           <h2 class="section-title">Selected projects</h2>
           <p class="section-sub">A glimpse of my work: fix the evaluation before the model, then report what the measurements say, including the parts that do not flatter the system.</p>
         </div>
       </div>
       <div class="proj-list">
-        <article class="proj-row rv"><span class="proj-index" aria-hidden="true">01</span><div class="proj-main"><p class="label">AI Agents / MCP</p><h3 class="proj-title"><a href="#/projects/mcp">IssueOps MCP</a></h3><p class="proj-desc">A GitHub issue triage system where the model can only propose. Nothing reaches GitHub until a person approves it in a dashboard, and every read, proposal, and decision is audit-logged.</p><div class="proj-tags"><span class="tag">MCP</span><span class="tag">Postgres</span><span class="tag">Streamlit</span><span class="tag">Groq</span></div><div class="proj-stats"><div class="stat-block"><span class="s-num">10</span><span class="s-lbl">MCP tools: 5 read, 5 propose</span></div><div class="stat-block"><span class="s-num">0</span><span class="s-lbl">execute tools exposed to the model</span></div><div class="stat-block"><span class="s-num">48h</span><span class="s-lbl">proposal expiry window</span></div></div><span class="pc-link" aria-hidden="true">View case study <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></div><div class="proj-media"><img src="assets/images/mcp.webp" alt="IssueOps MCP project diagram" loading="lazy" decoding="async"></div></article>
-        <article class="proj-row rv"><span class="proj-index" aria-hidden="true">02</span><div class="proj-main"><p class="label">MLOps</p><h3 class="proj-title"><a href="#/projects/mlops">Continuous Credit Risk Governance Pipeline</a></h3><p class="proj-desc">A credit-risk classifier that runs its own lifecycle: it scores live batches, waits for delayed labels, detects drift, retrains a challenger, gates it with a bootstrap test, and rolls back if its predecessor wins on live data.</p><div class="proj-tags"><span class="tag">MLflow</span><span class="tag">Evidently</span><span class="tag">DVC</span><span class="tag">GitHub Actions</span><span class="tag">Postgres</span></div><div class="proj-stats"><div class="stat-block"><span class="s-num">1%</span><span class="s-lbl">false retrains on undrifted batches (was about 40%)</span></div><div class="stat-block"><span class="s-num">3</span><span class="s-lbl">promotion checks: tolerance, dominance, significance</span></div><div class="stat-block"><span class="s-num">105</span><span class="s-lbl">automated tests</span></div></div><span class="pc-link" aria-hidden="true">View case study <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></div><div class="proj-media"><img src="assets/images/mlops.webp" alt="Continuous Credit Risk Governance Pipeline project diagram" loading="lazy" decoding="async"></div></article>
-        <article class="proj-row rv"><span class="proj-index" aria-hidden="true">03</span><div class="proj-main"><p class="label">GenAI / RAG</p><h3 class="proj-title"><a href="#/projects/rag">Kubernetes Gated RAG</a></h3><p class="proj-desc">A Kubernetes Q&amp;A system that answers only from the docs you ingest. A gate sits at every stage where a bad answer could slip through, and infrastructure failures return an uncached outage message instead of a guess.</p><div class="proj-tags"><span class="tag">LangGraph</span><span class="tag">Qdrant</span><span class="tag">FlashRank</span><span class="tag">Groq</span><span class="tag">Ragas</span></div><div class="proj-stats"><div class="stat-block"><span class="s-num">0.95</span><span class="s-lbl">faithfulness on the 8-row starter set</span></div><div class="stat-block"><span class="s-num">3</span><span class="s-lbl">generation failover links, same model</span></div><div class="stat-block"><span class="s-num">2</span><span class="s-lbl">cache layers, exact and semantic</span></div></div><span class="pc-link" aria-hidden="true">View case study <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></div><div class="proj-media"><img src="assets/images/rag.webp" alt="Kubernetes Gated RAG project diagram" loading="lazy" decoding="async"></div></article>
+        <article class="proj-row"><span class="proj-index" aria-hidden="true">01</span><div class="proj-main"><p class="label">AI Agents / MCP</p><h3 class="proj-title"><a href="#/projects/mcp">IssueOps MCP</a></h3><p class="proj-desc">A GitHub issue triage system where the model can only propose. Nothing reaches GitHub until a person approves it in a dashboard, and every read, proposal, and decision is audit-logged.</p><div class="proj-tags"><span class="tag">MCP</span><span class="tag">Postgres</span><span class="tag">Streamlit</span><span class="tag">Groq</span></div><div class="proj-stats"><div class="stat-block"><span class="s-num">10</span><span class="s-lbl">MCP tools: 5 read, 5 propose</span></div><div class="stat-block"><span class="s-num">0</span><span class="s-lbl">execute tools exposed to the model</span></div><div class="stat-block"><span class="s-num">48h</span><span class="s-lbl">proposal expiry window</span></div></div><span class="pc-link" aria-hidden="true">View case study <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></div><div class="proj-media"><img src="assets/images/mcp.webp" alt="IssueOps MCP project diagram" loading="lazy" decoding="async"></div></article>
+        <article class="proj-row"><span class="proj-index" aria-hidden="true">02</span><div class="proj-main"><p class="label">MLOps</p><h3 class="proj-title"><a href="#/projects/mlops">Continuous Credit Risk Governance Pipeline</a></h3><p class="proj-desc">A credit-risk classifier that runs its own lifecycle: it scores live batches, waits for delayed labels, detects drift, retrains a challenger, gates it with a bootstrap test, and rolls back if its predecessor wins on live data.</p><div class="proj-tags"><span class="tag">MLflow</span><span class="tag">Evidently</span><span class="tag">DVC</span><span class="tag">GitHub Actions</span><span class="tag">Postgres</span></div><div class="proj-stats"><div class="stat-block"><span class="s-num">1%</span><span class="s-lbl">false retrains on undrifted batches (was about 40%)</span></div><div class="stat-block"><span class="s-num">3</span><span class="s-lbl">promotion checks: tolerance, dominance, significance</span></div><div class="stat-block"><span class="s-num">105</span><span class="s-lbl">automated tests</span></div></div><span class="pc-link" aria-hidden="true">View case study <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></div><div class="proj-media"><img src="assets/images/mlops.webp" alt="Continuous Credit Risk Governance Pipeline project diagram" loading="lazy" decoding="async"></div></article>
+        <article class="proj-row"><span class="proj-index" aria-hidden="true">03</span><div class="proj-main"><p class="label">GenAI / RAG</p><h3 class="proj-title"><a href="#/projects/rag">Kubernetes Gated RAG</a></h3><p class="proj-desc">A Kubernetes Q&amp;A system that answers only from the docs you ingest. A gate sits at every stage where a bad answer could slip through, and infrastructure failures return an uncached outage message instead of a guess.</p><div class="proj-tags"><span class="tag">LangGraph</span><span class="tag">Qdrant</span><span class="tag">FlashRank</span><span class="tag">Groq</span><span class="tag">Ragas</span></div><div class="proj-stats"><div class="stat-block"><span class="s-num">0.95</span><span class="s-lbl">faithfulness on the 8-row starter set</span></div><div class="stat-block"><span class="s-num">3</span><span class="s-lbl">generation failover links, same model</span></div><div class="stat-block"><span class="s-num">2</span><span class="s-lbl">cache layers, exact and semantic</span></div></div><span class="pc-link" aria-hidden="true">View case study <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></div><div class="proj-media"><img src="assets/images/rag.webp" alt="Kubernetes Gated RAG project diagram" loading="lazy" decoding="async"></div></article>
       </div>
-      <div class="section-foot rv"><a class="btn btn-ghost" href="#/projects">View all 9 projects <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+      <div class="section-foot"><a class="btn btn-ghost" href="#/projects">View all 9 projects <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
     </div>
   </section>
 
   <section class="section" id="skills">
     <div class="wrap">
-      <div class="section-head rv">
+      <div class="section-head">
         <div>
           <h2 class="section-title">Skills</h2>
           <p class="section-sub">Modeling, LLM systems, and the production tooling around them.</p>
         </div>
       </div>
       <div class="skills-list">
-        <div class="skill-row rv">
+        <div class="skill-row">
           <h3 class="skill-cat">Languages</h3>
           <p class="skill-items"><span class="core">Python</span><span class="core">SQL</span><span>Bash</span><span>C++</span></p>
         </div>
-        <div class="skill-row rv">
+        <div class="skill-row">
           <h3 class="skill-cat">Data &amp; Applications</h3>
           <p class="skill-items"><span class="core">FastAPI</span><span>Streamlit</span><span class="core">Postgres (Neon)</span><span>Supabase</span><span>SQLite</span><span class="core">pandas</span><span>NumPy</span><span>Tableau</span><span>Plotly</span></p>
         </div>
-        <div class="skill-row rv">
+        <div class="skill-row">
           <h3 class="skill-cat">Statistics &amp; Causal Inference</h3>
           <p class="skill-items"><span>Power Analysis</span><span>Welch's t-test</span><span>Benjamini-Hochberg</span><span class="core">Rosenbaum Bounds</span><span class="core">IPW / AIPW</span><span class="core">CATE (T-learner)</span><span>Qini</span><span>McNemar / Bootstrap CI</span><span>statsmodels</span><span>scikit-uplift</span></p>
         </div>
-        <div class="skill-row rv">
+        <div class="skill-row">
           <h3 class="skill-cat">GenAI &amp; Agents</h3>
           <p class="skill-items"><span class="core">RAG</span><span class="core">LangGraph</span><span>Multi-Agent Orchestration</span><span class="core">MCP (stdio server)</span><span>Qdrant</span><span>FAISS</span><span>FlashRank</span><span>Ragas</span><span>NeMoGuard</span><span>Groq</span><span>NVIDIA NIM</span><span>Gemini API</span></p>
         </div>
-        <div class="skill-row rv">
+        <div class="skill-row">
           <h3 class="skill-cat">MLOps &amp; Production</h3>
           <p class="skill-items"><span class="core">MLflow</span><span>DVC</span><span class="core">Evidently</span><span>Drift Detection (K-S)</span><span class="core">Model Governance &amp; Rollback</span><span>GitHub Actions</span><span>CI/CD</span><span>Logfire</span><span>Docker</span><span>AWS</span></p>
         </div>
-        <div class="skill-row rv">
+        <div class="skill-row">
           <h3 class="skill-cat">Machine Learning</h3>
           <p class="skill-items"><span class="core">XGBoost</span><span>LightGBM</span><span>scikit-learn</span><span class="core">PyTorch</span><span>Prophet</span><span>SARIMA</span><span>Isolation Forest</span><span>ALS / BPR</span><span>Two-Tower &amp; SASRec</span><span class="core">SHAP</span><span>Optuna</span></p>
         </div>
       </div>
+      <p class="skills-legend">Bold marks the tools used most across the projects.</p>
     </div>
   </section>
 
   <section class="section" id="experience">
     <div class="wrap">
-      <div class="section-head rv">
+      <div class="section-head">
         <div>
           <h2 class="section-title">Experience &amp; education</h2>
           <p class="section-sub">Where the work happened, and the record behind it.</p>
@@ -465,7 +500,7 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 24px)}
       </div>
       <div class="xp-grid">
         <div>
-          <div class="info-block rv">
+          <div class="info-block">
             <h3>Experience</h3>
             <h4 class="item-title">Data Science Intern</h4>
             <p class="item-sub">Coding Blocks</p>
@@ -476,19 +511,19 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 24px)}
               <li>Covered the full loop: ingestion, feature work, model selection, evaluation, and handover.</li>
             </ul>
           </div>
-          <div class="info-block rv">
+          <div class="info-block">
             <h3>Recognition</h3>
             <ul class="cert-list"><li><span class="cert-name">Dean's List, top 10 percent of students, 2023, 2024, and 2025</span></li><li><span class="cert-name">5-Star Badge in Python and C++ on HackerRank</span></li></ul>
           </div>
         </div>
         <div>
-          <div class="info-block rv">
+          <div class="info-block">
             <h3>Education</h3>
             <h4 class="item-title">B.Tech, Computer Science and Engineering</h4>
             <p class="item-sub">Lovely Professional University, Punjab, India</p>
             <p class="meta">CGPA 8.23 / 10.0</p>
           </div>
-          <div class="info-block rv">
+          <div class="info-block">
             <h3>Certifications</h3>
             <ul class="cert-list"><li><span class="cert-name">SAP Certified, Data Analyst, SAP Analytics Cloud</span><span class="meta">Credly, Apr 2026</span></li><li><span class="cert-name">IBM DevOps &amp; Software Engineering Professional Certificate</span><span class="meta">Coursera, Nov 2025</span></li><li><span class="cert-name">NPTEL Cloud Computing</span><span class="meta">IIT Kharagpur, Oct 2024</span></li><li><span class="cert-name">Google IT Automation with Python</span><span class="meta">Coursera, Dec 2023</span></li></ul>
           </div>
@@ -499,12 +534,13 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 24px)}
 
   <section class="section" id="contact">
     <div class="wrap">
-      <div class="contact-band rv">
+      <div class="contact-band">
         <div class="contact-top">
           <h2 class="section-title">Open to AI/ML engineering &amp; Data Science roles.</h2>
           <p>If you are building something that needs a system tested as hard as it is trained, I would like to hear about it.</p>
           <div class="contact-actions">
             <a class="btn btn-primary" href="mailto:abhinavdaharbola@gmail.com">Get in touch <svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg></a>
+            <a class="btn btn-ghost" href="assets/resume.pdf" download>Download resume <svg class="ic" aria-hidden="true"><use href="#i-download"/></svg></a>
           </div>
         </div>
         <div class="contact-grid"><a class="contact-row" href="mailto:abhinavdaharbola@gmail.com"><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg></span><span class="c-text"><span class="c-label">Email</span><span class="c-val">abhinavdaharbola@gmail.com</span></span></a>
@@ -526,7 +562,8 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 24px)}
       <p class="filter-status" id="filterStatus" role="status">Showing 9 of 9 projects</p>
     </div>
   </div>
-  <div class="proj-page"><div class="wrap"><div class="proj-list"><article class="proj-row rv" data-cat="ai"><span class="proj-index" aria-hidden="true">01</span><div class="proj-main"><p class="label">GenAI / RAG</p><h2 class="proj-title"><a href="#/projects/rag">Kubernetes Gated RAG</a></h2><p class="proj-desc">A Kubernetes Q&amp;A system that answers only from the docs you ingest. A gate sits at every stage where a bad answer could slip through, and infrastructure failures return an uncached outage message instead of a guess.</p><div class="proj-tags"><span class="tag">LangGraph</span><span class="tag">Qdrant</span><span class="tag">FlashRank</span><span class="tag">Groq</span><span class="tag">Ragas</span></div><div class="proj-stats"><div class="stat-block"><span class="s-num">0.95</span><span class="s-lbl">faithfulness on the 8-row starter set</span></div><div class="stat-block"><span class="s-num">3</span><span class="s-lbl">generation failover links, same model</span></div><div class="stat-block"><span class="s-num">2</span><span class="s-lbl">cache layers, exact and semantic</span></div></div><span class="pc-link" aria-hidden="true">View case study <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></div><div class="proj-media"><img src="assets/images/rag.webp" alt="Kubernetes Gated RAG project diagram" loading="lazy" decoding="async"></div></article><article class="proj-row rv" data-cat="ai"><span class="proj-index" aria-hidden="true">02</span><div class="proj-main"><p class="label">AI Agents</p><h2 class="proj-title"><a href="#/projects/cia">Competitive Intelligence Agent</a></h2><p class="proj-desc">An autonomous research agent that turns a company name into a sourced intelligence brief. A Critic loop sends it back to fill gaps, and anything it cannot source is marked insufficient information instead of guessed.</p><div class="proj-tags"><span class="tag">LangGraph</span><span class="tag">NVIDIA NIM</span><span class="tag">Groq</span><span class="tag">Gemini</span><span class="tag">Postgres</span></div><div class="proj-stats"><div class="stat-block"><span class="s-num">+1.0</span><span class="s-lbl">completeness gain from the Critic loop (0 to 5, n=5)</span></div><div class="stat-block"><span class="s-num">+0.8</span><span class="s-lbl">groundedness gain from the Critic loop (0 to 5, n=5)</span></div><div class="stat-block"><span class="s-num">3</span><span class="s-lbl">max replan cycles</span></div></div><span class="pc-link" aria-hidden="true">View case study <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></div><div class="proj-media"><img src="assets/images/cia.webp" alt="Competitive Intelligence Agent project diagram" loading="lazy" decoding="async"></div></article><article class="proj-row rv" data-cat="ai"><span class="proj-index" aria-hidden="true">03</span><div class="proj-main"><p class="label">AI Agents / MCP</p><h2 class="proj-title"><a href="#/projects/mcp">IssueOps MCP</a></h2><p class="proj-desc">A GitHub issue triage system where the model can only propose. Nothing reaches GitHub until a person approves it in a dashboard, and every read, proposal, and decision is audit-logged.</p><div class="proj-tags"><span class="tag">MCP</span><span class="tag">Postgres</span><span class="tag">Streamlit</span><span class="tag">Groq</span></div><div class="proj-stats"><div class="stat-block"><span class="s-num">10</span><span class="s-lbl">MCP tools: 5 read, 5 propose</span></div><div class="stat-block"><span class="s-num">0</span><span class="s-lbl">execute tools exposed to the model</span></div><div class="stat-block"><span class="s-num">48h</span><span class="s-lbl">proposal expiry window</span></div></div><span class="pc-link" aria-hidden="true">View case study <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></div><div class="proj-media"><img src="assets/images/mcp.webp" alt="IssueOps MCP project diagram" loading="lazy" decoding="async"></div></article><article class="proj-row rv" data-cat="ml"><span class="proj-index" aria-hidden="true">04</span><div class="proj-main"><p class="label">MLOps</p><h2 class="proj-title"><a href="#/projects/mlops">Continuous Credit Risk Governance Pipeline</a></h2><p class="proj-desc">A credit-risk classifier that runs its own lifecycle: it scores live batches, waits for delayed labels, detects drift, retrains a challenger, gates it with a bootstrap test, and rolls back if its predecessor wins on live data.</p><div class="proj-tags"><span class="tag">MLflow</span><span class="tag">Evidently</span><span class="tag">DVC</span><span class="tag">GitHub Actions</span><span class="tag">Postgres</span></div><div class="proj-stats"><div class="stat-block"><span class="s-num">1%</span><span class="s-lbl">false retrains on undrifted batches (was about 40%)</span></div><div class="stat-block"><span class="s-num">3</span><span class="s-lbl">promotion checks: tolerance, dominance, significance</span></div><div class="stat-block"><span class="s-num">105</span><span class="s-lbl">automated tests</span></div></div><span class="pc-link" aria-hidden="true">View case study <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></div><div class="proj-media"><img src="assets/images/mlops.webp" alt="Continuous Credit Risk Governance Pipeline project diagram" loading="lazy" decoding="async"></div></article><article class="proj-row rv" data-cat="ds"><span class="proj-index" aria-hidden="true">05</span><div class="proj-main"><p class="label">Causal Inference</p><h2 class="proj-title"><a href="#/projects/causal">Causal Impact &amp; Heterogeneous Response Analysis</a></h2><p class="proj-desc">Tests four causal estimators against a covariate-adjusted reference effect on 14 million randomized ad rows, then asks which audiences responded and whether the answer survives multiple-testing correction and unmeasured confounding.</p><div class="proj-tags"><span class="tag">scikit-uplift</span><span class="tag">statsmodels</span><span class="tag">Benjamini-Hochberg</span><span class="tag">Streamlit</span></div><div class="proj-stats"><div class="stat-block"><span class="s-num">+417%</span><span class="s-lbl">naive OLS bias at strong confounding</span></div><div class="stat-block"><span class="s-num">0.0565</span><span class="s-lbl">Qini coefficient, 95% CI 0.030 to 0.085</span></div><div class="stat-block"><span class="s-num">1.12</span><span class="s-lbl">critical Gamma, fragile to hidden bias</span></div></div><span class="pc-link" aria-hidden="true">View case study <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></div><div class="proj-media"><img src="assets/images/causal.webp" alt="Causal Impact &amp; Heterogeneous Response Analysis project diagram" loading="lazy" decoding="async"></div></article><article class="proj-row rv" data-cat="ds"><span class="proj-index" aria-hidden="true">06</span><div class="proj-main"><p class="label">Experimentation</p><h2 class="proj-title"><a href="#/projects/abtesting">Experiment Design &amp; Power Analysis for a Shipping Policy Change</a></h2><p class="proj-desc">A preregistered A/B pipeline in which the metric, minimum lift, sample size, and tests are frozen before any experimental data exists, so the analysis can be checked against an effect whose true size is known.</p><div class="proj-tags"><span class="tag">statsmodels</span><span class="tag">Preregistration</span><span class="tag">Streamlit</span></div><div class="proj-stats"><div class="stat-block"><span class="s-num">2,503</span><span class="s-lbl">sellers per arm required</span></div><div class="stat-block"><span class="s-num">2.0pp</span><span class="s-lbl">complaint-rate guardrail margin, frozen up front</span></div><div class="stat-block"><span class="s-num">71</span><span class="s-lbl">automated tests</span></div></div><span class="pc-link" aria-hidden="true">View case study <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></div><div class="proj-media"><img src="assets/images/abtesting.webp" alt="Experiment Design &amp; Power Analysis for a Shipping Policy Change project diagram" loading="lazy" decoding="async"></div></article><article class="proj-row rv" data-cat="ds"><span class="proj-index" aria-hidden="true">07</span><div class="proj-main"><p class="label">Data Science</p><h2 class="proj-title"><a href="#/projects/churn">Customer Churn Prediction with Profit Optimization</a></h2><p class="proj-desc">Predicts 90-day churn, calibrates the score into a probability, and targets a customer only when the expected profit of a retention offer exceeds its cost, instead of using a raw probability cutoff.</p><div class="proj-tags"><span class="tag">XGBoost</span><span class="tag">Optuna</span><span class="tag">SHAP</span><span class="tag">Streamlit</span></div><div class="proj-stats"><div class="stat-block"><span class="s-num">1.07M</span><span class="s-lbl">raw transaction records</span></div><div class="stat-block"><span class="s-num">12</span><span class="s-lbl">RFM features per window</span></div><div class="stat-block"><span class="s-num">70</span><span class="s-lbl">offline unit tests</span></div></div><span class="pc-link" aria-hidden="true">View case study <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></div><div class="proj-media"><img src="assets/images/churn.webp" alt="Customer Churn Prediction with Profit Optimization project diagram" loading="lazy" decoding="async"></div></article><article class="proj-row rv" data-cat="ml"><span class="proj-index" aria-hidden="true">08</span><div class="proj-main"><p class="label">Forecasting</p><h2 class="proj-title"><a href="#/projects/demand-lens">DemandLens: Retail Demand Forecasting and Anomaly Benchmark</a></h2><p class="proj-desc">Benchmarks four forecasting models on 60 retail series with expanding-window walk-forward validation, scores two anomaly detectors by synthetic injection, and checks every number in an LLM-written report against the source data.</p><div class="proj-tags"><span class="tag">XGBoost</span><span class="tag">Prophet</span><span class="tag">LightGBM</span><span class="tag">Supabase</span><span class="tag">Streamlit</span></div><div class="proj-stats"><div class="stat-block"><span class="s-num">60</span><span class="s-lbl">retail series benchmarked</span></div><div class="stat-block"><span class="s-num">0.974</span><span class="s-lbl">best holdout MASE, LightGBM, within 0.04 of two rivals</span></div><div class="stat-block"><span class="s-num">52</span><span class="s-lbl">automated tests</span></div></div><span class="pc-link" aria-hidden="true">View case study <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></div><div class="proj-media"><img src="assets/images/demand_lens.webp" alt="DemandLens: Retail Demand Forecasting and Anomaly Benchmark project diagram" loading="lazy" decoding="async"></div></article><article class="proj-row rv" data-cat="ml"><span class="proj-index" aria-hidden="true">09</span><div class="proj-main"><p class="label">Recommender Systems</p><h2 class="proj-title"><a href="#/projects/reelbench">ReelBench: Multi-Stage Recommender Benchmark</a></h2><p class="proj-desc">Five recommendation approaches scored head to head on MovieLens 25M through one leakage-tested harness, trained on free-tier GPUs and served entirely on CPU from cached artifacts.</p><div class="proj-tags"><span class="tag">PyTorch</span><span class="tag">FAISS</span><span class="tag">LightGBM</span><span class="tag">FastAPI</span></div><div class="proj-stats"><div class="stat-block"><span class="s-num">0.0485</span><span class="s-lbl">Recall@10 for SASRec + ranker, against 0.0243 for popularity</span></div><div class="stat-block"><span class="s-num">5</span><span class="s-lbl">approaches compared</span></div><div class="stat-block"><span class="s-num">0</span><span class="s-lbl">external calls at request time</span></div></div><span class="pc-link" aria-hidden="true">View case study <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></div><div class="proj-media"><img src="assets/images/reelbench.webp" alt="ReelBench: Multi-Stage Recommender Benchmark project diagram" loading="lazy" decoding="async"></div></article></div></div></div>
+  <div class="proj-page"><div class="wrap"><div class="proj-list"><article class="proj-row" data-cat="ai"><span class="proj-index" aria-hidden="true">01</span><div class="proj-main"><p class="label">GenAI / RAG</p><h2 class="proj-title"><a href="#/projects/rag">Kubernetes Gated RAG</a></h2><p class="proj-desc">A Kubernetes Q&amp;A system that answers only from the docs you ingest. A gate sits at every stage where a bad answer could slip through, and infrastructure failures return an uncached outage message instead of a guess.</p><div class="proj-tags"><span class="tag">LangGraph</span><span class="tag">Qdrant</span><span class="tag">FlashRank</span><span class="tag">Groq</span><span class="tag">Ragas</span></div><div class="proj-stats"><div class="stat-block"><span class="s-num">0.95</span><span class="s-lbl">faithfulness on the 8-row starter set</span></div><div class="stat-block"><span class="s-num">3</span><span class="s-lbl">generation failover links, same model</span></div><div class="stat-block"><span class="s-num">2</span><span class="s-lbl">cache layers, exact and semantic</span></div></div><span class="pc-link" aria-hidden="true">View case study <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></div><div class="proj-media"><img src="assets/images/rag.webp" alt="Kubernetes Gated RAG project diagram" loading="lazy" decoding="async"></div></article><article class="proj-row" data-cat="ai"><span class="proj-index" aria-hidden="true">02</span><div class="proj-main"><p class="label">AI Agents</p><h2 class="proj-title"><a href="#/projects/cia">Competitive Intelligence Agent</a></h2><p class="proj-desc">An autonomous research agent that turns a company name into a sourced intelligence brief. A Critic loop sends it back to fill gaps, and anything it cannot source is marked insufficient information instead of guessed.</p><div class="proj-tags"><span class="tag">LangGraph</span><span class="tag">NVIDIA NIM</span><span class="tag">Groq</span><span class="tag">Gemini</span><span class="tag">Postgres</span></div><div class="proj-stats"><div class="stat-block"><span class="s-num">+1.0</span><span class="s-lbl">completeness gain from the Critic loop (0 to 5, n=5)</span></div><div class="stat-block"><span class="s-num">+0.8</span><span class="s-lbl">groundedness gain from the Critic loop (0 to 5, n=5)</span></div><div class="stat-block"><span class="s-num">3</span><span class="s-lbl">max replan cycles</span></div></div><span class="pc-link" aria-hidden="true">View case study <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></div><div class="proj-media"><img src="assets/images/cia.webp" alt="Competitive Intelligence Agent project diagram" loading="lazy" decoding="async"></div></article><article class="proj-row" data-cat="ai"><span class="proj-index" aria-hidden="true">03</span><div class="proj-main"><p class="label">AI Agents / MCP</p><h2 class="proj-title"><a href="#/projects/mcp">IssueOps MCP</a></h2><p class="proj-desc">A GitHub issue triage system where the model can only propose. Nothing reaches GitHub until a person approves it in a dashboard, and every read, proposal, and decision is audit-logged.</p><div class="proj-tags"><span class="tag">MCP</span><span class="tag">Postgres</span><span class="tag">Streamlit</span><span class="tag">Groq</span></div><div class="proj-stats"><div class="stat-block"><span class="s-num">10</span><span class="s-lbl">MCP tools: 5 read, 5 propose</span></div><div class="stat-block"><span class="s-num">0</span><span class="s-lbl">execute tools exposed to the model</span></div><div class="stat-block"><span class="s-num">48h</span><span class="s-lbl">proposal expiry window</span></div></div><span class="pc-link" aria-hidden="true">View case study <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></div><div class="proj-media"><img src="assets/images/mcp.webp" alt="IssueOps MCP project diagram" loading="lazy" decoding="async"></div></article><article class="proj-row" data-cat="ml"><span class="proj-index" aria-hidden="true">04</span><div class="proj-main"><p class="label">MLOps</p><h2 class="proj-title"><a href="#/projects/mlops">Continuous Credit Risk Governance Pipeline</a></h2><p class="proj-desc">A credit-risk classifier that runs its own lifecycle: it scores live batches, waits for delayed labels, detects drift, retrains a challenger, gates it with a bootstrap test, and rolls back if its predecessor wins on live data.</p><div class="proj-tags"><span class="tag">MLflow</span><span class="tag">Evidently</span><span class="tag">DVC</span><span class="tag">GitHub Actions</span><span class="tag">Postgres</span></div><div class="proj-stats"><div class="stat-block"><span class="s-num">1%</span><span class="s-lbl">false retrains on undrifted batches (was about 40%)</span></div><div class="stat-block"><span class="s-num">3</span><span class="s-lbl">promotion checks: tolerance, dominance, significance</span></div><div class="stat-block"><span class="s-num">105</span><span class="s-lbl">automated tests</span></div></div><span class="pc-link" aria-hidden="true">View case study <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></div><div class="proj-media"><img src="assets/images/mlops.webp" alt="Continuous Credit Risk Governance Pipeline project diagram" loading="lazy" decoding="async"></div></article><article class="proj-row" data-cat="ds"><span class="proj-index" aria-hidden="true">05</span><div class="proj-main"><p class="label">Causal Inference</p><h2 class="proj-title"><a href="#/projects/causal">Causal Impact &amp; Heterogeneous Response Analysis</a></h2><p class="proj-desc">Tests four causal estimators against a covariate-adjusted reference effect on 14 million randomized ad rows, then asks which audiences responded and whether the answer survives multiple-testing correction and unmeasured confounding.</p><div class="proj-tags"><span class="tag">scikit-uplift</span><span class="tag">statsmodels</span><span class="tag">Benjamini-Hochberg</span><span class="tag">Streamlit</span></div><div class="proj-stats"><div class="stat-block"><span class="s-num">+417%</span><span class="s-lbl">naive OLS bias at strong confounding</span></div><div class="stat-block"><span class="s-num">0.0565</span><span class="s-lbl">Qini coefficient, 95% CI 0.030 to 0.085</span></div><div class="stat-block"><span class="s-num">1.12</span><span class="s-lbl">critical Gamma, fragile to hidden bias</span></div></div><span class="pc-link" aria-hidden="true">View case study <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></div><div class="proj-media"><img src="assets/images/causal.webp" alt="Causal Impact &amp; Heterogeneous Response Analysis project diagram" loading="lazy" decoding="async"></div></article><article class="proj-row" data-cat="ds"><span class="proj-index" aria-hidden="true">06</span><div class="proj-main"><p class="label">Experimentation</p><h2 class="proj-title"><a href="#/projects/abtesting">Experiment Design &amp; Power Analysis for a Shipping Policy Change</a></h2><p class="proj-desc">A preregistered A/B pipeline in which the metric, minimum lift, sample size, and tests are frozen before any experimental data exists, so the analysis can be checked against an effect whose true size is known.</p><div class="proj-tags"><span class="tag">statsmodels</span><span class="tag">Preregistration</span><span class="tag">Streamlit</span></div><div class="proj-stats"><div class="stat-block"><span class="s-num">2,503</span><span class="s-lbl">sellers per arm required</span></div><div class="stat-block"><span class="s-num">2.0pp</span><span class="s-lbl">complaint-rate guardrail margin, frozen up front</span></div><div class="stat-block"><span class="s-num">71</span><span class="s-lbl">automated tests</span></div></div><span class="pc-link" aria-hidden="true">View case study <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></div><div class="proj-media"><img src="assets/images/abtesting.webp" alt="Experiment Design &amp; Power Analysis for a Shipping Policy Change project diagram" loading="lazy" decoding="async"></div></article><article class="proj-row" data-cat="ds"><span class="proj-index" aria-hidden="true">07</span><div class="proj-main"><p class="label">Data Science</p><h2 class="proj-title"><a href="#/projects/churn">Customer Churn Prediction with Profit Optimization</a></h2><p class="proj-desc">Predicts 90-day churn, calibrates the score into a probability, and targets a customer only when the expected profit of a retention offer exceeds its cost, instead of using a raw probability cutoff.</p><div class="proj-tags"><span class="tag">XGBoost</span><span class="tag">Optuna</span><span class="tag">SHAP</span><span class="tag">Streamlit</span></div><div class="proj-stats"><div class="stat-block"><span class="s-num">1.07M</span><span class="s-lbl">raw transaction records</span></div><div class="stat-block"><span class="s-num">12</span><span class="s-lbl">RFM features per window</span></div><div class="stat-block"><span class="s-num">70</span><span class="s-lbl">offline unit tests</span></div></div><span class="pc-link" aria-hidden="true">View case study <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></div><div class="proj-media"><img src="assets/images/churn.webp" alt="Customer Churn Prediction with Profit Optimization project diagram" loading="lazy" decoding="async"></div></article><article class="proj-row" data-cat="ml"><span class="proj-index" aria-hidden="true">08</span><div class="proj-main"><p class="label">Forecasting</p><h2 class="proj-title"><a href="#/projects/demand-lens">DemandLens: Retail Demand Forecasting and Anomaly Benchmark</a></h2><p class="proj-desc">Benchmarks four forecasting models on 60 retail series with expanding-window walk-forward validation, scores two anomaly detectors by synthetic injection, and checks every number in an LLM-written report against the source data.</p><div class="proj-tags"><span class="tag">XGBoost</span><span class="tag">Prophet</span><span class="tag">LightGBM</span><span class="tag">Supabase</span><span class="tag">Streamlit</span></div><div class="proj-stats"><div class="stat-block"><span class="s-num">60</span><span class="s-lbl">retail series benchmarked</span></div><div class="stat-block"><span class="s-num">0.974</span><span class="s-lbl">best holdout MASE, LightGBM, within 0.04 of two rivals</span></div><div class="stat-block"><span class="s-num">52</span><span class="s-lbl">automated tests</span></div></div><span class="pc-link" aria-hidden="true">View case study <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></div><div class="proj-media"><img src="assets/images/demand_lens.webp" alt="DemandLens: Retail Demand Forecasting and Anomaly Benchmark project diagram" loading="lazy" decoding="async"></div></article><article class="proj-row" data-cat="ml"><span class="proj-index" aria-hidden="true">09</span><div class="proj-main"><p class="label">Recommender Systems</p><h2 class="proj-title"><a href="#/projects/reelbench">ReelBench: Multi-Stage Recommender Benchmark</a></h2><p class="proj-desc">Five recommendation approaches scored head to head on MovieLens 25M through one leakage-tested harness, trained on free-tier GPUs and served entirely on CPU from cached artifacts.</p><div class="proj-tags"><span class="tag">PyTorch</span><span class="tag">FAISS</span><span class="tag">LightGBM</span><span class="tag">FastAPI</span></div><div class="proj-stats"><div class="stat-block"><span class="s-num">0.0485</span><span class="s-lbl">Recall@10 for SASRec + ranker, against 0.0243 for popularity</span></div><div class="stat-block"><span class="s-num">5</span><span class="s-lbl">approaches compared</span></div><div class="stat-block"><span class="s-num">0</span><span class="s-lbl">external calls at request time</span></div></div><span class="pc-link" aria-hidden="true">View case study <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></div><div class="proj-media"><img src="assets/images/reelbench.webp" alt="ReelBench: Multi-Stage Recommender Benchmark project diagram" loading="lazy" decoding="async"></div></article></div></div></div>
+<div class="proj-cta"><div class="wrap"><div class="contact-band"><div class="contact-top"><h2 class="section-title">Open to AI/ML engineering &amp; Data Science roles.</h2><div class="contact-actions"><a class="btn btn-primary" href="mailto:abhinavdaharbola@gmail.com">Get in touch <svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg></a><a class="btn btn-ghost" href="assets/resume.pdf" download>Download resume <svg class="ic" aria-hidden="true"><use href="#i-download"/></svg></a></div></div></div></div></div>
 </div>
 
 </main>
@@ -534,7 +571,7 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 24px)}
 <footer class="site-footer">
   <div class="wrap footer-inner">
     <p>&copy; 2026 Abhinav Harbola</p>
-    <div class="footer-links">
+    <div class="footer-links"><a href="https://github.com/abhinavharbola" target="_blank" rel="noopener">GitHub</a><a href="https://linkedin.com/in/abhinavharbola" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:abhinavdaharbola@gmail.com">Email</a>
       <a href="#/">Back to top <svg class="ic rot-up" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     </div>
   </div>
@@ -581,9 +618,15 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 24px)}
     syncThemeButtons();
   }
 
+  function setBackgroundInert(on){
+    document.getElementById('main').inert = on;
+    document.querySelector('.site-footer').inert = on;
+  }
+
   function closeMobileMenu(){
     if(menu.hidden){ return; }
     menu.hidden = true;
+    setBackgroundInert(false);
     burger.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = activeModal ? 'hidden' : '';
   }
@@ -591,6 +634,7 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 24px)}
   function toggleMobileMenu(){
     var open = menu.hidden;
     menu.hidden = !open;
+    setBackgroundInert(open);
     burger.setAttribute('aria-expanded', open ? 'true' : 'false');
     document.body.style.overflow = open ? 'hidden' : '';
   }
@@ -729,6 +773,45 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 24px)}
     }
   }
 
+  function pagerLink(id, dir, icon){
+    var a = document.createElement('a');
+    a.className = 'pager-link pager-' + dir.toLowerCase();
+    a.href = '#/projects/' + id;
+    a.setAttribute('data-pager', '');
+    var h = document.getElementById('modal-' + id + '-title');
+    var text = document.createElement('span');
+    text.className = 'pager-text';
+    var d = document.createElement('span');
+    d.className = 'pager-dir';
+    d.textContent = dir;
+    var t = document.createElement('span');
+    t.className = 'pager-title';
+    t.textContent = h ? h.textContent : id;
+    text.appendChild(d);
+    text.appendChild(t);
+    var ic = document.createElement('span');
+    ic.innerHTML = '<svg class="ic" aria-hidden="true"><use href="#i-' + icon + '"/></svg>';
+    if(icon === 'back'){ a.appendChild(ic); a.appendChild(text); }
+    else{ a.appendChild(text); a.appendChild(ic); }
+    return a;
+  }
+
+  function buildPagers(){
+    var links = document.querySelectorAll('#view-projects .proj-title a');
+    var order = [];
+    for(var i = 0; i < links.length; i++){ order.push(links[i].getAttribute('href').replace('#/projects/', '')); }
+    for(var j = 0; j < order.length; j++){
+      var body = document.querySelector('#modal-' + order[j] + ' .modal-body');
+      if(!body){ continue; }
+      var nav = document.createElement('nav');
+      nav.className = 'modal-pager';
+      nav.setAttribute('aria-label', 'More case studies');
+      nav.appendChild(pagerLink(order[(j + order.length - 1) % order.length], 'Previous', 'back'));
+      nav.appendChild(pagerLink(order[(j + 1) % order.length], 'Next', 'arrow'));
+      body.appendChild(nav);
+    }
+  }
+
   function filterProjects(cat, btn){
     var chips = document.querySelectorAll('.filter-chip');
     for(var i = 0; i < chips.length; i++){ chips[i].setAttribute('aria-pressed', 'false'); }
@@ -738,6 +821,7 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 24px)}
     for(var j = 0; j < cards.length; j++){
       var match = cat === 'all' || cards[j].getAttribute('data-cat') === cat;
       cards[j].hidden = !match;
+      if(match){ cards[j].classList.remove('swap'); void cards[j].offsetWidth; cards[j].classList.add('swap'); }
       if(match){ shown++; }
     }
     var status = document.getElementById('filterStatus');
@@ -748,6 +832,12 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 24px)}
     var link = e.target.closest ? e.target.closest('a[href^="#/"]') : null;
     if(!link){ return; }
     if(e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey){ return; }
+    if(link.hasAttribute('data-pager')){
+      e.preventDefault();
+      history.replaceState(null, '', link.getAttribute('href'));
+      routeFromHash();
+      return;
+    }
     var href = link.getAttribute('href');
     closeMobileMenu();
     if(href.indexOf('#/projects/') === 0){
@@ -763,7 +853,7 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 24px)}
   document.addEventListener('keydown', function(e){
     if(e.key === 'Escape'){
       if(activeModal){ closeProject(); }
-      else{ closeMobileMenu(); }
+      else if(!menu.hidden){ closeMobileMenu(); burger.focus(); }
       return;
     }
     if(e.key === 'Tab' && activeModal){
@@ -842,12 +932,9 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 24px)}
       document.getElementById('main').focus();
     });
 
+    buildPagers();
     routeFromHash();
     buildSpy();
-    window.addEventListener('load', function(){
-      var imgs = document.querySelectorAll('.modal-media img');
-      for(var q = 0; q < imgs.length; q++){ imgs[q].loading = 'eager'; }
-    });
   });
 })();
 
